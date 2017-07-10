@@ -27,11 +27,6 @@ C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Properties.Res
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Controls.Notes_panel.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Controls.Note_minim.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Controls.DashboardControl.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Controls.Task.TodoControlForm.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Controls.Task.TodoControl.resources
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache
 C:\Users\Alex B\Desktop\Final\TaskBen\TaskBen\bin\Debug\TaskBen.exe.config
 C:\Users\Alex B\Desktop\Final\TaskBen\TaskBen\obj\Debug\TaskBen.exe
@@ -73,3 +68,4 @@ C:\Users\Alex B\Desktop\InfoEducatie-SoftUtilitar-TaskBen-master\InfoEducatie-So
 C:\Users\Alex B\Desktop\InfoEducatie-SoftUtilitar-TaskBen-master\InfoEducatie-SoftUtilitar-TaskBen-master\TaskBen\TaskBen\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Alex B\Desktop\InfoEducatie-SoftUtilitar-TaskBen-master\InfoEducatie-SoftUtilitar-TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.screenForm.resources
 C:\Users\Alex B\Desktop\InfoEducatie-SoftUtilitar-TaskBen-master\InfoEducatie-SoftUtilitar-TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.task.resources
+C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.task.resources

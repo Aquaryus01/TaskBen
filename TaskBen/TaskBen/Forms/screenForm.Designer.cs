@@ -63,6 +63,7 @@
             this.TitleLb = new System.Windows.Forms.Label();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
@@ -281,7 +282,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(7, 105);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(252, 29);
             this.toDoDateTime.TabIndex = 3;
@@ -340,6 +341,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.animBtn);
             this.panel2.Location = new System.Drawing.Point(223, 149);
             this.panel2.Name = "panel2";
@@ -437,6 +439,21 @@
             this.animUpTimer.Interval = 10;
             this.animUpTimer.Tick += new System.EventHandler(this.animUpTimer_Tick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(273, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Create a new Note";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // screenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,6 +515,7 @@
         private MetroFramework.Controls.MetroCheckBox timeCheck;
         private MetroFramework.Controls.MetroComboBox dateHoursCB;
         private MetroFramework.Controls.MetroComboBox dateMinuteCB;
+        private System.Windows.Forms.Button button1;
 
     }
 }

@@ -39,7 +39,7 @@ namespace TaskBen.Class
             MessageBox.Show(a);
             if (a.IndexOf("Error") != -1)
             {
-                //dynamic d = JsonConvert.DeserializeObject<dynamic>(a);
+                dynamic d = JsonConvert.DeserializeObject<dynamic>(a);
                 MetroMessageBox.Show(new loginForm(), "The username and password didn't match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -85,20 +85,6 @@ namespace TaskBen.Class
         {
             set { _Password = value; }
             get { return _Password; }
-        }
-
-        public string encrypt(string bhash)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(bhash));
-            byte[] result = md5.Hash;
-            StringBuilder strBuilder = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-            {
-                strBuilder.Append(result[i].ToString("x2"));
-            }
-            bhash = strBuilder.ToString();
-            return bhash;
         }
     }
 }

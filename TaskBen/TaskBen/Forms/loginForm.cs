@@ -32,7 +32,6 @@ namespace TaskBen
             registerForm form2 = new registerForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
-            //User.TheInstance.ID = 1;
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

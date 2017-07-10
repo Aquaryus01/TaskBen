@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace TaskBen.Forms
 {
@@ -26,9 +27,9 @@ namespace TaskBen.Forms
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            loginForm form2 = new loginForm();
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            loginForm form = new loginForm();
+            form.Closed += (s, args) => this.Close();
+            form.Show();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -43,9 +44,9 @@ namespace TaskBen.Forms
                     {
                         MetroMessageBox.Show(this, "Succes!", "Account created", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         this.Hide();
-                        loginForm form2 = new loginForm();
-                        form2.Closed += (s, args) => this.Close();
-                        form2.Show();
+                        loginForm form = new loginForm();
+                        form.Closed += (s, args) => this.Close();
+                        form.Show();
                     }
                 }
                 else
@@ -53,7 +54,7 @@ namespace TaskBen.Forms
                     if (errorProvider1.GetError(emailTb) != "")
                         MetroMessageBox.Show(this, "The email need to be a valid one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else if(errorProvider2.GetError(passTb) != "")
-                        MetroMessageBox.Show(this, "The password needs to contain at least 8 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(this, "The password needs to contain at least 8 characters and an upper character!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             
@@ -61,26 +62,27 @@ namespace TaskBen.Forms
 
         private void emailTb_TextChanged(object sender, EventArgs e)
         {
-            string a = emailTb.Text;
+            string email = emailTb.Text;
 
-            if (a.IndexOf("@") == -1 || a.IndexOf(".") == -1 || a.Length<5)
+            if (email.IndexOf("@") == -1 || email.IndexOf(".") == -1 || email.Length<5)
                 errorProvider1.SetError(emailTb, "Needs to be a valid email");
             else
                 errorProvider1.Clear();
 
-            user.Email = a;
+            user.Email = email;
         }
 
         private void passTb_TextChanged(object sender, EventArgs e)
         {
-            string a = passTb.Text;
+            string password = passTb.Text;
+            var hasUpperChar = new Regex(@"[A-Z]+");
 
-            if (a.Length < 8)
-                errorProvider2.SetError(passTb, "Needs to contain at least 8 characters");
-            else
+            if (hasUpperChar.IsMatch(password) && password.Length >= 8)
                 errorProvider2.Clear();
+            else
+                errorProvider2.SetError(passTb, "Needs to contain at least 8 characters and an upper character!");
 
-            user.Password = a;
+            user.Password = password;
         }
 
         private void nameTb_TextChanged(object sender, EventArgs e)
