@@ -80,10 +80,12 @@ namespace TaskBen.Forms
                 addPanel.Height -= 12;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void downupTimer_Tick(object sender, EventArgs e)
         {
-            animUpTimer.Enabled = false;
-            animDownTimer.Enabled = true;
+            if (addPanel.Height <= 0)
+                animUpTimer.Enabled = false;
+            else
+                addPanel.Height -= 12;
         }
 
         private void button1_Click(object sender, EventArgs e)
