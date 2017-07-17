@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace TaskBen.UserControls
 {
-    public partial class task : UserControl
+    public partial class taskForm : UserControl
     {
-        public task()
+
+        public taskForm()
         {
             InitializeComponent();
+            Init_task();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Init_task()
+        {
+
         }
     }
 }

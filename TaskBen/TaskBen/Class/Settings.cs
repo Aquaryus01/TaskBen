@@ -10,6 +10,7 @@ namespace TaskBen.Class
     {
         public static User user = new User();
         public static Task task = new Task();
+        public static List<Task> taskList = new List<Task>();
 
         public static void new_instance_taks()
         {

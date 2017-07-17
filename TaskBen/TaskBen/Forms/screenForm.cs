@@ -90,6 +90,7 @@ namespace TaskBen.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            TaskBen.Class.Task task = new TaskBen.Class.Task();
             Settings.new_instance_taks();
             if (timeCheck.Checked && remCheck.Checked)
             {
@@ -129,6 +130,7 @@ namespace TaskBen.Forms
                 Settings.task.Description = descriptionTB.Text;
             }
 
+            //Settings.taskList.Add();
             Settings.task.task_add();
         }
 

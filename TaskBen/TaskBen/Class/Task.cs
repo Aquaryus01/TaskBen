@@ -18,6 +18,7 @@ namespace TaskBen.Class
         private string _repeat;
         private string _description;
 
+
         public string Date
         {
             set { _date = value; }
@@ -40,6 +41,11 @@ namespace TaskBen.Class
             string rasp = WebServer.task_add(JsonConvert.SerializeObject(json));
             MessageBox.Show(rasp);
             //return true;
+        }
+
+        public void task_get_list()
+        {
+            //string rasp = WebServer.task_get();
         }
 
         public string Description
