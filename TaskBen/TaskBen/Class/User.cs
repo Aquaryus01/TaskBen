@@ -24,7 +24,14 @@ namespace TaskBen.Class
 
         public bool register()
         {
-            string rasp = WebServer.user_register(_Email, _Password, _FirstName, _LastName);
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("email", Email);
+            json.Add("password", Password);
+            json.Add("firstname", FirstName);
+            json.Add("lastname", LastName);
+            json.Add("action", "register");
+            string rasp = WebServer.user_register(JsonConvert.SerializeObject(json));
+
             dynamic d = JsonConvert.DeserializeObject<dynamic>(rasp);
             if (d == null)
                 return true;
@@ -35,7 +42,12 @@ namespace TaskBen.Class
 
         public bool login()
         {
-            var a = WebServer.user_login(_Email, _Password);
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("email", Email);
+            json.Add("password", Password);
+            json.Add("action", "login");
+
+            var a = WebServer.user_login(JsonConvert.SerializeObject(json));
             MessageBox.Show(a);
             if (a.IndexOf("Error") != -1)
             {

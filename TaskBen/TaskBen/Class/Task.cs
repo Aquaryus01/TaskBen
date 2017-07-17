@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,18 @@ namespace TaskBen.Class
 
         public void task_add()
         {
-            string rasp = WebServer.task_add(_description, _date, _dateHH, _dateMM, _remHH, _remMM, _repeat);
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("description", _description);
+            json.Add("idUser", Settings.user.ID.ToString());
+            json.Add("api", Settings.user.Api.ToString());
+            json.Add("date", _date);
+            json.Add("dateHours", _dateHH);
+            json.Add("dateMinutes", _dateMM);
+            json.Add("reminderHours", _remHH);
+            json.Add("reminderMinutes", _remMM);
+            json.Add("repeat", _repeat);
+            json.Add("action", "add_task");
+            string rasp = WebServer.task_add(JsonConvert.SerializeObject(json));
             MessageBox.Show(rasp);
             //return true;
         }

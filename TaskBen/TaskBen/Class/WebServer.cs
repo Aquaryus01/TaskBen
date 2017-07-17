@@ -23,40 +23,20 @@ namespace TaskBen
             }
         }
 
-        public static string user_register(string Email, string Password, string FirstName, string LastName)
+        public static string user_register(string json)
         {
-            Dictionary<string, string> json = new Dictionary<string, string>();
-            json.Add("email", Email);
-            json.Add("password", Password);
-            json.Add("firstname", FirstName);
-            json.Add("lastname", LastName);
-            json.Add("action", "register");
-            return WebServer.PUSH(JsonConvert.SerializeObject(json));
+            return WebServer.PUSH(json);
         }
 
-        public static string user_login(string Email, string Password)
+        public static string user_login(string json)
         {
-            Dictionary<string, string> json = new Dictionary<string, string>();
-            json.Add("email", Email);
-            json.Add("password", Password);
-            json.Add("action", "login");
-            return WebServer.PUSH(JsonConvert.SerializeObject(json));
+
+            return WebServer.PUSH(json);
         }
 
-        public static string task_add(string _description, string _date, string _dateHH, string _dateMM, string _remHH, string _remMM, string _repeat)
+        public static string task_add(string json)
         {
-            Dictionary<string, string> json = new Dictionary<string, string>();
-            json.Add("description", _description);
-            json.Add("idUser", Settings.user.ID.ToString());
-            json.Add("api", Settings.user.Api.ToString());
-            json.Add("date", _date);
-            json.Add("dateHours", _dateHH);
-            json.Add("dateMinutes", _dateMM);
-            json.Add("reminderHours", _remHH);
-            json.Add("reminderMinutes", _remMM);
-            json.Add("repeat", _repeat);
-            json.Add("action", "add_task");
-            return WebServer.PUSH(JsonConvert.SerializeObject(json));
+            return WebServer.PUSH(json);
         }
 
 
