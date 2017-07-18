@@ -8,12 +8,15 @@ using System.Text;
 
 using System.Windows.Forms;
 using TaskBen.Class;
+using TaskBen.Forms;
 
 namespace TaskBen.UserControls
 {
     public partial class TaskForm : UserControl
     {
         Todo _task = new Todo();
+        public screenForm ParentForm { get; set; }
+
         public TaskForm()
         {
             InitializeComponent();
@@ -32,9 +35,16 @@ namespace TaskBen.UserControls
             reminderLb.Text = _task.repeat + " " + _task.RemHH + ":" + _task.RemMM;
         }
 
-        private void xLb_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             Settings.taskList.Remove(_task);
+            Settings.task.remove_web();
+            this.ParentForm.add_tasks_form();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

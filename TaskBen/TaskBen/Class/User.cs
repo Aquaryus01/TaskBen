@@ -48,7 +48,7 @@ namespace TaskBen.Class
             json.Add("action", "login");
 
             var a = WebServer.post_get(JsonConvert.SerializeObject(json));
-            MessageBox.Show(a);
+            //MessageBox.Show(a);
             if (a.IndexOf("Error") != -1)
             {
                 dynamic d = JsonConvert.DeserializeObject<dynamic>(a);

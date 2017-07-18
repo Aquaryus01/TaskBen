@@ -10,7 +10,7 @@ namespace TaskBen.Class
 {
     public class Todo
     {
-        private string _id;
+        public string _id;
         private string _date;
         private string _dateHH;
         private string _dateMM;
@@ -26,7 +26,7 @@ namespace TaskBen.Class
             get { return _date; }
         }
 
-        public void task_add()
+        public void add_web()
         {
             Dictionary<string, string> json = new Dictionary<string, string>();
             json.Add("description", _description);
@@ -40,13 +40,27 @@ namespace TaskBen.Class
             json.Add("repeat", _repeat);
             json.Add("action", "add_task");
             _id = WebServer.post_get(JsonConvert.SerializeObject(json));
-            MessageBox.Show(_id);
-            //return true;
+        }
+
+        public void remove_web()
+        {
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("id", _id);
+            json.Add("idUser", Settings.user.ID.ToString());
+            json.Add("action", "remove_task");
+            WebServer.post(JsonConvert.SerializeObject(json));
         }
 
         public void task_get_list()
         {
-            //string rasp = WebServer.task_get();
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("idUser", Settings.user.ID.ToString());
+            json.Add("action", "get_tasks");
+            
+            string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
+            //MessageBox.Show(list_todo);
+            Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+
         }
 
         public string Description

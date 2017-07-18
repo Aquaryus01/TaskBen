@@ -69,6 +69,8 @@ namespace TaskBen.Forms
             InitializeComponent();
             time_initialization();
             SubtitleLb.Text = (DateTime.Now.ToString("dd/MM/yyyy"));
+            Settings.task.task_get_list();
+            add_tasks_form();
         }
 
         private void animBtn_Click(object sender, EventArgs e)
@@ -168,9 +170,8 @@ namespace TaskBen.Forms
 
             //var item = integerList[integerList.Count - 1];
             Settings.taskList.Add(Settings.task);   //Add task in the list
-            Settings.task.task_add();   //Add task in the database
+            Settings.task.add_web();   //Add task in the database
             add_task_form(Settings.task);   //Add task in the screenForm
-            MessageBox.Show(Settings.taskList.Count.ToString());
         }
 
         private void add_task_form(Todo task)
@@ -181,12 +182,33 @@ namespace TaskBen.Forms
 
             taskForm.Location = new Point(Settings.poz_x, listPanel.AutoScrollPosition.Y + Settings.poz_y);
             taskForm.AutoScroll = true;
+            taskForm.ParentForm = this;
             Settings.poz_y+= 58;
 
             listPanel.Controls.Add(taskForm);
-
         }
 
-        
+        public void add_tasks_form()
+        {
+            Settings.poz_y = 0;
+            listPanel.Controls.Clear(); 
+
+            if(Settings.taskList != null)
+                foreach (Todo todo in Settings.taskList)
+                {
+                    MessageBox.Show(JsonConvert.SerializeObject(todo));
+                    MessageBox.Show(JsonConvert.SerializeObject(Settings.taskList));
+                    TaskForm taskForm = new TaskForm();
+                    taskForm.Init_task(todo);
+
+                    taskForm.Location = new Point(Settings.poz_x, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+                    taskForm.AutoScroll = true;
+                    taskForm.ParentForm = this;
+                    Settings.poz_y += 58;
+
+                    listPanel.Controls.Add(taskForm);
+                }
+            
+        }       
     }
 }
