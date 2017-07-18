@@ -30,7 +30,7 @@ namespace TaskBen.Class
             json.Add("firstname", FirstName);
             json.Add("lastname", LastName);
             json.Add("action", "register");
-            string rasp = WebServer.user_register(JsonConvert.SerializeObject(json));
+            string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
 
             dynamic d = JsonConvert.DeserializeObject<dynamic>(rasp);
             if (d == null)
@@ -47,7 +47,7 @@ namespace TaskBen.Class
             json.Add("password", Password);
             json.Add("action", "login");
 
-            var a = WebServer.user_login(JsonConvert.SerializeObject(json));
+            var a = WebServer.post_get(JsonConvert.SerializeObject(json));
             MessageBox.Show(a);
             if (a.IndexOf("Error") != -1)
             {

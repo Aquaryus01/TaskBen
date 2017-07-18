@@ -5,18 +5,18 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
+using TaskBen.Class;
 
 namespace TaskBen.UserControls
 {
-    public partial class taskForm : UserControl
+    public partial class TaskForm : UserControl
     {
-
-        public taskForm()
+        Todo _task = new Todo();
+        public TaskForm()
         {
             InitializeComponent();
-            Init_task();
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -24,9 +24,17 @@ namespace TaskBen.UserControls
 
         }
 
-        private void Init_task()
+        public void Init_task(Todo task)
         {
+            _task = task;
+            textLb.Text = _task.Description;
+            dateLb.Text = _task.Date + " " + _task.DateHH + ":" +_task.DateMM;
+            reminderLb.Text = _task.repeat + " " + _task.RemHH + ":" + _task.RemMM;
+        }
 
+        private void xLb_Click(object sender, EventArgs e)
+        {
+            Settings.taskList.Remove(_task);
         }
     }
 }

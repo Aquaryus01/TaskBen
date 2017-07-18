@@ -86,3 +86,4 @@ C:\Users\Alex B\Desktop\TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.Propert
 C:\Users\Alex B\Desktop\TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.task.resources
 C:\Users\Alex B\Desktop\TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.taskForm.resources
+C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache

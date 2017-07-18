@@ -1,6 +1,6 @@
 ﻿namespace TaskBen.UserControls
 {
-    partial class taskForm
+    partial class TaskForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.xLb = new System.Windows.Forms.Label();
             this.reminderLb = new System.Windows.Forms.Label();
             this.dateLb = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Teal;
+            this.panel7.Controls.Add(this.xLb);
             this.panel7.Controls.Add(this.reminderLb);
             this.panel7.Controls.Add(this.dateLb);
             this.panel7.Controls.Add(this.label9);
@@ -62,6 +64,19 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 46);
             this.panel7.TabIndex = 12;
+            // 
+            // xLb
+            // 
+            this.xLb.AutoSize = true;
+            this.xLb.BackColor = System.Drawing.Color.Teal;
+            this.xLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xLb.ForeColor = System.Drawing.Color.Red;
+            this.xLb.Location = new System.Drawing.Point(949, 3);
+            this.xLb.Name = "xLb";
+            this.xLb.Size = new System.Drawing.Size(16, 15);
+            this.xLb.TabIndex = 7;
+            this.xLb.Text = "X";
+            this.xLb.Click += new System.EventHandler(this.xLb_Click);
             // 
             // reminderLb
             // 
@@ -133,14 +148,14 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // task
+            // TaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.checkBox1);
-            this.Name = "task";
+            this.Name = "TaskForm";
             this.Size = new System.Drawing.Size(969, 46);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -159,6 +174,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label textLb;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label xLb;
 
     }
 }

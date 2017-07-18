@@ -14,7 +14,7 @@ namespace TaskBen
     {
         private static  string URI = "http://localhost/api2/index.php";
 
-        public static string PUSH(string json)
+        public static string post_get(string json)
         {
             using (WebClient wc = new WebClient())
             {
@@ -23,22 +23,13 @@ namespace TaskBen
             }
         }
 
-        public static string user_register(string json)
+        public static void post(string json)
         {
-            return WebServer.PUSH(json);
+            using (WebClient wc = new WebClient())
+            {
+                wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                wc.UploadString(URI, json);
+            }
         }
-
-        public static string user_login(string json)
-        {
-
-            return WebServer.PUSH(json);
-        }
-
-        public static string task_add(string json)
-        {
-            return WebServer.PUSH(json);
-        }
-
-
     }
 }

@@ -8,8 +8,9 @@ using System.Windows.Forms;
 
 namespace TaskBen.Class
 {
-    public class Task
+    public class Todo
     {
+        private string _id;
         private string _date;
         private string _dateHH;
         private string _dateMM;
@@ -38,8 +39,8 @@ namespace TaskBen.Class
             json.Add("reminderMinutes", _remMM);
             json.Add("repeat", _repeat);
             json.Add("action", "add_task");
-            string rasp = WebServer.task_add(JsonConvert.SerializeObject(json));
-            MessageBox.Show(rasp);
+            _id = WebServer.post_get(JsonConvert.SerializeObject(json));
+            MessageBox.Show(_id);
             //return true;
         }
 

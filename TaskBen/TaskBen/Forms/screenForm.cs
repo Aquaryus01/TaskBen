@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MetroFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TaskBen.Class;
+using TaskBen.UserControls;
 
 namespace TaskBen.Forms
 {
@@ -16,37 +18,57 @@ namespace TaskBen.Forms
     {
         private void Hour_initialization()
         {
-            for (int i = 1; i <= 24; i++)
-            {
-                string[] numbers = { i.ToString() };
-                remHoursCB.Items.AddRange(numbers);
-                dateHoursCB.Items.AddRange(numbers);
-            }
-
-            remHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("hh")) - 1;
-            dateHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("hh")) - 1;
+            remHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("HH")); //- 1;
+            dateHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("HH")); //- 1;
         }
 
         private void Minute_initialization()
         {
-            for (int i = 1; i < 60; i++)
+
+            remMinutesCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm"));//- 1;
+            dateMinuteCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm")) ;///- 1;
+        }
+
+        private void time_initialization()
+        {
+            for (int i = 0; i < 60; i++)
             {
-                string[] numbers = { i.ToString() };
-                remMinutesCB.Items.AddRange(numbers);
-                dateMinuteCB.Items.AddRange(numbers);
+                if (i < 10)
+                {
+                    string[] numbers = {"0" + i.ToString() };
+                    remMinutesCB.Items.AddRange(numbers);
+                    dateMinuteCB.Items.AddRange(numbers);
+                }
+                else
+                {
+                    string[] numbers = { i.ToString() };
+                    remMinutesCB.Items.AddRange(numbers);
+                    dateMinuteCB.Items.AddRange(numbers);
+                }
             }
 
-            remMinutesCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm")) - 1;
-            dateMinuteCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm")) - 1;
+            for (int i = 0; i <= 23; i++)
+            {
+                if (i < 10)
+                {
+                    string[] numbers = { "0" + i.ToString() };
+                    remHoursCB.Items.AddRange(numbers);
+                    dateHoursCB.Items.AddRange(numbers);
+                }
+                else
+                {
+                    string[] numbers = {i.ToString() };
+                    remHoursCB.Items.AddRange(numbers);
+                    dateHoursCB.Items.AddRange(numbers);
+                }
+            }
         }
 
         public screenForm()
         {
             InitializeComponent();
-
-            this.Opacity = 0.99;
+            time_initialization();
             SubtitleLb.Text = (DateTime.Now.ToString("dd/MM/yyyy"));
-            this.BackColor = Color.Red;
         }
 
         private void animBtn_Click(object sender, EventArgs e)
@@ -90,48 +112,79 @@ namespace TaskBen.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TaskBen.Class.Task task = new TaskBen.Class.Task();
             Settings.new_instance_taks();
-            if (timeCheck.Checked && remCheck.Checked)
+            int date_comp = DateTime.Compare(DateTime.Now.Date, toDoDateTime.Value.Date);
+            if (descriptionTB.Text != "")
             {
-                //all
-                Settings.task.Date = toDoDateTime.Value.ToString("d");
-                Settings.task.repeat = repeatCB.Text;
-                Settings.task.RemHH = remHoursCB.Text;
-                Settings.task.RemMM = remMinutesCB.Text;
-                Settings.task.DateHH = dateHoursCB.Text;
-                Settings.task.DateMM = dateMinuteCB.Text;
-                Settings.task.Description = descriptionTB.Text;
+                if (date_comp<=0)
+                {
+                    if (timeCheck.Checked && remCheck.Checked)
+                    {
+                        //all
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.repeat = repeatCB.Text;
+                        Settings.task.RemHH = remHoursCB.Text;
+                        Settings.task.RemMM = remMinutesCB.Text;
+                        Settings.task.DateHH = dateHoursCB.Text;
+                        Settings.task.DateMM = dateMinuteCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                    else if (timeCheck.Checked && !remCheck.Checked)
+                    {
+                        //only time
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.repeat = repeatCB.Text;
+                        Settings.task.DateHH = dateHoursCB.Text;
+                        Settings.task.DateMM = dateMinuteCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                    else if (!timeCheck.Checked && remCheck.Checked)
+                    {
+                        //onlt rem
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.repeat = repeatCB.Text;
+                        Settings.task.RemHH = remHoursCB.Text;
+                        Settings.task.RemMM = remMinutesCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                        MessageBox.Show(Settings.task.RemMM);
+                    }
+                    else if (!(timeCheck.Checked && remCheck.Checked))
+                    {
+                        //none
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.repeat = repeatCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "The date you have chosen has already passed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (timeCheck.Checked && !remCheck.Checked)
+            else
             {
-                //only time
-                Settings.task.Date = toDoDateTime.Value.ToString("d");
-                Settings.task.repeat = repeatCB.Text;
-                Settings.task.DateHH = dateHoursCB.Text;
-                Settings.task.DateMM = dateMinuteCB.Text;
-                Settings.task.Description = descriptionTB.Text;
-            }
-            else if (!timeCheck.Checked && remCheck.Checked)
-            {
-                //onlt rem
-                Settings.task.Date = toDoDateTime.Value.ToString("d");
-                Settings.task.repeat = repeatCB.Text;
-                Settings.task.RemHH = remHoursCB.Text;
-                Settings.task.RemMM = remMinutesCB.Text;
-                Settings.task.Description = descriptionTB.Text;
-                MessageBox.Show(Settings.task.RemMM);
-            }
-            else if (!(timeCheck.Checked && remCheck.Checked))
-            {
-                //none
-                Settings.task.Date = toDoDateTime.Value.ToString("d");
-                Settings.task.repeat = repeatCB.Text;
-                Settings.task.Description = descriptionTB.Text;
+                MetroMessageBox.Show(this, "Please complete the Title!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //Settings.taskList.Add();
-            Settings.task.task_add();
+            //var item = integerList[integerList.Count - 1];
+            Settings.taskList.Add(Settings.task);   //Add task in the list
+            Settings.task.task_add();   //Add task in the database
+            add_task_form(Settings.task);   //Add task in the screenForm
+            MessageBox.Show(Settings.taskList.Count.ToString());
+        }
+
+        private void add_task_form(Todo task)
+        {
+            var item = Settings.taskList[Settings.taskList.Count - 1];
+            TaskForm taskForm = new TaskForm();
+            taskForm.Init_task(item);
+
+            taskForm.Location = new Point(Settings.poz_x, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+            taskForm.AutoScroll = true;
+            Settings.poz_y+= 58;
+
+            listPanel.Controls.Add(taskForm);
+
         }
 
         
