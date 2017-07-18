@@ -10,7 +10,7 @@ namespace TaskBen.Class
 {
     public class Todo
     {
-        public string _id;
+        private int _id;
         private string _date;
         private string _dateHH;
         private string _dateMM;
@@ -26,6 +26,12 @@ namespace TaskBen.Class
             get { return _date; }
         }
 
+        public int Id
+        {
+            set { _id = value; }
+            get { return _id; }
+        }
+
         public void add_web()
         {
             Dictionary<string, string> json = new Dictionary<string, string>();
@@ -39,13 +45,14 @@ namespace TaskBen.Class
             json.Add("reminderMinutes", _remMM);
             json.Add("repeat", _repeat);
             json.Add("action", "add_task");
-            _id = WebServer.post_get(JsonConvert.SerializeObject(json));
+            string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
+            _id = Convert.ToInt32(rasp);
         }
 
         public void remove_web()
         {
             Dictionary<string, string> json = new Dictionary<string, string>();
-            json.Add("id", _id);
+            json.Add("id", _id.ToString());
             json.Add("idUser", Settings.user.ID.ToString());
             json.Add("action", "remove_task");
             WebServer.post(JsonConvert.SerializeObject(json));
@@ -58,8 +65,9 @@ namespace TaskBen.Class
             json.Add("action", "get_tasks");
             
             string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
-            //MessageBox.Show(list_todo);
-            Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+
+            if(list_todo != "")
+                Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
 
         }
 

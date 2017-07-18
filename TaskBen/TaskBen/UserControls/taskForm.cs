@@ -30,15 +30,17 @@ namespace TaskBen.UserControls
         public void Init_task(Todo task)
         {
             _task = task;
+            MessageBox.Show(_task.Id.ToString());
             textLb.Text = _task.Description;
             dateLb.Text = _task.Date + " " + _task.DateHH + ":" +_task.DateMM;
             reminderLb.Text = _task.repeat + " " + _task.RemHH + ":" + _task.RemMM;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Settings.taskList.Remove(_task);
-            Settings.task.remove_web();
+            _task.remove_web();
             this.ParentForm.add_tasks_form();
         }
 

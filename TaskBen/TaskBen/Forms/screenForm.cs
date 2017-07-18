@@ -157,6 +157,13 @@ namespace TaskBen.Forms
                         Settings.task.repeat = repeatCB.Text;
                         Settings.task.Description = descriptionTB.Text;
                     }
+
+                    Settings.taskList.Add(Settings.task);   //Add task in the list
+                    Settings.task.add_web();   //Add task in the database
+                    add_task_form(Settings.task);   //Add task in the screenForm
+                    MetroMessageBox.Show(this,"You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    animUpTimer.Enabled = true;
+                    animDownTimer.Enabled = false;
                 }
                 else
                 {
@@ -167,11 +174,6 @@ namespace TaskBen.Forms
             {
                 MetroMessageBox.Show(this, "Please complete the Title!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //var item = integerList[integerList.Count - 1];
-            Settings.taskList.Add(Settings.task);   //Add task in the list
-            Settings.task.add_web();   //Add task in the database
-            add_task_form(Settings.task);   //Add task in the screenForm
         }
 
         private void add_task_form(Todo task)
@@ -196,8 +198,6 @@ namespace TaskBen.Forms
             if(Settings.taskList != null)
                 foreach (Todo todo in Settings.taskList)
                 {
-                    MessageBox.Show(JsonConvert.SerializeObject(todo));
-                    MessageBox.Show(JsonConvert.SerializeObject(Settings.taskList));
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
