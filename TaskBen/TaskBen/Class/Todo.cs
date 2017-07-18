@@ -76,28 +76,28 @@ namespace TaskBen.Class
             set { _description = value; }
             get { return _description; }
         }
-        public string DateHH
+        public string DateHours
         {
             set { _dateHH = value; }
             get { return _dateHH; }
         }
-        public string DateMM
+        public string DateMinutes
         {
             set { _dateMM = value; }
             get { return _dateMM; }
         }
-        public string RemHH
+        public string ReminderHours
         {
             set { _remHH = value; }
             get { return _remHH; }
         }
-        public string RemMM
+        public string ReminderMinutes
         {
             set { _remMM = value; }
             get { return _remMM; }
         }
         
-        public string repeat
+        public string Schedule
         {
             set { _repeat = value; }
             get { return _repeat; }

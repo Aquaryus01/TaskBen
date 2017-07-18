@@ -32,8 +32,8 @@ namespace TaskBen.UserControls
             _task = task;
             MessageBox.Show(_task.Id.ToString());
             textLb.Text = _task.Description;
-            dateLb.Text = _task.Date + " " + _task.DateHH + ":" +_task.DateMM;
-            reminderLb.Text = _task.repeat + " " + _task.RemHH + ":" + _task.RemMM;
+            dateLb.Text = _task.Date + " " + _task.DateHours + ":" +_task.DateMinutes;
+            reminderLb.Text = _task.Schedule + " " + _task.ReminderHours + ":" + _task.ReminderMinutes;
 
         }
 

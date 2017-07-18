@@ -124,37 +124,37 @@ namespace TaskBen.Forms
                     {
                         //all
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
-                        Settings.task.repeat = repeatCB.Text;
-                        Settings.task.RemHH = remHoursCB.Text;
-                        Settings.task.RemMM = remMinutesCB.Text;
-                        Settings.task.DateHH = dateHoursCB.Text;
-                        Settings.task.DateMM = dateMinuteCB.Text;
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinuteCB.Text;
                         Settings.task.Description = descriptionTB.Text;
                     }
                     else if (timeCheck.Checked && !remCheck.Checked)
                     {
                         //only time
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
-                        Settings.task.repeat = repeatCB.Text;
-                        Settings.task.DateHH = dateHoursCB.Text;
-                        Settings.task.DateMM = dateMinuteCB.Text;
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinuteCB.Text;
                         Settings.task.Description = descriptionTB.Text;
                     }
                     else if (!timeCheck.Checked && remCheck.Checked)
                     {
                         //onlt rem
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
-                        Settings.task.repeat = repeatCB.Text;
-                        Settings.task.RemHH = remHoursCB.Text;
-                        Settings.task.RemMM = remMinutesCB.Text;
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
                         Settings.task.Description = descriptionTB.Text;
-                        MessageBox.Show(Settings.task.RemMM);
+                        MessageBox.Show(Settings.task.ReminderMinutes);
                     }
                     else if (!(timeCheck.Checked && remCheck.Checked))
                     {
                         //none
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
-                        Settings.task.repeat = repeatCB.Text;
+                        Settings.task.Schedule = repeatCB.Text;
                         Settings.task.Description = descriptionTB.Text;
                     }
 
