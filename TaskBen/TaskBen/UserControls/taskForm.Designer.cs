@@ -29,27 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.reminderLb = new System.Windows.Forms.Label();
             this.dateLb = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textLb = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox = new System.Windows.Forms.CheckBox();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 17);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -60,13 +50,24 @@
             this.panel7.Controls.Add(this.label9);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.textLb);
-            this.panel7.Controls.Add(this.checkBox2);
+            this.panel7.Controls.Add(this.checkBox);
             this.panel7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 46);
             this.panel7.TabIndex = 12;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(940, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // reminderLb
             // 
@@ -128,26 +129,15 @@
             this.textLb.TabIndex = 2;
             this.textLb.Text = "Mergi la magazin si cumpara mai multe sortimente de paste si capsuni mici pitici";
             // 
-            // checkBox2
+            // checkBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(32, 17);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(940, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.checkBox.AutoSize = true;
+            this.checkBox.Location = new System.Drawing.Point(28, 17);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(15, 14);
+            this.checkBox.TabIndex = 0;
+            this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // TaskForm
             // 
@@ -155,28 +145,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.checkBox1);
             this.Name = "TaskForm";
             this.Size = new System.Drawing.Size(969, 46);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label reminderLb;
         private System.Windows.Forms.Label dateLb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label textLb;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBox;
 
     }
 }

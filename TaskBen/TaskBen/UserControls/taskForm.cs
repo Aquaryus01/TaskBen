@@ -22,19 +22,20 @@ namespace TaskBen.UserControls
             InitializeComponent();
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void Init_task(Todo task)
         {
             _task = task;
-            MessageBox.Show(_task.Id.ToString());
             textLb.Text = _task.Description;
             dateLb.Text = _task.Date + " " + _task.DateHours + ":" +_task.DateMinutes;
             reminderLb.Text = _task.Schedule + " " + _task.ReminderHours + ":" + _task.ReminderMinutes;
-
+            if (_task.Checked == 1)
+            {
+                checkBox.Checked = true;
+            }
+            else
+            {
+                checkBox.Checked = false;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -46,6 +47,22 @@ namespace TaskBen.UserControls
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox.Checked)
+            {
+                _task.Checked = 1;
+            }
+            else
+            {
+                _task.Checked = 0;
+            }
+
+            Settings.task = _task;
+            Settings.task.update_web();
 
         }
     }
