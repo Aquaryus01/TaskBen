@@ -26,8 +26,27 @@ namespace TaskBen.UserControls
         {
             _task = task;
             textLb.Text = _task.Description;
-            dateLb.Text = _task.Date + " " + _task.DateHours + ":" +_task.DateMinutes;
-            reminderLb.Text = _task.Schedule + " " + _task.ReminderHours + ":" + _task.ReminderMinutes;
+            
+            if (_task.DateHours=="")
+            {
+                dateLb.Text = _task.Date;
+            }
+            else
+            {
+                dateLb.Text = _task.Date + " " + _task.DateHours + ":" + _task.DateMinutes;
+            }
+
+            if (_task.ReminderHours == "")
+            {
+                reminderLb.Text = "None";
+            }
+            else
+            {
+                reminderLb.Text = _task.ReminderHours + ":" + _task.ReminderMinutes;
+            }
+
+            periodLb.Text = _task.Schedule;
+            
             if (_task.Checked == 1)
             {
                 checkBox.Checked = true;

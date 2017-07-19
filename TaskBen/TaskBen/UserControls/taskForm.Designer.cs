@@ -37,6 +37,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textLb = new System.Windows.Forms.Label();
             this.checkBox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.periodLb = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +46,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Teal;
+            this.panel7.Controls.Add(this.periodLb);
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Controls.Add(this.reminderLb);
             this.panel7.Controls.Add(this.dateLb);
@@ -139,6 +143,30 @@
             this.checkBox.UseVisualStyleBackColor = true;
             this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Teal;
+            this.label1.Font = new System.Drawing.Font("DejaVu Sans Condensed", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(350, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Period:";
+            // 
+            // periodLb
+            // 
+            this.periodLb.AutoSize = true;
+            this.periodLb.BackColor = System.Drawing.Color.Teal;
+            this.periodLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.periodLb.ForeColor = System.Drawing.Color.Cyan;
+            this.periodLb.Location = new System.Drawing.Point(403, 23);
+            this.periodLb.Name = "periodLb";
+            this.periodLb.Size = new System.Drawing.Size(39, 15);
+            this.periodLb.TabIndex = 9;
+            this.periodLb.Text = "12:30";
+            // 
             // TaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +192,8 @@
         private System.Windows.Forms.Label textLb;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBox;
+        private System.Windows.Forms.Label periodLb;
+        private System.Windows.Forms.Label label1;
 
     }
 }
