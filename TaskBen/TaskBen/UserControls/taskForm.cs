@@ -26,8 +26,8 @@ namespace TaskBen.UserControls
         {
             _task = task;
             textLb.Text = _task.Description;
-            
-            if (_task.DateHours=="")
+
+            if (_task.DateHours == "" || _task.DateHours == null)
             {
                 dateLb.Text = _task.Date;
             }
@@ -36,7 +36,7 @@ namespace TaskBen.UserControls
                 dateLb.Text = _task.Date + " " + _task.DateHours + ":" + _task.DateMinutes;
             }
 
-            if (_task.ReminderHours == "")
+            if (_task.ReminderHours == "" || _task.ReminderHours == null)
             {
                 reminderLb.Text = "None";
             }

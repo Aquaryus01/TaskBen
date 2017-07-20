@@ -40,7 +40,7 @@
             this.remCheck = new MetroFramework.Controls.MetroCheckBox();
             this.timeCheck = new MetroFramework.Controls.MetroCheckBox();
             this.dateHoursCB = new MetroFramework.Controls.MetroComboBox();
-            this.dateMinuteCB = new MetroFramework.Controls.MetroComboBox();
+            this.dateMinutesCB = new MetroFramework.Controls.MetroComboBox();
             this.createBtn = new System.Windows.Forms.Button();
             this.remHoursCB = new MetroFramework.Controls.MetroComboBox();
             this.remMinutesCB = new MetroFramework.Controls.MetroComboBox();
@@ -104,7 +104,7 @@
             this.addPanel.Controls.Add(this.metroTabControl1);
             this.addPanel.Location = new System.Drawing.Point(223, 198);
             this.addPanel.Name = "addPanel";
-            this.addPanel.Size = new System.Drawing.Size(969, 0);
+            this.addPanel.Size = new System.Drawing.Size(969, 500);
             this.addPanel.TabIndex = 7;
             // 
             // hidePanel
@@ -132,7 +132,7 @@
             this.metroTabPage1.Controls.Add(this.remCheck);
             this.metroTabPage1.Controls.Add(this.timeCheck);
             this.metroTabPage1.Controls.Add(this.dateHoursCB);
-            this.metroTabPage1.Controls.Add(this.dateMinuteCB);
+            this.metroTabPage1.Controls.Add(this.dateMinutesCB);
             this.metroTabPage1.Controls.Add(this.createBtn);
             this.metroTabPage1.Controls.Add(this.remHoursCB);
             this.metroTabPage1.Controls.Add(this.remMinutesCB);
@@ -191,6 +191,7 @@
             this.remCheck.TabIndex = 17;
             this.remCheck.Text = "Add Reminder";
             this.remCheck.UseSelectable = true;
+            this.remCheck.CheckedChanged += new System.EventHandler(this.remCheck_CheckedChanged);
             // 
             // timeCheck
             // 
@@ -201,6 +202,7 @@
             this.timeCheck.TabIndex = 16;
             this.timeCheck.Text = "Add Time";
             this.timeCheck.UseSelectable = true;
+            this.timeCheck.CheckedChanged += new System.EventHandler(this.timeCheck_CheckedChanged);
             // 
             // dateHoursCB
             // 
@@ -213,15 +215,15 @@
             this.dateHoursCB.TabIndex = 14;
             this.dateHoursCB.UseSelectable = true;
             // 
-            // dateMinuteCB
+            // dateMinutesCB
             // 
-            this.dateMinuteCB.FormattingEnabled = true;
-            this.dateMinuteCB.ItemHeight = 23;
-            this.dateMinuteCB.Location = new System.Drawing.Point(113, 215);
-            this.dateMinuteCB.Name = "dateMinuteCB";
-            this.dateMinuteCB.Size = new System.Drawing.Size(91, 29);
-            this.dateMinuteCB.TabIndex = 13;
-            this.dateMinuteCB.UseSelectable = true;
+            this.dateMinutesCB.FormattingEnabled = true;
+            this.dateMinutesCB.ItemHeight = 23;
+            this.dateMinutesCB.Location = new System.Drawing.Point(113, 215);
+            this.dateMinutesCB.Name = "dateMinutesCB";
+            this.dateMinutesCB.Size = new System.Drawing.Size(91, 29);
+            this.dateMinutesCB.TabIndex = 13;
+            this.dateMinutesCB.UseSelectable = true;
             // 
             // createBtn
             // 
@@ -312,7 +314,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(7, 144);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(252, 29);
             this.toDoDateTime.TabIndex = 3;
@@ -563,7 +565,7 @@
             // Every10second
             // 
             this.Every10second.Interval = 5000;
-            this.Every10second.Tick += new System.EventHandler(this.Every10second_Tick);
+            this.Every10second.Tick += new System.EventHandler(this.Every1minute_Tick);
             // 
             // screenForm
             // 
@@ -612,7 +614,7 @@
         private MetroFramework.Controls.MetroCheckBox remCheck;
         private MetroFramework.Controls.MetroCheckBox timeCheck;
         private MetroFramework.Controls.MetroComboBox dateHoursCB;
-        private MetroFramework.Controls.MetroComboBox dateMinuteCB;
+        private MetroFramework.Controls.MetroComboBox dateMinutesCB;
         private System.Windows.Forms.Button createBtn;
         private MetroFramework.Controls.MetroComboBox remHoursCB;
         private MetroFramework.Controls.MetroComboBox remMinutesCB;

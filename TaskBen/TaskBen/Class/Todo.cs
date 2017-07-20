@@ -20,6 +20,18 @@ namespace TaskBen.Class
         private string _description;
         private int _checked;
 
+        public void clear()
+        {
+            _id = 0;
+            _date = "";
+            _dateHH = "";
+            _dateMM = "";
+            _remHH = "";
+             _remMM = "";
+            _repeat = "";
+            _description = "";
+            _checked = 0;
+        }
 
         public string Date
         {
