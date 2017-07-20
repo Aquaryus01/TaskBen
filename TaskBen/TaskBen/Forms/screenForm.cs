@@ -16,6 +16,8 @@ namespace TaskBen.Forms
 {
     public partial class screenForm : MetroFramework.Forms.MetroForm
     {
+        ReminderForm a = new ReminderForm();
+
         private void Hour_initialization()
         {
             remHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("HH")); //- 1;
@@ -71,12 +73,18 @@ namespace TaskBen.Forms
             SubtitleLb.Text = (DateTime.Now.ToString("dd/MM/yyyy"));
             Settings.task.task_get_list();
             add_tasks_form();
+            Every10second.Start();
         }
 
         private void animBtn_Click(object sender, EventArgs e)
         {
             animUpTimer.Enabled = false;
             animDownTimer.Enabled = true;
+
+            createBtn.Visible = true;
+            hidePanel.Visible = false;
+
+            descriptionTB.Text = "";
             repeatCB.SelectedIndex = 0;
             Hour_initialization();
             Minute_initialization();
@@ -86,6 +94,7 @@ namespace TaskBen.Forms
         {
             animUpTimer.Enabled = true;
             animDownTimer.Enabled = false;
+
         }
 
         private void animTimer_Tick(object sender, EventArgs e)
@@ -209,6 +218,118 @@ namespace TaskBen.Forms
                     listPanel.Controls.Add(taskForm);
                 }
             
-        }       
+        }
+
+        private void notify_initialization()
+        {
+            
+        }    
+   
+        public void show_edit()
+        {
+            edit_task_settings();
+
+            DateTime x = new DateTime();
+            x = Convert.ToDateTime(Settings.task.Date);
+            toDoDateTime.Value = x;
+            repeatCB.Text =  Settings.task.Schedule;
+            remHoursCB.Text = Settings.task.ReminderHours;
+            remMinutesCB.Text = Settings.task.ReminderMinutes;
+            dateHoursCB.Text = Settings.task.DateHours;
+            dateMinuteCB.Text = Settings.task.DateMinutes;
+            descriptionTB.Text = Settings.task.Description;
+        }
+
+        public void edit_task_settings()
+        {
+            createBtn.Visible = false;
+            hidePanel.Visible = true;
+            animUpTimer.Enabled = false;
+            animDownTimer.Enabled = true;
+
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            int id = Settings.task.Id;
+            Settings.task = new Todo();
+            int date_comp = DateTime.Compare(DateTime.Now.Date, toDoDateTime.Value.Date);
+            if (descriptionTB.Text != "")
+            {
+                if (date_comp <= 0)
+                {
+                    if (timeCheck.Checked && remCheck.Checked)
+                    {
+                        //all
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinuteCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                    else if (timeCheck.Checked && !remCheck.Checked)
+                    {
+                        //only time
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinuteCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                    else if (!timeCheck.Checked && remCheck.Checked)
+                    {
+                        //onlt rem
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+                    else if (!(timeCheck.Checked && remCheck.Checked))
+                    {
+                        //none
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                    }
+
+                    Settings.task.Id = id;
+                    Settings.taskList = new List<Todo>();
+                    Settings.task.update_web();
+                    Settings.task.task_get_list();
+                    add_tasks_form();
+                    MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    animUpTimer.Enabled = true;
+                    animDownTimer.Enabled = false;
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "The date you have chosen has already passed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Please complete the Title!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            ShowInTaskbar = true;
+        }
+
+        private void xBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            notifyIcon1.Icon = SystemIcons.Application;
+        }
+
+        private void Every10second_Tick(object sender, EventArgs e)
+        {
+            a.verify_time();
+        }
     }
 }

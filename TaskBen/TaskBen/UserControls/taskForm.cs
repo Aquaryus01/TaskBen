@@ -66,7 +66,7 @@ namespace TaskBen.UserControls
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -83,6 +83,12 @@ namespace TaskBen.UserControls
             Settings.task = _task;
             Settings.task.update_web();
 
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            Settings.task = _task;
+            this.ParentForm.show_edit();
         }
     }
 }

@@ -60,6 +60,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 46);
             this.panel7.TabIndex = 12;
+            this.panel7.Click += new System.EventHandler(this.panel7_Click);
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // pictureBox1

@@ -80,6 +80,12 @@
     <Compile Include="Forms\registerForm.Designer.cs">
       <DependentUpon>registerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReminderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReminderForm.Designer.cs">
+      <DependentUpon>ReminderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\screenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +103,20 @@
     <Compile Include="UserControls\TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TaskReminderForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskReminderForm.Designer.cs">
+      <DependentUpon>TaskReminderForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\registerForm.resx">
       <DependentUpon>registerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReminderForm.resx">
+      <DependentUpon>ReminderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\screenForm.resx">
       <DependentUpon>screenForm.cs</DependentUpon>
@@ -117,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TaskReminderForm.resx">
+      <DependentUpon>TaskReminderForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

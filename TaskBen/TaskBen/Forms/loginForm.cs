@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace TaskBen
             InitializeComponent();
             panel2.Visible = false;
             this.MaximizeBox = false;
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -39,6 +41,8 @@ namespace TaskBen
             panel1.Visible = false;
             panel2.Location = new Point(247, 217);
             panel2.Visible = true;
+
+            
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

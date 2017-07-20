@@ -1,9 +1,0 @@
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\TaskBen.UserControls.taskForm.resources
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
-C:\Users\Alex B\Desktop\TaskBen\TaskBen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

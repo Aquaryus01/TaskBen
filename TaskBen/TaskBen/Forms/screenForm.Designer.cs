@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.addPanel = new System.Windows.Forms.Panel();
+            this.hidePanel = new System.Windows.Forms.Panel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toDoDateTime = new MetroFramework.Controls.MetroDateTime();
             this.descriptionTB = new System.Windows.Forms.TextBox();
+            this.editBtn = new System.Windows.Forms.Button();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,10 +65,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.listPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.xBtn = new System.Windows.Forms.Button();
             this.SubtitleLb = new System.Windows.Forms.Label();
             this.TitleLb = new System.Windows.Forms.Label();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Every10second = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
@@ -94,11 +100,19 @@
             // addPanel
             // 
             this.addPanel.BackColor = System.Drawing.Color.White;
+            this.addPanel.Controls.Add(this.hidePanel);
             this.addPanel.Controls.Add(this.metroTabControl1);
             this.addPanel.Location = new System.Drawing.Point(223, 198);
             this.addPanel.Name = "addPanel";
             this.addPanel.Size = new System.Drawing.Size(969, 0);
             this.addPanel.TabIndex = 7;
+            // 
+            // hidePanel
+            // 
+            this.hidePanel.Location = new System.Drawing.Point(28, 5);
+            this.hidePanel.Name = "hidePanel";
+            this.hidePanel.Size = new System.Drawing.Size(938, 40);
+            this.hidePanel.TabIndex = 1;
             // 
             // metroTabControl1
             // 
@@ -106,7 +120,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(32, 5);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(889, 399);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -128,6 +142,7 @@
             this.metroTabPage1.Controls.Add(this.label1);
             this.metroTabPage1.Controls.Add(this.toDoDateTime);
             this.metroTabPage1.Controls.Add(this.descriptionTB);
+            this.metroTabPage1.Controls.Add(this.editBtn);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
@@ -159,7 +174,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(283, 282);
+            this.backBtn.Location = new System.Drawing.Point(246, 282);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(235, 23);
             this.backBtn.TabIndex = 11;
@@ -308,6 +323,22 @@
             this.descriptionTB.Name = "descriptionTB";
             this.descriptionTB.Size = new System.Drawing.Size(721, 20);
             this.descriptionTB.TabIndex = 2;
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.Teal;
+            this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.editBtn.FlatAppearance.BorderSize = 0;
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(7, 282);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(208, 23);
+            this.editBtn.TabIndex = 18;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // metroTabPage2
             // 
@@ -460,12 +491,37 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.xBtn);
             this.panel3.Controls.Add(this.SubtitleLb);
             this.panel3.Controls.Add(this.TitleLb);
             this.panel3.Location = new System.Drawing.Point(223, 5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(969, 146);
             this.panel3.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(925, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(23, 25);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "-";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // xBtn
+            // 
+            this.xBtn.BackColor = System.Drawing.Color.White;
+            this.xBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xBtn.Location = new System.Drawing.Point(946, 0);
+            this.xBtn.Name = "xBtn";
+            this.xBtn.Size = new System.Drawing.Size(23, 25);
+            this.xBtn.TabIndex = 3;
+            this.xBtn.Text = "x";
+            this.xBtn.UseVisualStyleBackColor = false;
+            this.xBtn.Click += new System.EventHandler(this.xBtn_Click);
             // 
             // SubtitleLb
             // 
@@ -496,6 +552,18 @@
             // 
             this.animUpTimer.Interval = 15;
             this.animUpTimer.Tick += new System.EventHandler(this.animUpTimer_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Text = "TaskBen 1.2";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // Every10second
+            // 
+            this.Every10second.Interval = 5000;
+            this.Every10second.Tick += new System.EventHandler(this.Every10second_Tick);
             // 
             // screenForm
             // 
@@ -562,6 +630,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Panel hidePanel;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button xBtn;
+        private System.Windows.Forms.Timer Every10second;
 
     }
 }

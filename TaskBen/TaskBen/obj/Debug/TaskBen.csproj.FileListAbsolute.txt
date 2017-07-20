@@ -87,3 +87,8 @@ C:\Users\Alex B\Desktop\TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.UserCon
 C:\Users\Alex B\Desktop\TaskBen-master\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.taskForm.resources
 C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache
+C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.TaskReminderForm.resources
+C:\Users\Alex B\Desktop\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.ReminderForm.resources
+C:\Users\Alex B\Desktop\BACKUP TASKBEN\TaskBen\TaskBen\bin\Debug\TaskBen.exe.config
+C:\Users\Alex B\Desktop\BACKUP TASKBEN\TaskBen\TaskBen\obj\Debug\TaskBen.exe
+C:\Users\Alex B\Desktop\BACKUP TASKBEN\TaskBen\TaskBen\obj\Debug\TaskBen.pdb
