@@ -1,2 +1,0 @@
-git add *
-git commit -m "password strength - 8 character + Big letter"
