@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.animBtn = new System.Windows.Forms.Button();
             this.addPanel = new System.Windows.Forms.Panel();
             this.titleTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,6 +40,7 @@
             this.timeCheck = new MetroFramework.Controls.MetroCheckBox();
             this.dateHoursCB = new MetroFramework.Controls.MetroComboBox();
             this.dateMinutesCB = new MetroFramework.Controls.MetroComboBox();
+            this.createBtn = new System.Windows.Forms.Button();
             this.remHoursCB = new MetroFramework.Controls.MetroComboBox();
             this.remMinutesCB = new MetroFramework.Controls.MetroComboBox();
             this.repeatCB = new MetroFramework.Controls.MetroComboBox();
@@ -51,22 +50,23 @@
             this.toDoDateTime = new MetroFramework.Controls.MetroDateTime();
             this.descriptionTB = new System.Windows.Forms.TextBox();
             this.editBtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.animBtn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listPanel = new System.Windows.Forms.Panel();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Every10second = new System.Windows.Forms.Timer(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.createBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,38 +81,6 @@
             this.panel1.Size = new System.Drawing.Size(1190, 607);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel3
-            // 
-            this.panel3.AutoScroll = true;
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.metroTextBox1);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(199, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(993, 188);
-            this.panel3.TabIndex = 16;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // animBtn
-            // 
-            this.animBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.animBtn.FlatAppearance.BorderSize = 0;
-            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.animBtn.Location = new System.Drawing.Point(19, 18);
-            this.animBtn.Name = "animBtn";
-            this.animBtn.Size = new System.Drawing.Size(173, 36);
-            this.animBtn.TabIndex = 10;
-            this.animBtn.Text = "Plan your next move!";
-            this.animBtn.UseVisualStyleBackColor = false;
-            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
             // 
             // addPanel
             // 
@@ -228,6 +196,22 @@
             this.dateMinutesCB.TabIndex = 30;
             this.dateMinutesCB.UseSelectable = true;
             // 
+            // createBtn
+            // 
+            this.createBtn.BackColor = System.Drawing.Color.DarkGreen;
+            this.createBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.createBtn.FlatAppearance.BorderSize = 0;
+            this.createBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.createBtn.ForeColor = System.Drawing.Color.White;
+            this.createBtn.Location = new System.Drawing.Point(33, 361);
+            this.createBtn.Name = "createBtn";
+            this.createBtn.Size = new System.Drawing.Size(208, 23);
+            this.createBtn.TabIndex = 29;
+            this.createBtn.Text = "Create";
+            this.createBtn.UseVisualStyleBackColor = false;
+            this.createBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // remHoursCB
             // 
             this.remHoursCB.FormattingEnabled = true;
@@ -304,7 +288,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
@@ -333,38 +317,6 @@
             this.editBtn.UseVisualStyleBackColor = false;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // listPanel
-            // 
-            this.listPanel.AutoScroll = true;
-            this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.listPanel.Location = new System.Drawing.Point(199, 256);
-            this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(993, 351);
-            this.listPanel.TabIndex = 15;
-            this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
-            // 
-            // animDownTimer
-            // 
-            this.animDownTimer.Interval = 15;
-            this.animDownTimer.Tick += new System.EventHandler(this.animTimer_Tick);
-            // 
-            // animUpTimer
-            // 
-            this.animUpTimer.Interval = 15;
-            this.animUpTimer.Tick += new System.EventHandler(this.animUpTimer_Tick);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.notifyIcon1.Text = "TaskBen 1.2";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // Every10second
-            // 
-            this.Every10second.Interval = 5000;
-            this.Every10second.Tick += new System.EventHandler(this.Every1minute_Tick);
-            // 
             // panel4
             // 
             this.panel4.AutoScroll = true;
@@ -376,42 +328,37 @@
             this.panel4.TabIndex = 16;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // createBtn
+            // animBtn
             // 
-            this.createBtn.BackColor = System.Drawing.Color.DarkGreen;
-            this.createBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.createBtn.FlatAppearance.BorderSize = 0;
-            this.createBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.createBtn.ForeColor = System.Drawing.Color.White;
-            this.createBtn.Location = new System.Drawing.Point(33, 361);
-            this.createBtn.Name = "createBtn";
-            this.createBtn.Size = new System.Drawing.Size(208, 23);
-            this.createBtn.TabIndex = 29;
-            this.createBtn.Text = "Create";
-            this.createBtn.UseVisualStyleBackColor = false;
-            this.createBtn.Click += new System.EventHandler(this.button1_Click);
+            this.animBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.animBtn.FlatAppearance.BorderSize = 0;
+            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.animBtn.Location = new System.Drawing.Point(19, 18);
+            this.animBtn.Name = "animBtn";
+            this.animBtn.Size = new System.Drawing.Size(173, 36);
+            this.animBtn.TabIndex = 10;
+            this.animBtn.Text = "Plan your next move!";
+            this.animBtn.UseVisualStyleBackColor = false;
+            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
             // 
-            // pictureBox1
+            // panel3
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(373, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(652, 128);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 23);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
+            this.panel3.AutoScroll = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.metroTextBox1);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Location = new System.Drawing.Point(199, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(993, 188);
+            this.panel3.TabIndex = 16;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // metroTextBox1
             // 
@@ -445,6 +392,59 @@
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(652, 128);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(373, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(219, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
+            // listPanel
+            // 
+            this.listPanel.AutoScroll = true;
+            this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listPanel.Location = new System.Drawing.Point(199, 256);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(993, 351);
+            this.listPanel.TabIndex = 15;
+            this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
+            // 
+            // animDownTimer
+            // 
+            this.animDownTimer.Interval = 15;
+            this.animDownTimer.Tick += new System.EventHandler(this.animTimer_Tick);
+            // 
+            // animUpTimer
+            // 
+            this.animUpTimer.Interval = 15;
+            this.animUpTimer.Tick += new System.EventHandler(this.animUpTimer_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Text = "TaskBen 1.2";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // Every10second
+            // 
+            this.Every10second.Interval = 5000;
+            this.Every10second.Tick += new System.EventHandler(this.Every1minute_Tick);
+            // 
             // screenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,12 +455,12 @@
             this.Name = "screenForm";
             this.TransparencyKey = System.Drawing.Color.Ivory;
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.addPanel.ResumeLayout(false);
             this.addPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
