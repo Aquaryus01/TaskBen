@@ -21,46 +21,51 @@ namespace TaskBen.Class
         private string _LastName;
         private string _Email;
         private string _Password;
+        Dictionary<string, string> json;
 
-        public bool register()
+        public void compress_data()
         {
-            Dictionary<string, string> json = new Dictionary<string, string>();
+            json = new Dictionary<string, string>();
             json.Add("email", Email);
             json.Add("password", Password);
             json.Add("firstname", FirstName);
             json.Add("lastname", LastName);
-            json.Add("action", "register");
-            string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
+            
+        }
 
-            dynamic d = JsonConvert.DeserializeObject<dynamic>(rasp);
-            if (d == null)
+        public bool register()
+        {
+            compress_data();
+            json.Add("action", "register");
+            
+            string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
+            if (raspuns == "")
                 return true;
             else
-                MetroMessageBox.Show(new loginForm(), d.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(new loginForm(), raspuns, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
         public bool login()
         {
-            Dictionary<string, string> json = new Dictionary<string, string>();
-            json.Add("email", Email);
-            json.Add("password", Password);
+            compress_data();
             json.Add("action", "login");
 
-            var a = WebServer.post_get(JsonConvert.SerializeObject(json));
+            string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
+            dynamic d = JsonConvert.DeserializeObject<dynamic>(raspuns);
             //MessageBox.Show(a);
-            if (a.IndexOf("Error") != -1)
+            if (raspuns.IndexOf("Error") != -1)
             {
-                MetroMessageBox.Show(new loginForm(), "The username and password didn't match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(new loginForm(), d.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(a=="")
+            else if(raspuns=="")
             {
 
             }
             else
             {
                 
-                Settings.user = JsonConvert.DeserializeObject<User>(a);
+                Settings.user = JsonConvert.DeserializeObject<User>(raspuns);
                 return true;
             }
             return false;
