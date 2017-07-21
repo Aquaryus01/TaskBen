@@ -25,7 +25,9 @@ namespace TaskBen.UserControls
         public void Init_task(Todo task)
         {
             _task = task;
-            textLb.Text = _task.Description;
+            //this.BackColor;
+            titleLb.Text = _task.Title;
+            descriptionLb.Text = task.Description;
 
             if (_task.DateHours == "" || _task.DateHours == null)
             {
@@ -55,6 +57,18 @@ namespace TaskBen.UserControls
             {
                 checkBox.Checked = false;
             }
+
+
+            if (descriptionLb.Text != "")
+            {
+                this.Size = new Size(969, 100 + descriptionLb.Height);
+                descriptionLb.Location = new Point(45, 61);
+            }
+            else
+                this.Size = new Size(969, 100);
+
+            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -85,10 +99,25 @@ namespace TaskBen.UserControls
 
         }
 
-        private void panel7_Click(object sender, EventArgs e)
+        private void TaskForm_Click(object sender, EventArgs e)
         {
             Settings.task = _task;
             this.ParentForm.show_edit();
+        }
+
+        private void dateLb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descriptionLb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleLb_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

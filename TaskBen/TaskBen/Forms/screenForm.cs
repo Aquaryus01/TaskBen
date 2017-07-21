@@ -78,7 +78,6 @@ namespace TaskBen.Forms
         private void tehnicalAdjustment_newtaks()
         {
             createBtn.Visible = true;
-            hidePanel.Visible = false;
         }
         private bool getDataAccurate_task()
         {
@@ -86,7 +85,7 @@ namespace TaskBen.Forms
             int date_now_hour = DateTime.Now.Hour;
             int date_now_minute = DateTime.Now.Minute;
 
-            if (descriptionTB.Text == "")
+            if (titleTb.Text == "")
             {
                 MetroMessageBox.Show(this, "Please complete the Title!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -125,7 +124,7 @@ namespace TaskBen.Forms
         }
         private void animTimer_Tick(object sender, EventArgs e)
         {
-            if (addPanel.Height >= 417)
+            if (addPanel.Height >= 607)
                 animDownTimer.Enabled = false;
             else
                 addPanel.Height += 12;
@@ -152,12 +151,13 @@ namespace TaskBen.Forms
             InitializeComponent();
             time_initialization();
 
-            SubtitleLb.Text = (DateTime.Now.ToString("dd/MM/yyyy"));
-
             Settings.task.task_get_list();
             add_tasks_form();
             
             Every10second.Start();
+
+            int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
+            listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
         }
   
         private void animBtn_Click(object sender, EventArgs e)
@@ -193,6 +193,7 @@ namespace TaskBen.Forms
                     Settings.task.DateHours = dateHoursCB.Text;
                     Settings.task.DateMinutes = dateMinutesCB.Text;
                     Settings.task.Description = descriptionTB.Text;
+                    Settings.task.Title = titleTb.Text;
                 }
                 else if (timeCheck.Checked && !remCheck.Checked)
                 {
@@ -202,6 +203,7 @@ namespace TaskBen.Forms
                     Settings.task.DateHours = dateHoursCB.Text;
                     Settings.task.DateMinutes = dateMinutesCB.Text;
                     Settings.task.Description = descriptionTB.Text;
+                    Settings.task.Title = titleTb.Text;
                 }
                 else if (!timeCheck.Checked && remCheck.Checked)
                 {
@@ -211,7 +213,7 @@ namespace TaskBen.Forms
                     Settings.task.ReminderHours = remHoursCB.Text;
                     Settings.task.ReminderMinutes = remMinutesCB.Text;
                     Settings.task.Description = descriptionTB.Text;
-                    MessageBox.Show(Settings.task.ReminderMinutes);
+                    Settings.task.Title = titleTb.Text;
                 }
                 else if (!(timeCheck.Checked && remCheck.Checked))
                 {
@@ -219,13 +221,19 @@ namespace TaskBen.Forms
                     Settings.task.Date = toDoDateTime.Value.ToString("d");
                     Settings.task.Schedule = repeatCB.Text;
                     Settings.task.Description = descriptionTB.Text;
+                    Settings.task.Title = titleTb.Text;
                 }
                 Settings.taskList.Add(Settings.task);   //Add task in the list
-                Settings.task.add_web();   //Add task in the database
-                add_task_form(Settings.task);   //Add task in the screenForm
-                MetroMessageBox.Show(this, "You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                animUpTimer.Enabled = true;
-                animDownTimer.Enabled = false;
+                if (Settings.task.add_web())             //Add task in the database
+                {
+                    add_task_form(Settings.task);   //Add task in the screenForm
+                    MetroMessageBox.Show(this, "You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    animUpTimer.Enabled = true;
+                    animDownTimer.Enabled = false;
+
+                }
+
+
             }
         }
 
@@ -245,6 +253,7 @@ namespace TaskBen.Forms
                         Settings.task.DateHours = dateHoursCB.Text;
                         Settings.task.DateMinutes = dateMinutesCB.Text;
                         Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
                     }
                     else if (timeCheck.Checked && !remCheck.Checked)
                     {
@@ -254,6 +263,7 @@ namespace TaskBen.Forms
                         Settings.task.DateHours = dateHoursCB.Text;
                         Settings.task.DateMinutes = dateMinutesCB.Text;
                         Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
                     }
                     else if (!timeCheck.Checked && remCheck.Checked)
                     {
@@ -263,6 +273,7 @@ namespace TaskBen.Forms
                         Settings.task.ReminderHours = remHoursCB.Text;
                         Settings.task.ReminderMinutes = remMinutesCB.Text;
                         Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
                     }
                     else if (!(timeCheck.Checked && remCheck.Checked))
                     {
@@ -270,6 +281,7 @@ namespace TaskBen.Forms
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
                         Settings.task.Schedule = repeatCB.Text;
                         Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
                     }
 
                     Settings.task.Id = id;
@@ -289,10 +301,10 @@ namespace TaskBen.Forms
             TaskForm taskForm = new TaskForm();
             taskForm.Init_task(item);
 
-            taskForm.Location = new Point(Settings.poz_x, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+            taskForm.Location = new Point(Settings.poz_x-3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
             taskForm.AutoScroll = true;
             taskForm.ParentForm = this;
-            Settings.poz_y+= 58;
+            Settings.poz_y += taskForm.Height + 10;
 
             listPanel.Controls.Add(taskForm);
         }
@@ -308,10 +320,10 @@ namespace TaskBen.Forms
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(Settings.poz_x, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+                    taskForm.Location = new Point(Settings.poz_x-3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
                     taskForm.AutoScroll = true;
                     taskForm.ParentForm = this;
-                    Settings.poz_y += 58;
+                    Settings.poz_y += taskForm.Height + 10;
 
                     listPanel.Controls.Add(taskForm);
                 }
@@ -331,12 +343,12 @@ namespace TaskBen.Forms
             dateHoursCB.Text = Settings.task.DateHours;
             dateMinutesCB.Text = Settings.task.DateMinutes;
             descriptionTB.Text = Settings.task.Description;
+            titleTb.Text = Settings.task.Title;
         }
 
         public void edit_task_settings()
         {
             createBtn.Visible = false;
-            hidePanel.Visible = true;
             animUpTimer.Enabled = false;
             animDownTimer.Enabled = true;
 
@@ -381,6 +393,66 @@ namespace TaskBen.Forms
         private void Every1minute_Tick(object sender, EventArgs e)
         {
             a.verify_time();
+        }
+
+        private void taskForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

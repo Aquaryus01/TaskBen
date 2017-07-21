@@ -51,8 +51,11 @@ namespace TaskBen.Class
             //MessageBox.Show(a);
             if (a.IndexOf("Error") != -1)
             {
-                dynamic d = JsonConvert.DeserializeObject<dynamic>(a);
                 MetroMessageBox.Show(new loginForm(), "The username and password didn't match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(a=="")
+            {
+
             }
             else
             {

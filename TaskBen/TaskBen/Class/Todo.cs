@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using MetroFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TaskBen.Forms;
 
 namespace TaskBen.Class
 {
@@ -18,6 +20,7 @@ namespace TaskBen.Class
         private string _remMM;
         private string _repeat;
         private string _description;
+        private string _title;
         private int _checked;
 
         public void clear()
@@ -30,6 +33,7 @@ namespace TaskBen.Class
              _remMM = "";
             _repeat = "";
             _description = "";
+            _title = "";
             _checked = 0;
         }
 
@@ -38,6 +42,13 @@ namespace TaskBen.Class
             set { _date = value; }
             get { return _date; }
         }
+
+        public string Title
+        {
+            set { _title = value; }
+            get { return _title; }
+        }
+
         public int Checked
         {
             set { _checked = value; }
@@ -100,10 +111,11 @@ namespace TaskBen.Class
 
         }
        
-        public void add_web()
+        public bool add_web()
         {
             Dictionary<string, string> json = new Dictionary<string, string>();
             json.Add("description", _description);
+            json.Add("title", _title);
             json.Add("idUser", Settings.user.ID.ToString());
             json.Add("api", Settings.user.Api.ToString());
             json.Add("date", _date);
@@ -115,13 +127,24 @@ namespace TaskBen.Class
             json.Add("checked", _checked.ToString());
             json.Add("action", "add_task");
             string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
-            _id = Convert.ToInt32(rasp);
+
+            try
+            {
+                _id = Convert.ToInt32(rasp);
+                return true;
+            }
+            catch
+            {
+                MetroMessageBox.Show(new screenForm(), "The description is corrupted!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public void update_web()
         {
             Dictionary<string, string> json = new Dictionary<string, string>();
             json.Add("description", _description);
+            json.Add("title", _title);
             json.Add("idUser", Settings.user.ID.ToString());
             json.Add("id", _id.ToString());
             json.Add("api", Settings.user.Api.ToString());

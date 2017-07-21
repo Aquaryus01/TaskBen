@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MetroFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,17 @@ namespace TaskBen
         {
             using (WebClient wc = new WebClient())
             {
-                wc.Headers[HttpRequestHeader.ContentType] = "application/json";
-                return wc.UploadString(URI, json);
+                try
+                {
+                    wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    return wc.UploadString(URI, json);
+                }
+                catch (Exception e)
+                {
+                    MetroMessageBox.Show(new loginForm(), e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "";
+                    //Console.WriteLine("{0} Exception caught.", e);
+                }
             }
         }
 
@@ -27,8 +37,15 @@ namespace TaskBen
         {
             using (WebClient wc = new WebClient())
             {
-                wc.Headers[HttpRequestHeader.ContentType] = "application/json";
-                wc.UploadString(URI, json);
+                try
+                {
+                    wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    wc.UploadString(URI, json);
+                }
+                catch (Exception e)
+                {
+                    MetroMessageBox.Show(new loginForm(), e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -103,7 +103,6 @@ C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\M
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\MySql.Data.dll
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.loginForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.registerForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.ReminderForm.resources
@@ -112,3 +111,4 @@ C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\T
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.TaskForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.TaskReminderForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache
