@@ -105,7 +105,7 @@
             this.addPanel.Controls.Add(this.editBtn);
             this.addPanel.Location = new System.Drawing.Point(199, 188);
             this.addPanel.Name = "addPanel";
-            this.addPanel.Size = new System.Drawing.Size(993, 0);
+            this.addPanel.Size = new System.Drawing.Size(993, 500);
             this.addPanel.TabIndex = 7;
             // 
             // titleTb
@@ -164,6 +164,7 @@
             this.remCheck.TabIndex = 33;
             this.remCheck.Text = "Add Reminder";
             this.remCheck.UseSelectable = true;
+            this.remCheck.CheckedChanged += new System.EventHandler(this.remCheck_CheckedChanged);
             // 
             // timeCheck
             // 
@@ -174,6 +175,7 @@
             this.timeCheck.TabIndex = 32;
             this.timeCheck.Text = "Add Time";
             this.timeCheck.UseSelectable = true;
+            this.timeCheck.CheckedChanged += new System.EventHandler(this.timeCheck_CheckedChanged);
             // 
             // dateHoursCB
             // 
@@ -288,7 +290,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
