@@ -117,7 +117,6 @@ namespace TaskBen.Class
             json.Add("description", _description);
             json.Add("title", _title);
             json.Add("idUser", Settings.user.ID.ToString());
-            json.Add("api", Settings.user.Api.ToString());
             json.Add("date", _date);
             json.Add("dateHours", _dateHH);
             json.Add("dateMinutes", _dateMM);
@@ -147,7 +146,6 @@ namespace TaskBen.Class
             json.Add("title", _title);
             json.Add("idUser", Settings.user.ID.ToString());
             json.Add("id", _id.ToString());
-            json.Add("api", Settings.user.Api.ToString());
             json.Add("date", _date);
             json.Add("dateHours", _dateHH);
             json.Add("dateMinutes", _dateMM);

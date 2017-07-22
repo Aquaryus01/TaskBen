@@ -15,8 +15,7 @@ namespace TaskBen.Class
 {
     public class User
     {
-        private string api;
-        private int Id;
+        private int _Id;
         private string _FirstName;
         private string _LastName;
         private string _Email;
@@ -52,7 +51,22 @@ namespace TaskBen.Class
             json.Add("action", "login");
 
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
-            dynamic d = JsonConvert.DeserializeObject<dynamic>(raspuns);
+            json = JsonConvert.DeserializeObject<Dictionary<string,string>>(raspuns);
+
+            if (json["Error"].ToString() == "")
+            {
+                Settings.user.Email = json["Email"].ToString();
+                Settings.user._Id = Convert.ToInt32(json["Id"].ToString());
+                Settings.user.LastName = json["LastName"].ToString();
+                Settings.user.FirstName = json["FirstName"].ToString();
+                Settings.jwt_token = json["Jwt"].ToString();
+                return true;
+            }
+            else
+                MetroMessageBox.Show(new loginForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+
+            /*dynamic d = JsonConvert.DeserializeObject<dynamic>(raspuns);
             //MessageBox.Show(a);
             if (raspuns.IndexOf("Error") != -1)
             {
@@ -68,19 +82,13 @@ namespace TaskBen.Class
                 Settings.user = JsonConvert.DeserializeObject<User>(raspuns);
                 return true;
             }
-            return false;
-        }
-
-        public string Api
-        {
-            set { api = value; }
-            get { return api; }
+            return false;*/
         }
 
         public int ID
         {
-            set { Id = value; }
-            get { return Id; }
+            set { _Id = value; }
+            get { return _Id; }
         }
 
         public string FirstName

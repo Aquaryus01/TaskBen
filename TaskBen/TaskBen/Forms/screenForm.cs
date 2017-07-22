@@ -16,8 +16,8 @@ namespace TaskBen.Forms
 {
     public partial class screenForm : MetroFramework.Forms.MetroForm
     {
-        ReminderForm a = new ReminderForm();
-
+        ReminderForm remForm = new ReminderForm();
+        LoadingForm loadForm = new LoadingForm();
         ///Settings
         private void Hour_initialization()
         {
@@ -145,9 +145,13 @@ namespace TaskBen.Forms
         }
         ///Settings
 
+        private void screenForm_Shown(object sender, EventArgs e)
+        {
+
+        }
+
         public screenForm()
         {
-            /////VERIFICA INCA O DATA!!!!!
             InitializeComponent();
             time_initialization();
 
@@ -158,6 +162,10 @@ namespace TaskBen.Forms
 
             int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
             listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
+
+            panel1.BackgroundImage = Properties.Resources.backcolor_top;
+            panel3.BackgroundImage = Properties.Resources.backcolor_top;
+            
         }
   
         private void animBtn_Click(object sender, EventArgs e)
@@ -392,12 +400,12 @@ namespace TaskBen.Forms
         }
         private void Every1minute_Tick(object sender, EventArgs e)
         {
-            a.verify_time();
+            remForm.verify_time();
         }
 
         private void taskForm1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -452,7 +460,9 @@ namespace TaskBen.Forms
 
         private void listPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
+
+
     }
 }

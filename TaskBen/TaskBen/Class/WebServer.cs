@@ -22,6 +22,7 @@ namespace TaskBen
                 try
                 {
                     wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    wc.Headers.Add("Authentification-JWT", Settings.jwt_token);
                     return wc.UploadString(URI, json);
                 }
                 catch (Exception e)
@@ -40,6 +41,7 @@ namespace TaskBen
                 try
                 {
                     wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    wc.Headers.Add("Authentification-JWT", Settings.jwt_token);
                     wc.UploadString(URI, json);
                 }
                 catch (Exception e)

@@ -94,5 +94,10 @@ namespace TaskBen.Forms
         {
             user.LastName = surrTb.Text;
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

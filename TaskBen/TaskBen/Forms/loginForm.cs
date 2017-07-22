@@ -59,7 +59,9 @@ namespace TaskBen
                 this.Hide();
                 screenForm form2 = new screenForm();
                 form2.Closed += (s, args) => this.Close();
+                form2.Visible = false;
                 form2.Show();
+
             }
         }
 
