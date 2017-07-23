@@ -26,10 +26,9 @@ namespace TaskBen.Class
         {
             json = new Dictionary<string, string>();
             json.Add("email", Email);
-            json.Add("password", Password);
+            json.Add("password", BCrypt.Net.BCrypt.HashPassword(Password));
             json.Add("firstname", FirstName);
             json.Add("lastname", LastName);
-            
         }
 
         public bool register()
@@ -41,13 +40,16 @@ namespace TaskBen.Class
             if (raspuns == "")
                 return true;
             else
-                MetroMessageBox.Show(new loginForm(), raspuns, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MetroMessageBox.Show(new loginForm(), raspuns, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(raspuns);
             return false;
         }
 
         public bool login()
         {
-            compress_data();
+            json = new Dictionary<string, string>();
+            json.Add("email", Email);
+            json.Add("password", Password);
             json.Add("action", "login");
 
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
@@ -64,6 +66,7 @@ namespace TaskBen.Class
             }
             else
                 MetroMessageBox.Show(new loginForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             return false;
 
             /*dynamic d = JsonConvert.DeserializeObject<dynamic>(raspuns);

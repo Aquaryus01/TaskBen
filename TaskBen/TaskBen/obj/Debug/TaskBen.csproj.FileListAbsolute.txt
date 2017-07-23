@@ -113,3 +113,6 @@ C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\T
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csprojResolveAssemblyReference.cache
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.LoadingForm.resources
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\BCrypt.Net.dll
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\BCrypt.Net.pdb
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\bin\Debug\BCrypt.Net.xml
