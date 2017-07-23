@@ -15,7 +15,6 @@ namespace TaskBen.Class
         public static List<Todo> taskList = new List<Todo>();
         public static int poz_x = 0;
         public static int poz_y = 0;
-        public static LoadingForm loadingForm = new LoadingForm();
         public static string jwt_token { get; set; }
 
         public static void new_instance_taks()

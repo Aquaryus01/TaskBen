@@ -17,7 +17,6 @@ namespace TaskBen.Forms
     public partial class screenForm : MetroFramework.Forms.MetroForm
     {
         ReminderForm remForm = new ReminderForm();
-        LoadingForm loadForm = new LoadingForm();
         ///Settings
         private void Hour_initialization()
         {
@@ -158,13 +157,10 @@ namespace TaskBen.Forms
             Settings.task.task_get_list();
             add_tasks_form();
             
-            Every10second.Start();
+            Every1minute.Start();
 
             int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
             listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-
-            panel1.BackgroundImage = Properties.Resources.backcolor_top;
-            panel3.BackgroundImage = Properties.Resources.backcolor_top;
             
         }
   
@@ -461,6 +457,13 @@ namespace TaskBen.Forms
         private void listPanel_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DashboardForm dashboardForm = new DashboardForm();
+            panel_etc.Height = 607;
+            panel_etc.Controls.Add(dashboardForm);
         }
 
 

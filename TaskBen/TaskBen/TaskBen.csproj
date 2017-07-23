@@ -72,12 +72,6 @@
     <Compile Include="Class\Todo.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\WebServer.cs" />
-    <Compile Include="Forms\LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +101,12 @@
       </SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\DashboardForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TaskForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,9 +119,6 @@
     <Compile Include="UserControls\TaskReminderForm.Designer.cs">
       <DependentUpon>TaskReminderForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\LoadingForm.resx">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>

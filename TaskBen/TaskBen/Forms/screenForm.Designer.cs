@@ -59,7 +59,9 @@
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Every10second = new System.Windows.Forms.Timer(this.components);
+            this.Every1minute = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel_etc = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -70,13 +72,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panel_etc);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.addPanel);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.listPanel);
             this.panel1.Location = new System.Drawing.Point(0, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1190, 607);
+            this.panel1.Size = new System.Drawing.Size(1193, 607);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -288,7 +292,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
@@ -348,7 +352,8 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.metroTextBox1);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -427,10 +432,33 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // Every10second
+            // Every1minute
             // 
-            this.Every10second.Interval = 5000;
-            this.Every10second.Tick += new System.EventHandler(this.Every1minute_Tick);
+            this.Every1minute.Interval = 60000;
+            this.Every1minute.Tick += new System.EventHandler(this.Every1minute_Tick);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(199, 45);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Dashboard";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel_etc
+            // 
+            this.panel_etc.Location = new System.Drawing.Point(199, 0);
+            this.panel_etc.Name = "panel_etc";
+            this.panel_etc.Size = new System.Drawing.Size(993, 0);
+            this.panel_etc.TabIndex = 21;
             // 
             // screenForm
             // 
@@ -460,7 +488,7 @@
         private System.Windows.Forms.Timer animUpTimer;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Timer Every10second;
+        private System.Windows.Forms.Timer Every1minute;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button backBtn;
         private MetroFramework.Controls.MetroCheckBox remCheck;
@@ -484,6 +512,8 @@
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel_etc;
 
     }
 }
