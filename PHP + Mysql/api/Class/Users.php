@@ -13,9 +13,9 @@ class Users {
     function register($data)
     {
       $this->email = $data['email'];
-			$this->password = $data['password'];
-			$this->lastname =  $data['lastname'];
-			$this->firstname = $data['firstname'];
+	  $this->password = $data['password'];
+	  $this->lastname =  $data['lastname'];
+	  $this->firstname = $data['firstname'];
       $emparray = array();
 
       try{
@@ -47,6 +47,32 @@ class Users {
       else
         echo $emparray["Error"];
     }
+	
+	function update($data)
+	{
+		$emparray = array();
+		$emparray["Error"] = "";
+		$this->email = $data['email'];
+		$this->lastname =  $data['lastname'];
+		$this->firstname = $data['firstname'];
+		try{
+			
+			$query = "UPDATE users SET Email = ?, LastName = ?, FirstName = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param('sss',$this->email,$this->firstname,$this->lastname);
+            $stmt->execute();
+		}
+		catch (Exception $e) {
+          $emparray["Error"] = "$e->getMessage()";
+        }
+		
+		$result =  json_encode($emparray);
+		echo $result;
+        /*if($emparray["Error"] == "")
+          echo "";
+        else
+          echo json_encode($emparray, JSON_PRETTY_PRINT);*/
+	}
 
     function login($data)
     {
