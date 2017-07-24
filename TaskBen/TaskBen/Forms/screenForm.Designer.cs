@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_etc = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.addPanel = new System.Windows.Forms.Panel();
             this.titleTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,8 +62,7 @@
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Every1minute = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel_etc = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -72,6 +73,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel_etc);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.addPanel);
@@ -83,6 +85,29 @@
             this.panel1.Size = new System.Drawing.Size(1193, 607);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel_etc
+            // 
+            this.panel_etc.Location = new System.Drawing.Point(199, 0);
+            this.panel_etc.Name = "panel_etc";
+            this.panel_etc.Size = new System.Drawing.Size(993, 0);
+            this.panel_etc.TabIndex = 21;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(199, 45);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Dashboard";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addPanel
             // 
@@ -292,7 +317,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
@@ -437,28 +462,21 @@
             this.Every1minute.Interval = 60000;
             this.Every1minute.Tick += new System.EventHandler(this.Every1minute_Tick);
             // 
-            // button2
+            // button1
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 45);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Dashboard";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // panel_etc
-            // 
-            this.panel_etc.Location = new System.Drawing.Point(199, 0);
-            this.panel_etc.Name = "panel_etc";
-            this.panel_etc.Size = new System.Drawing.Size(993, 0);
-            this.panel_etc.TabIndex = 21;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 45);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Dashboard";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // screenForm
             // 
@@ -514,6 +532,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel_etc;
+        private System.Windows.Forms.Button button1;
 
     }
 }

@@ -17,6 +17,8 @@ namespace TaskBen.Forms
     public partial class screenForm : MetroFramework.Forms.MetroForm
     {
         ReminderForm remForm = new ReminderForm();
+        DashboardForm dashboardForm = new DashboardForm();
+
         ///Settings
         private void Hour_initialization()
         {
@@ -156,6 +158,7 @@ namespace TaskBen.Forms
 
             Settings.task.task_get_list();
             add_tasks_form();
+            panel_etc.Controls.Add(dashboardForm);
             
             Every1minute.Start();
 
@@ -461,9 +464,14 @@ namespace TaskBen.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DashboardForm dashboardForm = new DashboardForm();
+            
             panel_etc.Height = 607;
-            panel_etc.Controls.Add(dashboardForm);
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            panel_etc.Height = 0;
         }
 
 
