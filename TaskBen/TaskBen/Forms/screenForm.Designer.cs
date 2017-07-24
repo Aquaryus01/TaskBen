@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_etc = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.addPanel = new System.Windows.Forms.Panel();
@@ -62,7 +63,6 @@
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Every1minute = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -85,6 +85,22 @@
             this.panel1.Size = new System.Drawing.Size(1193, 607);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 45);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Curent Day";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel_etc
             // 
@@ -317,7 +333,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
@@ -461,22 +477,6 @@
             // 
             this.Every1minute.Interval = 60000;
             this.Every1minute.Tick += new System.EventHandler(this.Every1minute_Tick);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 45);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Dashboard";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // screenForm
             // 

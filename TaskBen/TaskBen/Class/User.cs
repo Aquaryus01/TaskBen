@@ -35,13 +35,36 @@ namespace TaskBen.Class
         {
             compress_data();
             json.Add("action", "register");
-            
+
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
             if (raspuns == "")
                 return true;
             else
                 //MetroMessageBox.Show(new loginForm(), raspuns, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show(raspuns);
+            return false;
+        }
+
+        public bool update_user()
+        {
+            json = new Dictionary<string, string>();
+            json.Add("email", Email);
+            json.Add("firstname", FirstName);
+            json.Add("lastname", LastName);
+            json.Add("action", "update_user");
+
+            string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
+            json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
+
+            if (json["Error"].ToString() == "")
+            {
+                MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return false;
         }
 
@@ -53,7 +76,7 @@ namespace TaskBen.Class
             json.Add("action", "login");
 
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
-            json = JsonConvert.DeserializeObject<Dictionary<string,string>>(raspuns);
+            json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
 
             if (json["Error"].ToString() == "")
             {
@@ -66,7 +89,7 @@ namespace TaskBen.Class
             }
             else
                 MetroMessageBox.Show(new loginForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             return false;
 
             /*dynamic d = JsonConvert.DeserializeObject<dynamic>(raspuns);

@@ -17,13 +17,17 @@ namespace TaskBen.UserControls
         {
             InitializeComponent();
             round_image();
+            init_data();
 
+        }
+
+        private void init_data()
+        {
             fullnameLb.Text = Settings.user.FirstName + " " + Settings.user.LastName;
             emailLb.Text = Settings.user.Email;
             firstNameTb.Text = Settings.user.FirstName;
             lastNameTb.Text = Settings.user.LastName;
             emailTb.Text = Settings.user.Email;
-
         }
 
         private void round_image()
@@ -36,7 +40,11 @@ namespace TaskBen.UserControls
 
         private void editdataBtn_Click(object sender, EventArgs e)
         {
-
+            Settings.user.FirstName = firstNameTb.Text;
+            Settings.user.LastName = lastNameTb.Text;
+            Settings.user.Email = emailTb.Text;
+            if (Settings.user.update_user())
+                init_data();
         }
 
         private void editpassBtn_Click(object sender, EventArgs e)
