@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fullnameLb = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.oldpassTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,10 +65,12 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(63, 40);
             this.pictureBox1.Name = "pictureBox1";
@@ -78,11 +82,11 @@
             // fullnameLb
             // 
             this.fullnameLb.AutoSize = true;
-            this.fullnameLb.Font = new System.Drawing.Font("Arctik 1.5", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullnameLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullnameLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fullnameLb.Location = new System.Drawing.Point(270, 121);
             this.fullnameLb.Name = "fullnameLb";
-            this.fullnameLb.Size = new System.Drawing.Size(0, 37);
+            this.fullnameLb.Size = new System.Drawing.Size(0, 39);
             this.fullnameLb.TabIndex = 2;
             // 
             // panel1
@@ -122,11 +126,11 @@
             // emailLb
             // 
             this.emailLb.AutoSize = true;
-            this.emailLb.Font = new System.Drawing.Font("Arctik 1.5", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.emailLb.Location = new System.Drawing.Point(274, 162);
             this.emailLb.Name = "emailLb";
-            this.emailLb.Size = new System.Drawing.Size(0, 18);
+            this.emailLb.Size = new System.Drawing.Size(0, 20);
             this.emailLb.TabIndex = 3;
             // 
             // label3
@@ -204,6 +208,7 @@
             this.emailTb.Name = "emailTb";
             this.emailTb.Size = new System.Drawing.Size(284, 23);
             this.emailTb.TabIndex = 8;
+            this.emailTb.TextChanged += new System.EventHandler(this.emailTb_TextChanged);
             // 
             // panel5
             // 
@@ -228,7 +233,7 @@
             // 
             // editdataBtn
             // 
-            this.editdataBtn.BackColor = System.Drawing.Color.DarkGreen;
+            this.editdataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.editdataBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.editdataBtn.FlatAppearance.BorderSize = 0;
             this.editdataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -246,17 +251,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(61, 199);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 20);
+            this.label6.Size = new System.Drawing.Size(95, 20);
             this.label6.TabIndex = 6;
             this.label6.Text = "About you:";
             // 
             // editpassBtn
             // 
-            this.editpassBtn.BackColor = System.Drawing.Color.DarkGreen;
+            this.editpassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.editpassBtn.Enabled = false;
             this.editpassBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.editpassBtn.FlatAppearance.BorderSize = 0;
             this.editpassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -284,6 +290,7 @@
             // newpassTb
             // 
             this.newpassTb.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.newpassTb.Enabled = false;
             this.newpassTb.Font = new System.Drawing.Font("Arial", 10F);
             this.newpassTb.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.newpassTb.Location = new System.Drawing.Point(187, 9);
@@ -317,6 +324,7 @@
             // oldpassTb
             // 
             this.oldpassTb.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.oldpassTb.Enabled = false;
             this.oldpassTb.Font = new System.Drawing.Font("Arial", 10F);
             this.oldpassTb.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.oldpassTb.Location = new System.Drawing.Point(187, 11);
@@ -341,13 +349,17 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(59, 379);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 20);
+            this.label10.Size = new System.Drawing.Size(158, 20);
             this.label10.TabIndex = 34;
             this.label10.Text = "Change Password:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // DashboardForm
             // 
@@ -379,6 +391,7 @@
             this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +424,6 @@
         private System.Windows.Forms.TextBox oldpassTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

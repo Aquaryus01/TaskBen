@@ -21,7 +21,5 @@ namespace TaskBen.Class
         {
             task = new Todo();
         }
-
-        
     }
 }

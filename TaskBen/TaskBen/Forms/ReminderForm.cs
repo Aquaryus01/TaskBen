@@ -12,9 +12,9 @@ using TaskBen.Class;
 
 namespace TaskBen.Forms
 {
-    public partial class ReminderForm : MetroFramework.Forms.MetroForm
+    public partial class reminderForm : MetroFramework.Forms.MetroForm
     {
-        public ReminderForm()
+        public reminderForm()
         {
             InitializeComponent();
         }
@@ -50,6 +50,11 @@ namespace TaskBen.Forms
         {
             this.Hide();
             sound.Stop();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

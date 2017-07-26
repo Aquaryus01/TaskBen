@@ -48,7 +48,7 @@ namespace TaskBen.UserControls
             }
 
             periodLb.Text = _task.Schedule;
-
+            
             if (_task.Checked == 1)
             {
                 checkBox.Checked = true;
@@ -67,7 +67,7 @@ namespace TaskBen.UserControls
             else
                 this.Size = new Size(969, 100);
 
-
+            
 
         }
 
@@ -80,29 +80,29 @@ namespace TaskBen.UserControls
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox.Checked)
+            if(checkBox.Checked)
             {
                 _task.Checked = 1;
-                titleLb.Font = new Font(titleLb.Font, FontStyle.Strikeout);
-            }
+				titleLb.Font = new Font(titleLb.Font, FontStyle.Strikeout);
+			}
             else
             {
                 _task.Checked = 0;
-                titleLb.Font = new Font(titleLb.Font, FontStyle.Regular);
-            }
+				titleLb.Font = new Font(titleLb.Font, FontStyle.Regular);
+			}
 
             Settings.task = _task;
             Settings.task.update_web();
 
+			
 
 
-
-        }
+		}
 
         private void TaskForm_Click(object sender, EventArgs e)
         {

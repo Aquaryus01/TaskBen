@@ -186,7 +186,7 @@
             this.passTb.Location = new System.Drawing.Point(392, 296);
             this.passTb.MaxLength = 32767;
             this.passTb.Name = "passTb";
-            this.passTb.PasswordChar = '\0';
+            this.passTb.PasswordChar = '●';
             this.passTb.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.passTb.SelectedText = "";
             this.passTb.SelectionLength = 0;
@@ -195,6 +195,7 @@
             this.passTb.Size = new System.Drawing.Size(187, 23);
             this.passTb.TabIndex = 10;
             this.passTb.UseSelectable = true;
+            this.passTb.UseSystemPasswordChar = true;
             this.passTb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passTb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.passTb.TextChanged += new System.EventHandler(this.passTb_TextChanged);

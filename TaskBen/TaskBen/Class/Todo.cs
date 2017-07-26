@@ -107,8 +107,40 @@ namespace TaskBen.Class
             string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
 
             if (list_todo != "")
-                Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+                try
+                {
+                    Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+                }
+                catch
+                {
+                    MessageBox.Show(list_todo);
+                }
+        }
 
+        public void task_get_list(string x)
+        {
+            if (x == "")
+            {
+                task_get_list();
+            }
+            else
+            {
+                Dictionary<string, string> json = new Dictionary<string, string>();
+                json.Add("words", x);
+                json.Add("action", "get_tasks_words");
+
+                string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
+
+                if (list_todo != "")
+                    try
+                    {
+                        Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+                    }
+                    catch
+                    {
+                        MessageBox.Show(list_todo);
+                    }
+            }
         }
        
         public bool add_web()

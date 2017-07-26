@@ -8,6 +8,7 @@
 
 	if ( $_SERVER['REQUEST_METHOD'] === 'POST')
 	{
+
 			$postData = file_get_contents('php://input');
 			$data = json_decode($postData, true);
 			$method = $data['action'];
@@ -55,10 +56,29 @@
 					case "update_task":
 						if(JWT::verify($api_key))
 						{
-								include_once("Class/tasks.php");
-								$task = new Tasks();
-								$task->update($data);
-								break;
+							include_once("Class/tasks.php");
+							$task = new Tasks();
+							$task->update($data);
+							break;
+						}
+
+					case "update_user":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/Users.php");
+							$data["Id"] = JWT::id($api_key);
+							$user = new Users();
+							$user->update($data);
+							break;
+						}
+					case "get_tasks_words":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/tasks.php");
+							$data["idUser"] = JWT::id($api_key);
+							$task = new Tasks();
+							$task->get_tasks_words($data);
+							break;
 						}
 			}
 	}

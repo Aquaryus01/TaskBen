@@ -30,6 +30,12 @@ class JWT
 	 */
 	public static $key = "Benq99_NoUa";
 
+	public static function id($new_token)
+	{
+			$token = JWT::decode($new_token, JWT::$key);
+			if(isset($token->id))
+				return $token->id;
+	}
 
 	public static function verify($new_token)
 	{

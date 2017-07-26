@@ -4,6 +4,7 @@ class Users {
     private $passsord;
     private $lastname;
     private $firstname;
+    private $id;
     private $conn;
 
     function __construct() {
@@ -13,9 +14,9 @@ class Users {
     function register($data)
     {
       $this->email = $data['email'];
-	  $this->password = $data['password'];
-	  $this->lastname =  $data['lastname'];
-	  $this->firstname = $data['firstname'];
+	    $this->password = $data['password'];
+	    $this->lastname =  $data['lastname'];
+	    $this->firstname = $data['firstname'];
       $emparray = array();
 
       try{
@@ -47,32 +48,47 @@ class Users {
       else
         echo $emparray["Error"];
     }
-	
-	function update($data)
-	{
-		$emparray = array();
-		$emparray["Error"] = "";
-		$this->email = $data['email'];
-		$this->lastname =  $data['lastname'];
-		$this->firstname = $data['firstname'];
-		try{
-			
-			$query = "UPDATE users SET Email = ?, LastName = ?, FirstName = ?";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bind_param('sss',$this->email,$this->firstname,$this->lastname);
-            $stmt->execute();
-		}
-		catch (Exception $e) {
+
+  	function update($data)
+  	{
+  		$emparray = array();
+  		$emparray["Error"] = "";
+  		$this->email = $data['email'];
+  		$this->lastname =  $data['lastname'];
+  		$this->firstname = $data['firstname'];
+      $this->id = $data['Id'];
+
+      try{
+        $query = 'SELECT * FROM users WHERE Email = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('s', $this->email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+      }catch (Exception $e) {
           $emparray["Error"] = "$e->getMessage()";
         }
-		
-		$result =  json_encode($emparray);
-		echo $result;
-        /*if($emparray["Error"] == "")
-          echo "";
-        else
-          echo json_encode($emparray, JSON_PRETTY_PRINT);*/
-	}
+
+      if(mysqli_num_rows($result)==0)
+      {
+    		try{
+    			$query = "UPDATE users SET Email = ?, LastName = ?, FirstName = ? WHERE Id = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param('sssi',$this->email,$this->lastname,$this->firstname,$this->id);
+          $stmt->execute();
+    		}
+    		catch (Exception $e) {
+              $emparray["Error"] = "$e->getMessage()";
+            }
+
+
+      }
+      else {
+          $emparray["Error"] = "Email already taken!";
+      }
+
+      $result =  json_encode($emparray);
+      echo $result;
+  	}
 
     function login($data)
     {
@@ -96,31 +112,21 @@ class Users {
       $ok = 0;
       while($row =mysqli_fetch_assoc($result))
       {
-          $emparray = $row;
-          if(Bcrypt::checkPassword($this->password, $emparray["Password"]))
+          if(Bcrypt::checkPassword($this->password, $row["Password"]) && $this->email==$row["Email"])
           {
-              if($this->email==$emparray["Email"])
-              {
+                $emparray = $row;
                 $ok = 1;
                 break;
-              }
           }
       }
       //if(mysqli_num_rows($result)==1)
       if($ok==1)
       {
           try{
-
-            while($row =mysqli_fetch_assoc($result))
-                $emparray = $row;
-
             $token = array();
         		$token['id'] = $emparray["Id"];
         		$emparray["Jwt"] = JWT::encode($token, JWT::$key);
             $emparray["Error"] = "";
-
-
-
           }catch (Exception $e) {
               $emparray["Error"] = "$e->getMessage()";
             }

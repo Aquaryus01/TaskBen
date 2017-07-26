@@ -1,6 +1,6 @@
 ﻿namespace TaskBen.Forms
 {
-    partial class ReminderForm
+    partial class reminderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -46,6 +46,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(965, 100);
             this.panel7.TabIndex = 14;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // okBtn
             // 

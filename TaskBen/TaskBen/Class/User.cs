@@ -20,14 +20,15 @@ namespace TaskBen.Class
         private string _LastName;
         private string _Email;
         private string _Password;
+        private string _newPassword;
         Dictionary<string, string> json;
 
         public void compress_data()
         {
             json = new Dictionary<string, string>();
             json.Add("email", Email);
-            json.Add("password", BCrypt.Net.BCrypt.HashPassword(Password));
-            json.Add("firstname", FirstName);
+			json.Add("password", BCrypt.Net.BCrypt.HashPassword(Password));
+			json.Add("firstname", FirstName);
             json.Add("lastname", LastName);
         }
 
@@ -35,7 +36,7 @@ namespace TaskBen.Class
         {
             compress_data();
             json.Add("action", "register");
-
+            
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
             if (raspuns == "")
                 return true;
@@ -45,26 +46,53 @@ namespace TaskBen.Class
             return false;
         }
 
-        public bool update_user()
+		public bool update_user()
+		{
+			json = new Dictionary<string, string>();
+			json.Add("email", Email);
+			json.Add("firstname", FirstName);
+			json.Add("lastname", LastName);
+			json.Add("action", "update_user");
+
+			string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
+			json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
+
+			if (json["Error"].ToString() == "")
+			{
+				MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return true;
+			}
+			else
+			{
+				MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return false;
+		}
+
+        public bool update_password()
         {
             json = new Dictionary<string, string>();
-            json.Add("email", Email);
-            json.Add("firstname", FirstName);
-            json.Add("lastname", LastName);
-            json.Add("action", "update_user");
-
+            json.Add("newPassword", BCrypt.Net.BCrypt.HashPassword(NewPassword));
+            json.Add("oldPassword", BCrypt.Net.BCrypt.HashPassword(NewPassword));
+            json.Add("action", "update_password");
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
-            json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
 
-            if (json["Error"].ToString() == "")
-            {
-                MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+            try {
+                json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
+                if (json["Error"].ToString() == "")
+                {
+                    MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch{
+                MessageBox.Show(raspuns);
             }
+
             return false;
         }
 
@@ -76,19 +104,24 @@ namespace TaskBen.Class
             json.Add("action", "login");
 
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
-            json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
 
-            if (json["Error"].ToString() == "")
-            {
-                Settings.user.Email = json["Email"].ToString();
-                Settings.user._Id = Convert.ToInt32(json["Id"].ToString());
-                Settings.user.LastName = json["LastName"].ToString();
-                Settings.user.FirstName = json["FirstName"].ToString();
-                Settings.jwt_token = json["Jwt"].ToString();
-                return true;
+            try {
+                json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
+                if (json["Error"].ToString() == "")
+                {
+                    Settings.user.Email = json["Email"].ToString();
+                    Settings.user._Id = Convert.ToInt32(json["Id"].ToString());
+                    Settings.user.LastName = json["LastName"].ToString();
+                    Settings.user.FirstName = json["FirstName"].ToString();
+                    Settings.jwt_token = json["Jwt"].ToString();
+                    return true;
+                }
+                else
+                    MetroMessageBox.Show(new loginForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MetroMessageBox.Show(new loginForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch{
+                MessageBox.Show(raspuns);
+            }
 
             return false;
 
@@ -139,6 +172,12 @@ namespace TaskBen.Class
         {
             set { _Password = value; }
             get { return _Password; }
+        }
+
+        public string NewPassword
+        {
+            set { _newPassword = value; }
+            get { return _newPassword; }
         }
     }
 }

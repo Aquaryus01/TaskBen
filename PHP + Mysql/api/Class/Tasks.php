@@ -122,7 +122,40 @@ class Tasks {
         }else{
           echo "";
         }
+    }
 
+    function get_tasks_words($data)
+    {
+        $this->idUser = $data['idUser'];
+        $words = "%".$data['words']."%";
+        try{
+          $query = "SELECT * FROM tasks WHERE (title LIKE ? OR description LIKE ?) AND Id_user = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param('ssi',$words,$words,$this->idUser);
+          $stmt->execute();
+          $result = $stmt->get_result();
+
+        }catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+        try{
+            //echo "da";
+            //print_r($result);
+            while($row = mysqli_fetch_assoc($result))
+            {
+
+                $emparray[] = $row;
+            }
+        }catch (Exception $e) {
+              $emparray["Error"] = "$e->getMessage()";
+        }
+
+        if(isset($emparray)){
+          $result =  json_encode($emparray);
+          echo $result;
+        }else{
+          echo "";
+        }
     }
   }
 ?>

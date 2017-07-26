@@ -16,7 +16,7 @@ namespace TaskBen.Forms
 {
     public partial class screenForm : MetroFramework.Forms.MetroForm
     {
-        ReminderForm remForm = new ReminderForm();
+        reminderForm remForm = new reminderForm();
         DashboardForm dashboardForm = new DashboardForm();
 
         ///Settings
@@ -36,7 +36,7 @@ namespace TaskBen.Forms
             {
                 if (i < 10)
                 {
-                    string[] numbers = { "0" + i.ToString() };
+                    string[] numbers = {"0" + i.ToString() };
                     remMinutesCB.Items.AddRange(numbers);
                     dateMinutesCB.Items.AddRange(numbers);
                 }
@@ -58,7 +58,7 @@ namespace TaskBen.Forms
                 }
                 else
                 {
-                    string[] numbers = { i.ToString() };
+                    string[] numbers = {i.ToString() };
                     remHoursCB.Items.AddRange(numbers);
                     dateHoursCB.Items.AddRange(numbers);
                 }
@@ -96,8 +96,8 @@ namespace TaskBen.Forms
                 MetroMessageBox.Show(this, "The date you have chosen has already passed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (timeCheck.Checked)
-            {
+            else if(timeCheck.Checked)
+            { 
                 if (((date_now_hour > Convert.ToInt32(dateHoursCB.Text) && date_comp == 0) || (date_now_hour == Convert.ToInt32(dateHoursCB.Text) && date_now_minute >= Convert.ToInt32(dateMinutesCB.Text) && date_comp == 0)))
                 {
                     MetroMessageBox.Show(this, "The Date Time is incorect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -159,17 +159,18 @@ namespace TaskBen.Forms
             Settings.task.task_get_list();
             add_tasks_form();
             panel_etc.Controls.Add(dashboardForm);
-
+            
             Every1minute.Start();
 
             int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
             listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-
+            
         }
-
+  
         private void animBtn_Click(object sender, EventArgs e)
         {
             //MAI VERIFICA
+            titleTb.Text = "";
             animUpTimer.Enabled = false;
             animDownTimer.Enabled = true;
             tehnicalAdjustment_newtaks();
@@ -250,55 +251,55 @@ namespace TaskBen.Forms
             Settings.task.clear();
             if (getDataAccurate_task())
             {
-                if (timeCheck.Checked && remCheck.Checked)
-                {
-                    //all
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.ReminderHours = remHoursCB.Text;
-                    Settings.task.ReminderMinutes = remMinutesCB.Text;
-                    Settings.task.DateHours = dateHoursCB.Text;
-                    Settings.task.DateMinutes = dateMinutesCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
-                }
-                else if (timeCheck.Checked && !remCheck.Checked)
-                {
-                    //only time
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.DateHours = dateHoursCB.Text;
-                    Settings.task.DateMinutes = dateMinutesCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
-                }
-                else if (!timeCheck.Checked && remCheck.Checked)
-                {
-                    //onlt rem
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.ReminderHours = remHoursCB.Text;
-                    Settings.task.ReminderMinutes = remMinutesCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
-                }
-                else if (!(timeCheck.Checked && remCheck.Checked))
-                {
-                    //none
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
-                }
+                    if (timeCheck.Checked && remCheck.Checked)
+                    {
+                        //all
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinutesCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
+                    }
+                    else if (timeCheck.Checked && !remCheck.Checked)
+                    {
+                        //only time
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.DateHours = dateHoursCB.Text;
+                        Settings.task.DateMinutes = dateMinutesCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
+                    }
+                    else if (!timeCheck.Checked && remCheck.Checked)
+                    {
+                        //onlt rem
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.ReminderHours = remHoursCB.Text;
+                        Settings.task.ReminderMinutes = remMinutesCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
+                    }
+                    else if (!(timeCheck.Checked && remCheck.Checked))
+                    {
+                        //none
+                        Settings.task.Date = toDoDateTime.Value.ToString("d");
+                        Settings.task.Schedule = repeatCB.Text;
+                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Title = titleTb.Text;
+                    }
 
-                Settings.task.Id = id;
-                Settings.taskList = new List<Todo>();
-                Settings.task.update_web();
-                Settings.task.task_get_list();
-                add_tasks_form();
-                MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                animUpTimer.Enabled = true;
-                animDownTimer.Enabled = false;
+                    Settings.task.Id = id;
+                    Settings.taskList = new List<Todo>();
+                    Settings.task.update_web();
+                    Settings.task.task_get_list();
+                    add_tasks_form();
+                    MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    animUpTimer.Enabled = true;
+                    animDownTimer.Enabled = false;
             }
         }
 
@@ -308,7 +309,7 @@ namespace TaskBen.Forms
             TaskForm taskForm = new TaskForm();
             taskForm.Init_task(item);
 
-            taskForm.Location = new Point(Settings.poz_x - 3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+            taskForm.Location = new Point(Settings.poz_x-3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
             taskForm.AutoScroll = true;
             taskForm.ParentForm = this;
             Settings.poz_y += taskForm.Height + 10;
@@ -319,22 +320,22 @@ namespace TaskBen.Forms
         public void add_tasks_form()
         {
             Settings.poz_y = 0;
-            listPanel.Controls.Clear();
+            listPanel.Controls.Clear(); 
 
-            if (Settings.taskList != null)
+            if(Settings.taskList != null)
                 foreach (Todo todo in Settings.taskList)
                 {
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(Settings.poz_x - 3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+                    taskForm.Location = new Point(Settings.poz_x-3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
                     taskForm.AutoScroll = true;
                     taskForm.ParentForm = this;
                     Settings.poz_y += taskForm.Height + 10;
 
                     listPanel.Controls.Add(taskForm);
                 }
-
+            
         }
 
         public void show_edit()
@@ -344,7 +345,7 @@ namespace TaskBen.Forms
             DateTime x = new DateTime();
             x = Convert.ToDateTime(Settings.task.Date);
             toDoDateTime.Value = x;
-            repeatCB.Text = Settings.task.Schedule;
+            repeatCB.Text =  Settings.task.Schedule;
             remHoursCB.Text = Settings.task.ReminderHours;
             remMinutesCB.Text = Settings.task.ReminderMinutes;
             dateHoursCB.Text = Settings.task.DateHours;
@@ -363,7 +364,7 @@ namespace TaskBen.Forms
 
         private void timeCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (timeCheck.Checked)
+            if(timeCheck.Checked)
             {
                 dateHoursCB.Enabled = true;
                 dateMinutesCB.Enabled = true;
@@ -404,7 +405,7 @@ namespace TaskBen.Forms
 
         private void taskForm1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -459,19 +460,26 @@ namespace TaskBen.Forms
 
         private void listPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
             panel_etc.Height = 607;
-
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             panel_etc.Height = 0;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Settings.taskList = new List<Todo>();
+            Settings.task.task_get_list(searchBarTb.Text);
+            add_tasks_form();
         }
 
 
