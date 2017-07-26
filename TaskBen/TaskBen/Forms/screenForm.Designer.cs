@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.animBtn = new System.Windows.Forms.Button();
             this.panel_etc = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.addPanel = new System.Windows.Forms.Panel();
             this.titleTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,56 +53,67 @@
             this.toDoDateTime = new MetroFramework.Controls.MetroDateTime();
             this.descriptionTB = new System.Windows.Forms.TextBox();
             this.editBtn = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.animBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.searchBarTb = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Every1minute = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.addPanel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.addPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel_etc);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.addPanel);
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.listPanel);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(0, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1191, 607);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button1
+            // panel4
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(110)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 45);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Curent Day";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel4.Controls.Add(this.animBtn);
+            this.panel4.Location = new System.Drawing.Point(199, 136);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(993, 69);
+            this.panel4.TabIndex = 16;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // animBtn
+            // 
+            this.animBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.animBtn.FlatAppearance.BorderSize = 0;
+            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.animBtn.Location = new System.Drawing.Point(19, 15);
+            this.animBtn.Name = "animBtn";
+            this.animBtn.Size = new System.Drawing.Size(173, 36);
+            this.animBtn.TabIndex = 10;
+            this.animBtn.Text = "Plan your next move!";
+            this.animBtn.UseVisualStyleBackColor = false;
+            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
             // 
             // panel_etc
             // 
@@ -110,22 +121,6 @@
             this.panel_etc.Name = "panel_etc";
             this.panel_etc.Size = new System.Drawing.Size(993, 0);
             this.panel_etc.TabIndex = 21;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 45);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Dashboard";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addPanel
             // 
@@ -148,7 +143,7 @@
             this.addPanel.Controls.Add(this.toDoDateTime);
             this.addPanel.Controls.Add(this.descriptionTB);
             this.addPanel.Controls.Add(this.editBtn);
-            this.addPanel.Location = new System.Drawing.Point(199, 188);
+            this.addPanel.Location = new System.Drawing.Point(199, 198);
             this.addPanel.Name = "addPanel";
             this.addPanel.Size = new System.Drawing.Size(993, 0);
             this.addPanel.TabIndex = 7;
@@ -186,7 +181,7 @@
             // 
             // backBtn
             // 
-            this.backBtn.BackColor = System.Drawing.Color.Maroon;
+            this.backBtn.BackColor = System.Drawing.Color.LightSeaGreen;
             this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -245,7 +240,7 @@
             // 
             // createBtn
             // 
-            this.createBtn.BackColor = System.Drawing.Color.DarkGreen;
+            this.createBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.createBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.createBtn.FlatAppearance.BorderSize = 0;
             this.createBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -364,48 +359,49 @@
             this.editBtn.UseVisualStyleBackColor = false;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // panel4
+            // button1
             // 
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel4.Controls.Add(this.animBtn);
-            this.panel4.Location = new System.Drawing.Point(199, 188);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(993, 69);
-            this.panel4.TabIndex = 16;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // animBtn
-            // 
-            this.animBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.animBtn.FlatAppearance.BorderSize = 0;
-            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.animBtn.Location = new System.Drawing.Point(19, 18);
-            this.animBtn.Name = "animBtn";
-            this.animBtn.Size = new System.Drawing.Size(173, 36);
-            this.animBtn.TabIndex = 10;
-            this.animBtn.Text = "Plan your next move!";
-            this.animBtn.UseVisualStyleBackColor = false;
-            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arctik 1", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 137);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 45);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Task";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel3
             // 
             this.panel3.AutoScroll = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.searchBarTb);
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(199, 0);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(993, 188);
+            this.panel3.Size = new System.Drawing.Size(1192, 137);
             this.panel3.TabIndex = 16;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(724, 82);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // searchBarTb
             // 
@@ -422,7 +418,7 @@
             this.searchBarTb.CustomButton.UseSelectable = true;
             this.searchBarTb.CustomButton.Visible = false;
             this.searchBarTb.Lines = new string[0];
-            this.searchBarTb.Location = new System.Drawing.Point(325, 128);
+            this.searchBarTb.Location = new System.Drawing.Point(438, 81);
             this.searchBarTb.MaxLength = 32767;
             this.searchBarTb.Name = "searchBarTb";
             this.searchBarTb.PasswordChar = '\0';
@@ -441,20 +437,36 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(373, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(505, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(157, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arctik 1", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(199, 45);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Dashboard";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // listPanel
             // 
             this.listPanel.AutoScroll = true;
-            this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.listPanel.Location = new System.Drawing.Point(199, 256);
+            this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.listPanel.Location = new System.Drawing.Point(199, 205);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(993, 351);
+            this.listPanel.Size = new System.Drawing.Size(993, 399);
             this.listPanel.TabIndex = 15;
             this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
             // 
@@ -477,20 +489,8 @@
             // 
             // Every1minute
             // 
-            this.Every1minute.Interval = 60000;
+            this.Every1minute.Interval = 5000;
             this.Every1minute.Tick += new System.EventHandler(this.Every1minute_Tick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(609, 129);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // screenForm
             // 
@@ -503,12 +503,12 @@
             this.TransparencyKey = System.Drawing.Color.Ivory;
             this.Shown += new System.EventHandler(this.screenForm_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.addPanel.ResumeLayout(false);
             this.addPanel.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,10 +545,10 @@
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroTextBox searchBarTb;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel_etc;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
 
     }
 }

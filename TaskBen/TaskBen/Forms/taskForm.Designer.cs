@@ -94,7 +94,7 @@
             this.dateLb.AutoSize = true;
             this.dateLb.BackColor = System.Drawing.Color.Transparent;
             this.dateLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.dateLb.Location = new System.Drawing.Point(89, 31);
             this.dateLb.Name = "dateLb";
             this.dateLb.Size = new System.Drawing.Size(107, 15);
@@ -107,7 +107,7 @@
             this.reminderLb.AutoSize = true;
             this.reminderLb.BackColor = System.Drawing.Color.Transparent;
             this.reminderLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reminderLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.reminderLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.reminderLb.Location = new System.Drawing.Point(273, 31);
             this.reminderLb.Name = "reminderLb";
             this.reminderLb.Size = new System.Drawing.Size(39, 15);
@@ -142,7 +142,7 @@
             this.periodLb.AutoSize = true;
             this.periodLb.BackColor = System.Drawing.Color.Transparent;
             this.periodLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.periodLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.periodLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.periodLb.Location = new System.Drawing.Point(371, 31);
             this.periodLb.Name = "periodLb";
             this.periodLb.Size = new System.Drawing.Size(39, 15);
@@ -155,7 +155,7 @@
             this.descriptionLb.BackColor = System.Drawing.Color.Transparent;
             this.descriptionLb.Font = new System.Drawing.Font("Arctik 1", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLb.ForeColor = System.Drawing.Color.DimGray;
-            this.descriptionLb.Location = new System.Drawing.Point(45, 61);
+            this.descriptionLb.Location = new System.Drawing.Point(629, 9);
             this.descriptionLb.Name = "descriptionLb";
             this.descriptionLb.Size = new System.Drawing.Size(156, 18);
             this.descriptionLb.TabIndex = 10;

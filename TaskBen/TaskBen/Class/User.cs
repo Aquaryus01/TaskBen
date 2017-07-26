@@ -46,7 +46,7 @@ namespace TaskBen.Class
             return false;
         }
 
-		public bool update_user()
+        public string update_user()
 		{
 			json = new Dictionary<string, string>();
 			json.Add("email", Email);
@@ -55,25 +55,32 @@ namespace TaskBen.Class
 			json.Add("action", "update_user");
 
 			string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
-			json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
 
-			if (json["Error"].ToString() == "")
-			{
-				MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return true;
-			}
-			else
-			{
-				MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			return false;
+            try
+            {
+                json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
+                if (json["Error"].ToString() == "")
+                {
+                    return "User data has updated succesfully!";
+                }
+                else
+                {
+                    return json["Error"].ToString();
+                }
+            }
+            catch
+            {
+                MessageBox.Show(raspuns);
+            }
+
+            return "";
 		}
 
-        public bool update_password()
+        public string update_password()
         {
             json = new Dictionary<string, string>();
             json.Add("newPassword", BCrypt.Net.BCrypt.HashPassword(NewPassword));
-            json.Add("oldPassword", BCrypt.Net.BCrypt.HashPassword(NewPassword));
+            json.Add("oldPassword", Password);
             json.Add("action", "update_password");
             string raspuns = WebServer.post_get(JsonConvert.SerializeObject(json));
 
@@ -81,19 +88,18 @@ namespace TaskBen.Class
                 json = JsonConvert.DeserializeObject<Dictionary<string, string>>(raspuns);
                 if (json["Error"].ToString() == "")
                 {
-                    MetroMessageBox.Show(new screenForm(), "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
+                    return "User data has updated succesfully!";
                 }
                 else
                 {
-                    MetroMessageBox.Show(new screenForm(), json["Error"].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return json["Error"].ToString();
                 }
             }
             catch{
                 MessageBox.Show(raspuns);
             }
 
-            return false;
+            return "";
         }
 
         public bool login()

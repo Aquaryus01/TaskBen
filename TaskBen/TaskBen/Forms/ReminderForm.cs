@@ -31,16 +31,37 @@ namespace TaskBen.Forms
                 string Lhour = x.DateHours;
                 string Lminute = x.DateMinutes;
 
-               string dif_hour = "22";//(Convert.ToInt32(Lhour) - Convert.ToInt32(hour)).ToString();
-               string dif_minutes = "22";//(Convert.ToInt32(Lminute) - Convert.ToInt32(minute)).ToString();
-
-                if (hour == DateTime.Now.ToString("HH") && minute == DateTime.Now.ToString("mm"))
+                try
                 {
-                    sound = new SoundPlayer(soundfile);
-                    textLb.Text = x.Description;
-                    reminderLb.Text = "Just " + dif_hour + " Hours and " + dif_minutes + " minutes until the task start!";
-                    sound.Play();
-                    this.Show();
+                    int a = Convert.ToInt32(Lhour);
+                    int b = Convert.ToInt32(hour);
+                    int c = a - b;
+                    string dif_hour = c.ToString();
+
+                    a = Convert.ToInt32(Lminute);
+                    b = Convert.ToInt32(minute);
+                    c = a - b;
+                    string dif_minutes = c.ToString();
+
+                    if (hour == DateTime.Now.ToString("HH") && minute == DateTime.Now.ToString("mm"))
+                    {
+                        sound = new SoundPlayer(soundfile);
+                        textLb.Text = x.Description;
+                        reminderLb.Text = "Just " + dif_hour + " Hours and " + dif_minutes + " minutes until the task start!";
+                        sound.Play();
+                        this.Show();
+                    }
+                }
+                catch
+                {
+                    if (hour == DateTime.Now.ToString("HH") && minute == DateTime.Now.ToString("mm"))
+                    {
+                        sound = new SoundPlayer(soundfile);
+                        textLb.Text = x.Description;
+                        reminderLb.Text = "";
+                        sound.Play();
+                        this.Show();
+                    }
                 }
             }
             

@@ -37,10 +37,10 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Teal;
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.textLb);
             this.panel7.Controls.Add(this.okBtn);
             this.panel7.Controls.Add(this.reminderLb);
-            this.panel7.Controls.Add(this.textLb);
             this.panel7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel7.Location = new System.Drawing.Point(0, -1);
             this.panel7.Name = "panel7";
@@ -61,10 +61,10 @@
             // reminderLb
             // 
             this.reminderLb.AutoSize = true;
-            this.reminderLb.BackColor = System.Drawing.Color.Teal;
+            this.reminderLb.BackColor = System.Drawing.Color.Transparent;
             this.reminderLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reminderLb.ForeColor = System.Drawing.Color.DarkGray;
-            this.reminderLb.Location = new System.Drawing.Point(21, 34);
+            this.reminderLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.reminderLb.Location = new System.Drawing.Point(22, 37);
             this.reminderLb.Name = "reminderLb";
             this.reminderLb.Size = new System.Drawing.Size(339, 15);
             this.reminderLb.TabIndex = 10;
@@ -73,22 +73,22 @@
             // textLb
             // 
             this.textLb.AutoSize = true;
-            this.textLb.BackColor = System.Drawing.Color.Teal;
-            this.textLb.Font = new System.Drawing.Font("DejaVu Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLb.ForeColor = System.Drawing.Color.White;
-            this.textLb.Location = new System.Drawing.Point(17, 12);
+            this.textLb.BackColor = System.Drawing.Color.Transparent;
+            this.textLb.Font = new System.Drawing.Font("Arctik 1", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textLb.Location = new System.Drawing.Point(20, 13);
             this.textLb.Name = "textLb";
-            this.textLb.Size = new System.Drawing.Size(606, 19);
-            this.textLb.TabIndex = 2;
+            this.textLb.Size = new System.Drawing.Size(579, 21);
+            this.textLb.TabIndex = 12;
             this.textLb.Text = "Mergi la magazin si cumpara mai multe sortimente de paste si capsuni mici pitici";
             // 
-            // ReminderForm
+            // reminderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 100);
             this.Controls.Add(this.panel7);
-            this.Name = "ReminderForm";
+            this.Name = "reminderForm";
             this.Text = "ReminderForm";
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();

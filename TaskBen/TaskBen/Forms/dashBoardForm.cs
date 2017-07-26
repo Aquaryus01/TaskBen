@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TaskBen.Class;
 using MetroFramework;
+using System.Text.RegularExpressions;
 
 namespace TaskBen.UserControls
 {
@@ -51,8 +52,14 @@ namespace TaskBen.UserControls
                 {
                     Settings.user.FirstName = firstNameTb.Text;
                     Settings.user.LastName = lastNameTb.Text;
-                    if (Settings.user.update_user())
+                    string mesaj = Settings.user.update_user();
+                    if (mesaj == "User data has updated succesfully!")
+                    {
+                        MetroMessageBox.Show(this, "User data has updated succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         init_data();
+                    }
+                    else
+                        MetroMessageBox.Show(this, mesaj, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MetroMessageBox.Show(this, "The email need to be a valid one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,10 +68,23 @@ namespace TaskBen.UserControls
 
         private void editpassBtn_Click(object sender, EventArgs e)
         {
-            Settings.user.Password = oldpassTb.Text;
-            Settings.user.NewPassword = newpassTb.Text;
-            if (Settings.user.update_password())
-                init_data();
+            if (errorProviderOldPass.GetError(oldpassTb) == "" && errorProviderNewPass.GetError(newpassTb) == "")
+            {
+                string mesaj = Settings.user.update_password();
+                if (mesaj == "User data has updated succesfully!")
+                {
+                        MetroMessageBox.Show(this, "Password changed succesfully!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        init_data();
+                }
+                else
+                     MetroMessageBox.Show(this, mesaj, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MetroMessageBox.Show(this, "Needs to contain at least 8 characters and an upper character!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            oldpassTb.Text = "";
+            newpassTb.Text = "";
+
         }
 
         private void emailTb_TextChanged(object sender, EventArgs e)
@@ -77,6 +97,37 @@ namespace TaskBen.UserControls
                 errorProvider1.Clear();
 
             Settings.user.Email = email;
+        }
+
+        private void newpassTb_TextChanged(object sender, EventArgs e)
+        {
+            string password = newpassTb.Text;
+            var hasUpperChar = new Regex(@"[A-Z]+");
+
+            if (hasUpperChar.IsMatch(password) && password.Length >= 8)
+                errorProviderNewPass.Clear();
+            else
+                errorProviderNewPass.SetError(newpassTb, "Needs to contain at least 8 characters and an upper character!");
+
+            Settings.user.NewPassword = password;
+        }
+
+        private void oldpassTb_TextChanged(object sender, EventArgs e)
+        {
+            string password = oldpassTb.Text;
+            var hasUpperChar = new Regex(@"[A-Z]+");
+
+            if (hasUpperChar.IsMatch(password) && password.Length >= 8)
+                errorProviderOldPass.Clear();
+            else
+                errorProviderOldPass.SetError(oldpassTb, "Needs to contain at least 8 characters and an upper character!");
+
+            Settings.user.Password = password;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*private void emailTb_TextChanged(object sender, EventArgs e)

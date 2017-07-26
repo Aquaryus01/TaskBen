@@ -18,7 +18,20 @@ namespace TaskBen.Forms
     {
         reminderForm remForm = new reminderForm();
         DashboardForm dashboardForm = new DashboardForm();
-
+        Label notaskLb = new Label();
+        int ok = 0;
+        private void notaskLb_make()
+        {
+            notaskLb.AutoSize = true;
+            notaskLb.BackColor = System.Drawing.Color.Transparent;
+            notaskLb.Font = new System.Drawing.Font("Arctik 2.5", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            notaskLb.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            notaskLb.Location = new System.Drawing.Point(327, 182);
+            notaskLb.Size = new System.Drawing.Size(283, 36);
+            notaskLb.TabIndex = 0;
+            notaskLb.Text = "                     Plan a to-do for today!\r\nPress \"Plan your next move!\" to cre" +
+    "ate a task!";
+        }
         ///Settings
         private void Hour_initialization()
         {
@@ -156,15 +169,15 @@ namespace TaskBen.Forms
             InitializeComponent();
             time_initialization();
 
-            Settings.task.task_get_list();
-            add_tasks_form();
             panel_etc.Controls.Add(dashboardForm);
             
             Every1minute.Start();
 
             int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
             listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-            
+
+            Settings.task.task_get_list();
+            add_tasks_form();
         }
   
         private void animBtn_Click(object sender, EventArgs e)
@@ -238,7 +251,6 @@ namespace TaskBen.Forms
                     MetroMessageBox.Show(this, "You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
                     animDownTimer.Enabled = false;
-
                 }
 
 
@@ -300,6 +312,7 @@ namespace TaskBen.Forms
                     MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
                     animDownTimer.Enabled = false;
+                    
             }
         }
 
@@ -315,27 +328,38 @@ namespace TaskBen.Forms
             Settings.poz_y += taskForm.Height + 10;
 
             listPanel.Controls.Add(taskForm);
+            notaskLb.Visible = false;
         }
 
         public void add_tasks_form()
         {
+            ok = 0;
             Settings.poz_y = 0;
-            listPanel.Controls.Clear(); 
-
-            if(Settings.taskList != null)
+            listPanel.Controls.Clear();
+            if (Settings.taskList != null)
+            {
                 foreach (Todo todo in Settings.taskList)
                 {
+
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(Settings.poz_x-3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+                    taskForm.Location = new Point(Settings.poz_x - 3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
                     taskForm.AutoScroll = true;
                     taskForm.ParentForm = this;
                     Settings.poz_y += taskForm.Height + 10;
 
+                    ok=1;
                     listPanel.Controls.Add(taskForm);
                 }
-            
+            }
+
+            if(ok==0)
+            {
+                notaskLb = new Label();
+                notaskLb_make();
+                listPanel.Controls.Add(notaskLb);
+            }   
         }
 
         public void show_edit()
@@ -473,6 +497,9 @@ namespace TaskBen.Forms
         private void button1_Click_1(object sender, EventArgs e)
         {
             panel_etc.Height = 0;
+            Settings.task.task_get_list();
+            add_tasks_form();
+            searchBarTb.Text = "";
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -480,6 +507,11 @@ namespace TaskBen.Forms
             Settings.taskList = new List<Todo>();
             Settings.task.task_get_list(searchBarTb.Text);
             add_tasks_form();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
 

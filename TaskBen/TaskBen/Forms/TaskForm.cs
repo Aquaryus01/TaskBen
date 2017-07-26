@@ -65,7 +65,7 @@ namespace TaskBen.UserControls
                 descriptionLb.Location = new Point(45, 61);
             }
             else
-                this.Size = new Size(969, 100);
+                this.Size = new Size(969, 59);
 
             
 

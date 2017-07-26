@@ -39,7 +39,7 @@ namespace TaskBen
         private void metroButton1_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            panel2.Location = new Point(247, 217);
+            panel2.Location = new Point(247, 155);
             panel2.Visible = true;
 
             
@@ -59,7 +59,7 @@ namespace TaskBen
                 this.Hide();
                 screenForm form2 = new screenForm();
                 form2.Closed += (s, args) => this.Close();
-                form2.Visible = false;
+                //form2.Visible = false;
                 form2.Show();
 
             }
@@ -79,6 +79,19 @@ namespace TaskBen
         private void loginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            registerForm form2 = new registerForm();
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
         
     }

@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.fullnameLb = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.emailLb = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.firstNameTb = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,89 +50,32 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.errorProviderOldPass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderNewPass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.fullnameLb = new System.Windows.Forms.Label();
+            this.emailLb = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOldPass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPass)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(63, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // fullnameLb
-            // 
-            this.fullnameLb.AutoSize = true;
-            this.fullnameLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullnameLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.fullnameLb.Location = new System.Drawing.Point(270, 121);
-            this.fullnameLb.Name = "fullnameLb";
-            this.fullnameLb.Size = new System.Drawing.Size(0, 39);
-            this.fullnameLb.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(120)))));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.emailLb);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.fullnameLb);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 188);
-            this.panel1.TabIndex = 6;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(786, 135);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(145, 71);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(577, 113);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(243, 120);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // emailLb
-            // 
-            this.emailLb.AutoSize = true;
-            this.emailLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.emailLb.Location = new System.Drawing.Point(274, 162);
-            this.emailLb.Name = "emailLb";
-            this.emailLb.Size = new System.Drawing.Size(0, 20);
-            this.emailLb.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(60, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 17);
@@ -160,7 +97,7 @@
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.firstNameTb);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(0, 225);
+            this.panel2.Location = new System.Drawing.Point(0, 178);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 40);
             this.panel2.TabIndex = 23;
@@ -170,7 +107,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(60, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 17);
@@ -192,7 +129,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(60, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 17);
@@ -215,7 +152,7 @@
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.Controls.Add(this.lastNameTb);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(0, 268);
+            this.panel5.Location = new System.Drawing.Point(0, 217);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(993, 40);
             this.panel5.TabIndex = 24;
@@ -226,14 +163,14 @@
             this.panel6.Controls.Add(this.editdataBtn);
             this.panel6.Controls.Add(this.emailTb);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(0, 310);
+            this.panel6.Location = new System.Drawing.Point(0, 256);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(993, 40);
             this.panel6.TabIndex = 25;
             // 
             // editdataBtn
             // 
-            this.editdataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.editdataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(130)))), ((int)(((byte)(28)))));
             this.editdataBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.editdataBtn.FlatAppearance.BorderSize = 0;
             this.editdataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -252,8 +189,8 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(61, 199);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(130)))), ((int)(((byte)(28)))));
+            this.label6.Location = new System.Drawing.Point(59, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 20);
             this.label6.TabIndex = 6;
@@ -261,8 +198,7 @@
             // 
             // editpassBtn
             // 
-            this.editpassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.editpassBtn.Enabled = false;
+            this.editpassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(130)))), ((int)(((byte)(28)))));
             this.editpassBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.editpassBtn.FlatAppearance.BorderSize = 0;
             this.editpassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -282,7 +218,7 @@
             this.panel4.Controls.Add(this.editpassBtn);
             this.panel4.Controls.Add(this.newpassTb);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(0, 450);
+            this.panel4.Location = new System.Drawing.Point(0, 376);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(993, 40);
             this.panel4.TabIndex = 32;
@@ -290,7 +226,6 @@
             // newpassTb
             // 
             this.newpassTb.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.newpassTb.Enabled = false;
             this.newpassTb.Font = new System.Drawing.Font("Arial", 10F);
             this.newpassTb.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.newpassTb.Location = new System.Drawing.Point(187, 9);
@@ -298,13 +233,14 @@
             this.newpassTb.Size = new System.Drawing.Size(284, 23);
             this.newpassTb.TabIndex = 7;
             this.newpassTb.UseSystemPasswordChar = true;
+            this.newpassTb.TextChanged += new System.EventHandler(this.newpassTb_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Location = new System.Drawing.Point(60, 11);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 17);
@@ -316,7 +252,7 @@
             this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel7.Controls.Add(this.oldpassTb);
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(0, 407);
+            this.panel7.Location = new System.Drawing.Point(0, 337);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(993, 40);
             this.panel7.TabIndex = 31;
@@ -324,7 +260,6 @@
             // oldpassTb
             // 
             this.oldpassTb.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.oldpassTb.Enabled = false;
             this.oldpassTb.Font = new System.Drawing.Font("Arial", 10F);
             this.oldpassTb.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.oldpassTb.Location = new System.Drawing.Point(187, 11);
@@ -332,13 +267,14 @@
             this.oldpassTb.Size = new System.Drawing.Size(284, 23);
             this.oldpassTb.TabIndex = 6;
             this.oldpassTb.UseSystemPasswordChar = true;
+            this.oldpassTb.TextChanged += new System.EventHandler(this.oldpassTb_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Location = new System.Drawing.Point(60, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 17);
@@ -350,8 +286,8 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(59, 379);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(130)))), ((int)(((byte)(28)))));
+            this.label10.Location = new System.Drawing.Point(59, 309);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(158, 20);
             this.label10.TabIndex = 34;
@@ -360,6 +296,73 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProviderOldPass
+            // 
+            this.errorProviderOldPass.ContainerControl = this;
+            // 
+            // errorProviderNewPass
+            // 
+            this.errorProviderNewPass.ContainerControl = this;
+            // 
+            // fullnameLb
+            // 
+            this.fullnameLb.AutoSize = true;
+            this.fullnameLb.BackColor = System.Drawing.Color.Transparent;
+            this.fullnameLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullnameLb.ForeColor = System.Drawing.Color.White;
+            this.fullnameLb.Location = new System.Drawing.Point(395, 49);
+            this.fullnameLb.Name = "fullnameLb";
+            this.fullnameLb.Size = new System.Drawing.Size(230, 39);
+            this.fullnameLb.TabIndex = 2;
+            this.fullnameLb.Text = "Alex Benchea";
+            // 
+            // emailLb
+            // 
+            this.emailLb.AutoSize = true;
+            this.emailLb.BackColor = System.Drawing.Color.Transparent;
+            this.emailLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLb.ForeColor = System.Drawing.Color.White;
+            this.emailLb.Location = new System.Drawing.Point(402, 88);
+            this.emailLb.Name = "emailLb";
+            this.emailLb.Size = new System.Drawing.Size(0, 20);
+            this.emailLb.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.emailLb);
+            this.panel3.Controls.Add(this.fullnameLb);
+            this.panel3.Location = new System.Drawing.Point(-198, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1191, 137);
+            this.panel3.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(261, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(993, 137);
+            this.panel1.TabIndex = 6;
             // 
             // DashboardForm
             // 
@@ -376,11 +379,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "DashboardForm";
             this.Size = new System.Drawing.Size(993, 608);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -392,6 +390,12 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOldPass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPass)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,12 +403,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label fullnameLb;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label emailLb;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox firstNameTb;
         private System.Windows.Forms.Panel panel2;
@@ -425,5 +423,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProviderOldPass;
+        private System.Windows.Forms.ErrorProvider errorProviderNewPass;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label emailLb;
+        private System.Windows.Forms.Label fullnameLb;
     }
 }
