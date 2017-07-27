@@ -31,15 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screenForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.animBtn = new System.Windows.Forms.Button();
             this.panel_etc = new System.Windows.Forms.Panel();
             this.addPanel = new System.Windows.Forms.Panel();
             this.titleTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.remCheck = new MetroFramework.Controls.MetroCheckBox();
             this.timeCheck = new MetroFramework.Controls.MetroCheckBox();
             this.dateHoursCB = new MetroFramework.Controls.MetroComboBox();
             this.dateMinutesCB = new MetroFramework.Controls.MetroComboBox();
@@ -60,16 +57,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.animBtn = new System.Windows.Forms.Button();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Every1minute = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.addPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,33 +88,6 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel4.Controls.Add(this.animBtn);
-            this.panel4.Location = new System.Drawing.Point(199, 136);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(993, 69);
-            this.panel4.TabIndex = 16;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // animBtn
-            // 
-            this.animBtn.BackColor = System.Drawing.Color.Gainsboro;
-            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.animBtn.FlatAppearance.BorderSize = 0;
-            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.animBtn.Location = new System.Drawing.Point(19, 15);
-            this.animBtn.Name = "animBtn";
-            this.animBtn.Size = new System.Drawing.Size(173, 36);
-            this.animBtn.TabIndex = 10;
-            this.animBtn.Text = "Plan your next move!";
-            this.animBtn.UseVisualStyleBackColor = false;
-            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
-            // 
             // panel_etc
             // 
             this.panel_etc.Location = new System.Drawing.Point(199, 0);
@@ -129,7 +102,6 @@
             this.addPanel.Controls.Add(this.label6);
             this.addPanel.Controls.Add(this.label4);
             this.addPanel.Controls.Add(this.backBtn);
-            this.addPanel.Controls.Add(this.remCheck);
             this.addPanel.Controls.Add(this.timeCheck);
             this.addPanel.Controls.Add(this.dateHoursCB);
             this.addPanel.Controls.Add(this.dateMinutesCB);
@@ -145,7 +117,7 @@
             this.addPanel.Controls.Add(this.editBtn);
             this.addPanel.Location = new System.Drawing.Point(199, 198);
             this.addPanel.Name = "addPanel";
-            this.addPanel.Size = new System.Drawing.Size(993, 0);
+            this.addPanel.Size = new System.Drawing.Size(993, 500);
             this.addPanel.TabIndex = 7;
             // 
             // titleTb
@@ -195,21 +167,10 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // remCheck
-            // 
-            this.remCheck.AutoSize = true;
-            this.remCheck.Location = new System.Drawing.Point(345, 274);
-            this.remCheck.Name = "remCheck";
-            this.remCheck.Size = new System.Drawing.Size(99, 15);
-            this.remCheck.TabIndex = 33;
-            this.remCheck.Text = "Add Reminder";
-            this.remCheck.UseSelectable = true;
-            this.remCheck.CheckedChanged += new System.EventHandler(this.remCheck_CheckedChanged);
-            // 
             // timeCheck
             // 
             this.timeCheck.AutoSize = true;
-            this.timeCheck.Location = new System.Drawing.Point(39, 286);
+            this.timeCheck.Location = new System.Drawing.Point(332, 205);
             this.timeCheck.Name = "timeCheck";
             this.timeCheck.Size = new System.Drawing.Size(75, 15);
             this.timeCheck.TabIndex = 32;
@@ -222,7 +183,7 @@
             this.dateHoursCB.DisplayMember = "12";
             this.dateHoursCB.FormattingEnabled = true;
             this.dateHoursCB.ItemHeight = 23;
-            this.dateHoursCB.Location = new System.Drawing.Point(120, 274);
+            this.dateHoursCB.Location = new System.Drawing.Point(332, 229);
             this.dateHoursCB.Name = "dateHoursCB";
             this.dateHoursCB.Size = new System.Drawing.Size(91, 29);
             this.dateHoursCB.TabIndex = 31;
@@ -232,7 +193,7 @@
             // 
             this.dateMinutesCB.FormattingEnabled = true;
             this.dateMinutesCB.ItemHeight = 23;
-            this.dateMinutesCB.Location = new System.Drawing.Point(217, 274);
+            this.dateMinutesCB.Location = new System.Drawing.Point(429, 229);
             this.dateMinutesCB.Name = "dateMinutesCB";
             this.dateMinutesCB.Size = new System.Drawing.Size(91, 29);
             this.dateMinutesCB.TabIndex = 30;
@@ -258,7 +219,7 @@
             // 
             this.remHoursCB.FormattingEnabled = true;
             this.remHoursCB.ItemHeight = 23;
-            this.remHoursCB.Location = new System.Drawing.Point(345, 229);
+            this.remHoursCB.Location = new System.Drawing.Point(562, 229);
             this.remHoursCB.Name = "remHoursCB";
             this.remHoursCB.Size = new System.Drawing.Size(91, 29);
             this.remHoursCB.TabIndex = 28;
@@ -268,7 +229,7 @@
             // 
             this.remMinutesCB.FormattingEnabled = true;
             this.remMinutesCB.ItemHeight = 23;
-            this.remMinutesCB.Location = new System.Drawing.Point(453, 229);
+            this.remMinutesCB.Location = new System.Drawing.Point(659, 229);
             this.remMinutesCB.Name = "remMinutesCB";
             this.remMinutesCB.Size = new System.Drawing.Size(91, 29);
             this.remMinutesCB.TabIndex = 26;
@@ -285,7 +246,7 @@
             "Weekly",
             "Monthly",
             ""});
-            this.repeatCB.Location = new System.Drawing.Point(602, 229);
+            this.repeatCB.Location = new System.Drawing.Point(39, 300);
             this.repeatCB.Name = "repeatCB";
             this.repeatCB.Size = new System.Drawing.Size(152, 29);
             this.repeatCB.TabIndex = 25;
@@ -296,7 +257,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(607, 205);
+            this.label3.Location = new System.Drawing.Point(35, 276);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 24;
@@ -308,7 +269,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(349, 205);
+            this.label2.Location = new System.Drawing.Point(559, 205);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 23;
@@ -330,7 +291,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(33, 229);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 22;
@@ -382,6 +343,7 @@
             this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.searchBarTb);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -470,6 +432,33 @@
             this.listPanel.TabIndex = 15;
             this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel4.Controls.Add(this.animBtn);
+            this.panel4.Location = new System.Drawing.Point(199, 136);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(993, 69);
+            this.panel4.TabIndex = 16;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // animBtn
+            // 
+            this.animBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.animBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.animBtn.FlatAppearance.BorderSize = 0;
+            this.animBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.animBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.animBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.animBtn.Location = new System.Drawing.Point(19, 15);
+            this.animBtn.Name = "animBtn";
+            this.animBtn.Size = new System.Drawing.Size(173, 36);
+            this.animBtn.TabIndex = 10;
+            this.animBtn.Text = "Plan your next move!";
+            this.animBtn.UseVisualStyleBackColor = false;
+            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
+            // 
             // animDownTimer
             // 
             this.animDownTimer.Interval = 15;
@@ -492,6 +481,19 @@
             this.Every1minute.Interval = 5000;
             this.Every1minute.Tick += new System.EventHandler(this.Every1minute_Tick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1170, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 18);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "X";
+            this.label5.Click += new System.EventHandler(this.xBtn_Click);
+            // 
             // screenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,12 +505,13 @@
             this.TransparencyKey = System.Drawing.Color.Ivory;
             this.Shown += new System.EventHandler(this.screenForm_Shown);
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.addPanel.ResumeLayout(false);
             this.addPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -524,7 +527,6 @@
         private System.Windows.Forms.Timer Every1minute;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button backBtn;
-        private MetroFramework.Controls.MetroCheckBox remCheck;
         private MetroFramework.Controls.MetroCheckBox timeCheck;
         private MetroFramework.Controls.MetroComboBox dateHoursCB;
         private MetroFramework.Controls.MetroComboBox dateMinutesCB;
@@ -549,6 +551,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
 
     }
 }

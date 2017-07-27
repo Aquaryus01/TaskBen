@@ -106,6 +106,7 @@ namespace TaskBen.UserControls
 
         private void TaskForm_Click(object sender, EventArgs e)
         {
+            //Settings.task = new Todo();
             Settings.task = _task;
             this.ParentForm.show_edit();
         }
