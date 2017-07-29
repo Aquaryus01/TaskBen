@@ -18,6 +18,7 @@ namespace TaskBen.Forms
     {
         reminderForm remForm = new reminderForm();
         DashboardForm dashboardForm = new DashboardForm();
+        CurentDayForm curentDayForm = new CurentDayForm();
         Label notaskLb = new Label();
         int ok = 0;
         private void notaskLb_make()
@@ -172,7 +173,7 @@ namespace TaskBen.Forms
             InitializeComponent();
             time_initialization();
 
-            panel_etc.Controls.Add(dashboardForm);
+            
             
             Every1minute.Start();
 
@@ -465,15 +466,16 @@ namespace TaskBen.Forms
         {
             
             panel_etc.Height = 607;
-            
+            panel_etc.Controls.Clear();
+            panel_etc.Controls.Add(dashboardForm);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            panel_etc.Height = 0;
             Settings.task.task_get_list();
             add_tasks_form();
             searchBarTb.Text = "";
+            panel_etc.Height = 0;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -486,6 +488,22 @@ namespace TaskBen.Forms
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void curentDayBtn_Click(object sender, EventArgs e)
+        {
+            panel_etc.Height = 607;
+            panel_etc.Controls.Clear();
+            CurentDayForm curentDayForm = new CurentDayForm();
+            panel_etc.Controls.Add(curentDayForm);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel_etc.Height = 607;
+            panel_etc.Controls.Clear();
+            NewGroupForm newGroupForm = new NewGroupForm();
+            panel_etc.Controls.Add(newGroupForm);
         }
 
 

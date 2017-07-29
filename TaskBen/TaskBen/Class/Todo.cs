@@ -142,6 +142,26 @@ namespace TaskBen.Class
                     }
             }
         }
+
+        public void task_get_list_repeat()
+        {
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("action", "get_tasks_repeat");
+
+            string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
+
+            if (list_todo != "")
+            {
+                try
+                {
+                    Settings.taskList = JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+                }
+                catch
+                {
+                    MessageBox.Show(list_todo);
+                }
+            }     
+        }
        
         public bool add_web()
         {

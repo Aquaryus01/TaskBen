@@ -11,6 +11,7 @@ namespace TaskBen.Class
     public static class Settings
     {
         public static User user = new User();
+        public static Group group = new Group();
         public static Todo task = new Todo();
         public static List<Todo> taskList = new List<Todo>();
         public static int poz_x = 0;

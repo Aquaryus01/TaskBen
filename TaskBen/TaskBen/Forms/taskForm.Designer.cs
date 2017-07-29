@@ -63,7 +63,6 @@
             this.titleLb.Size = new System.Drawing.Size(579, 21);
             this.titleLb.TabIndex = 2;
             this.titleLb.Text = "Mergi la magazin si cumpara mai multe sortimente de paste si capsuni mici pitici";
-            this.titleLb.Click += new System.EventHandler(this.titleLb_Click);
             // 
             // label8
             // 
@@ -100,7 +99,6 @@
             this.dateLb.Size = new System.Drawing.Size(107, 15);
             this.dateLb.TabIndex = 5;
             this.dateLb.Text = "12/16/2017 12:30";
-            this.dateLb.Click += new System.EventHandler(this.dateLb_Click);
             // 
             // reminderLb
             // 
@@ -160,7 +158,6 @@
             this.descriptionLb.Size = new System.Drawing.Size(156, 18);
             this.descriptionLb.TabIndex = 10;
             this.descriptionLb.Text = "Merg la piata cu nea GIGI";
-            this.descriptionLb.Click += new System.EventHandler(this.descriptionLb_Click);
             // 
             // TaskForm
             // 

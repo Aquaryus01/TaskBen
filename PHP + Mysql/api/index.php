@@ -71,6 +71,17 @@
 							$user->update($data);
 							break;
 						}
+
+					case "update_password":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/Users.php");
+							$data["Id"] = JWT::id($api_key);
+							$user = new Users();
+							$user->update_password($data);
+							break;
+						}
+
 					case "get_tasks_words":
 						if(JWT::verify($api_key))
 						{
@@ -78,6 +89,25 @@
 							$data["idUser"] = JWT::id($api_key);
 							$task = new Tasks();
 							$task->get_tasks_words($data);
+							break;
+						}
+
+					case "get_tasks_repeat":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/tasks.php");
+							$data["idUser"] = JWT::id($api_key);
+							$task = new Tasks();
+							$task->get_tasks_repeat($data);
+							break;
+						}
+
+					case "member_existence":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/Users.php");
+							$user = new Users();
+							$user->member_existence($data);
 							break;
 						}
 			}

@@ -19,7 +19,6 @@ class Tasks {
 
     function update($data)
     {
-      $api = $data['api'];
       $this->idUser = $data['idUser'];
       $this->id = $data['id'];
       $this->date = $data['date'];
@@ -157,5 +156,70 @@ class Tasks {
           echo "";
         }
     }
+
+    function get_tasks_repeat($data)
+    {
+        $this->idUser = $data['idUser'];
+        try{
+          $query = "SELECT * FROM tasks WHERE Id_user = '$this->idUser'";
+          $sql = $this->conn->query($query);
+        }catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+
+        try{
+            while($row = mysqli_fetch_assoc($sql))
+            {
+                date_default_timezone_set('UTC');
+                if($row["schedule"]=="Once" && date("n/j/Y")==$row["date"])
+                  $emparray[] = $row;
+                else if($row["schedule"]=="Daily")
+                    $emparray[] = $row;
+                else if($row["schedule"]=="Working day")
+                {
+                  $date = $row["date"];
+                  if((date('N', strtotime($date)) <= 5))
+                  $emparray[] = $row;
+                }
+                else if($row["schedule"]=="Weekly")
+                {
+                    $datetime1 = date_create(date("n/j/Y"));
+                    $datetime2 =  date_create(date($row["date"]));
+
+                    if($datetime1>$datetime2)
+                    {
+
+                      $interval = date_diff($datetime1, $datetime2);
+
+                      if($interval->days%7==0)
+                        $emparray[] = $row;
+                    }
+                }
+                if($row["schedule"]=="Monthly")
+                {
+                  $datetime1 = date_create(date("n/j/Y"));
+                  $datetime2 =  date_create(date($row["date"]));
+
+                  if($datetime1>$datetime2)
+                  {
+                    $interval = date_diff($datetime1, $datetime2);
+                    if($interval->d==0)
+                      $emparray[] = $row;
+                  }
+                }
+
+
+            }
+        }catch (Exception $e) {
+              $emparray["Error"] = $e->getMessage();
+        }
+
+        if(isset($emparray)){
+          $result =  json_encode($emparray);
+          echo $result;
+        }else{
+          echo "";
+        }
+      }
   }
 ?>

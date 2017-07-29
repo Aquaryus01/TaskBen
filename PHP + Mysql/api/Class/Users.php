@@ -2,6 +2,7 @@
 class Users {
     private $email;
     private $passsord;
+    private $oldpassword;
     private $lastname;
     private $firstname;
     private $id;
@@ -89,6 +90,80 @@ class Users {
       $result =  json_encode($emparray);
       echo $result;
   	}
+
+    function update_password($data)
+    {
+      $emparray = array();
+      $emparray["Error"] = "";
+      $this->oldpassword = $data['oldPassword'];
+      $this->password = $data['newPassword'];
+      $this->id = $data['Id'];
+
+      try{
+        $query = "SELECT * FROM users WHERE Id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $this->id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+      }
+      catch (Exception $e) {
+          $emparray["Error"] =  $e->getMessage();
+      }
+
+      $ok = 0;
+      $result = mysqli_fetch_assoc($result);
+      if(Bcrypt::checkPassword($this->oldpassword, $result["Password"]))
+            $ok = 1;
+
+      if($ok==1){
+
+          if(Bcrypt::checkPassword($this->oldpassword,$this->password))
+            $emparray["Error"] = "The old password is the same with the new one!";
+          else {
+            try{
+              $query = "UPDATE users SET Password = ? WHERE Id = ?";
+              $stmt = $this->conn->prepare($query);
+              $stmt->bind_param('si',$this->password, $this->id);
+              $stmt->execute();
+            }
+            catch (Exception $e) {
+                  $emparray["Error"] = "$e->getMessage()";
+                }
+          }
+      }
+      else {
+          $emparray["Error"] = "The password specified is invalid!";
+      }
+      $result =  json_encode($emparray);
+      echo $result;
+
+    }
+
+    function member_existence($data)
+    {
+      $emparray = array();
+      $emparray["Error"] = "";
+      $this->email = $data['memberName'];
+
+      try{
+        $query = "SELECT * FROM users Where Email = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('s', $this->email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+      }catch (Exception $e) {
+          $emparray["Error"] =  $e->getMessage();
+        }
+
+      if(mysqli_num_rows($result)==1)
+        $emparray["Answer"] = "1";
+      else
+        $emparray["Answer"] = "0";
+
+      $result =  json_encode($emparray);
+      echo $result;
+    }
 
     function login($data)
     {

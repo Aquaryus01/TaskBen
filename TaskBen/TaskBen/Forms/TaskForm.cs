@@ -16,6 +16,7 @@ namespace TaskBen.UserControls
     {
         Todo _task = new Todo();
         public screenForm ParentForm { get; set; }
+        public CurentDayForm ParentFormToday { get; set; }
 
         public TaskForm()
         {
@@ -32,6 +33,7 @@ namespace TaskBen.UserControls
             if (_task.DateHours == "" || _task.DateHours == null)
             {
                 dateLb.Text = _task.Date;
+                
             }
             else
             {
@@ -61,7 +63,7 @@ namespace TaskBen.UserControls
 
             if (descriptionLb.Text != "")
             {
-                this.Size = new Size(969, 100 + descriptionLb.Height);
+                this.Size = new Size(969, 69 + descriptionLb.Height);
                 descriptionLb.Location = new Point(45, 61);
             }
             else
@@ -75,7 +77,11 @@ namespace TaskBen.UserControls
         {
             Settings.taskList.Remove(_task);
             _task.remove_web();
-            this.ParentForm.add_tasks_form();
+
+            if(this.ParentForm != null)
+                this.ParentForm.add_tasks_form();
+            this.ParentFormToday.add_tasks_form();
+
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
@@ -106,24 +112,16 @@ namespace TaskBen.UserControls
 
         private void TaskForm_Click(object sender, EventArgs e)
         {
-            //Settings.task = new Todo();
             Settings.task = _task;
-            this.ParentForm.show_edit();
-        }
 
-        private void dateLb_Click(object sender, EventArgs e)
-        {
+            try
+            {
+                this.ParentForm.show_edit();
+            }
+            catch
+            {
 
-        }
-
-        private void descriptionLb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void titleLb_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
