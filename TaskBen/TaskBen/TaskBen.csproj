@@ -79,11 +79,17 @@
     <Compile Include="Forms\CurentDayForm.Designer.cs">
       <DependentUpon>CurentDayForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GroupSelectForm.cs">
+    <Compile Include="Forms\GroupForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\GroupSelectForm.Designer.cs">
-      <DependentUpon>GroupSelectForm.cs</DependentUpon>
+    <Compile Include="Forms\GroupForm.Designer.cs">
+      <DependentUpon>GroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GroupTabForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\GroupTabForm.Designer.cs">
+      <DependentUpon>GroupTabForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\loginForm.cs">
       <SubType>Form</SubType>
@@ -91,46 +97,40 @@
     <Compile Include="Forms\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NewGroupForm.cs">
+    <Compile Include="Forms\CreateGroupForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\NewGroupForm.Designer.cs">
-      <DependentUpon>NewGroupForm.cs</DependentUpon>
+    <Compile Include="Forms\CreateGroupForm.Designer.cs">
+      <DependentUpon>CreateGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\registerForm.cs">
+    <Compile Include="Forms\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\registerForm.Designer.cs">
-      <DependentUpon>registerForm.cs</DependentUpon>
+    <Compile Include="Forms\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\reminderForm.cs">
+    <Compile Include="Forms\ReminderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\reminderForm.Designer.cs">
-      <DependentUpon>reminderForm.cs</DependentUpon>
+      <DependentUpon>ReminderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\screenForm.cs">
+    <Compile Include="Forms\ScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\screenForm.Designer.cs">
-      <DependentUpon>screenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\TasksForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\TasksForm.Designer.cs">
-      <DependentUpon>TasksForm.cs</DependentUpon>
+    <Compile Include="Forms\ScreenForm.Designer.cs">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs">
       <SubType>
       </SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\dashBoardForm.cs">
+    <Compile Include="Forms\SettingsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\dashBoardForm.Designer.cs">
-      <DependentUpon>dashBoardForm.cs</DependentUpon>
+    <Compile Include="Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TaskForm.cs">
       <SubType>UserControl</SubType>
@@ -141,26 +141,26 @@
     <EmbeddedResource Include="Forms\CurentDayForm.resx">
       <DependentUpon>CurentDayForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GroupSelectForm.resx">
-      <DependentUpon>GroupSelectForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GroupForm.resx">
+      <DependentUpon>GroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GroupTabForm.resx">
+      <DependentUpon>GroupTabForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NewGroupForm.resx">
-      <DependentUpon>NewGroupForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CreateGroupForm.resx">
+      <DependentUpon>CreateGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\registerForm.resx">
-      <DependentUpon>registerForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\reminderForm.resx">
-      <DependentUpon>reminderForm.cs</DependentUpon>
+      <DependentUpon>ReminderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\screenForm.resx">
-      <DependentUpon>screenForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TasksForm.resx">
-      <DependentUpon>TasksForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ScreenForm.resx">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,8 +172,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\dashBoardForm.resx">
-      <DependentUpon>dashBoardForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>

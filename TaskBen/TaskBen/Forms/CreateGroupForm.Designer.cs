@@ -1,6 +1,6 @@
 ﻿namespace TaskBen.Forms
 {
-    partial class NewGroupForm
+    partial class CreateGroupForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewGroupForm));
-            this.top_panel = new System.Windows.Forms.Panel();
-            this.CurentDayLb = new System.Windows.Forms.Label();
-            this.dateLb = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.addMemberBtn = new System.Windows.Forms.Button();
@@ -43,53 +39,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.searchBarTb = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.verifyLb = new System.Windows.Forms.Label();
+            this.clearMembersBtn = new System.Windows.Forms.Button();
             this.membersLb = new System.Windows.Forms.Label();
             this.createGroupBtn = new System.Windows.Forms.Button();
-            this.clearMembersBtn = new System.Windows.Forms.Button();
-            this.verifyLb = new System.Windows.Forms.Label();
-            this.top_panel.SuspendLayout();
+            this.top_panel = new System.Windows.Forms.Panel();
+            this.dateLb = new System.Windows.Forms.Label();
+            this.CurentDayLb = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.top_panel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // top_panel
-            // 
-            this.top_panel.AutoScroll = true;
-            this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.top_panel.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.top_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("top_panel.BackgroundImage")));
-            this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.top_panel.Controls.Add(this.dateLb);
-            this.top_panel.Controls.Add(this.CurentDayLb);
-            this.top_panel.Location = new System.Drawing.Point(-198, 0);
-            this.top_panel.Name = "top_panel";
-            this.top_panel.Size = new System.Drawing.Size(1191, 137);
-            this.top_panel.TabIndex = 20;
-            // 
-            // CurentDayLb
-            // 
-            this.CurentDayLb.AutoSize = true;
-            this.CurentDayLb.BackColor = System.Drawing.Color.Transparent;
-            this.CurentDayLb.Font = new System.Drawing.Font("Arctik 1.5", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurentDayLb.ForeColor = System.Drawing.Color.White;
-            this.CurentDayLb.Location = new System.Drawing.Point(562, 36);
-            this.CurentDayLb.Name = "CurentDayLb";
-            this.CurentDayLb.Size = new System.Drawing.Size(218, 37);
-            this.CurentDayLb.TabIndex = 22;
-            this.CurentDayLb.Text = "Create a group";
-            // 
-            // dateLb
-            // 
-            this.dateLb.AutoSize = true;
-            this.dateLb.BackColor = System.Drawing.Color.Transparent;
-            this.dateLb.Font = new System.Drawing.Font("Arctik 2.5", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.dateLb.Location = new System.Drawing.Point(530, 75);
-            this.dateLb.Name = "dateLb";
-            this.dateLb.Size = new System.Drawing.Size(304, 23);
-            this.dateLb.TabIndex = 23;
-            this.dateLb.Text = "Connect easily with your friends!";
             // 
             // label10
             // 
@@ -242,6 +203,33 @@
             this.panel1.Size = new System.Drawing.Size(993, 91);
             this.panel1.TabIndex = 38;
             // 
+            // verifyLb
+            // 
+            this.verifyLb.AutoSize = true;
+            this.verifyLb.BackColor = System.Drawing.Color.Transparent;
+            this.verifyLb.Font = new System.Drawing.Font("Arctik 2.5", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verifyLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.verifyLb.Location = new System.Drawing.Point(64, 7);
+            this.verifyLb.Name = "verifyLb";
+            this.verifyLb.Size = new System.Drawing.Size(0, 14);
+            this.verifyLb.TabIndex = 44;
+            // 
+            // clearMembersBtn
+            // 
+            this.clearMembersBtn.BackColor = System.Drawing.Color.Maroon;
+            this.clearMembersBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.clearMembersBtn.FlatAppearance.BorderSize = 0;
+            this.clearMembersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearMembersBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.clearMembersBtn.ForeColor = System.Drawing.Color.White;
+            this.clearMembersBtn.Location = new System.Drawing.Point(611, 26);
+            this.clearMembersBtn.Name = "clearMembersBtn";
+            this.clearMembersBtn.Size = new System.Drawing.Size(208, 23);
+            this.clearMembersBtn.TabIndex = 43;
+            this.clearMembersBtn.Text = "Clear Members";
+            this.clearMembersBtn.UseVisualStyleBackColor = false;
+            this.clearMembersBtn.Click += new System.EventHandler(this.clearMembersBtn_Click);
+            // 
             // membersLb
             // 
             this.membersLb.AutoSize = true;
@@ -261,45 +249,56 @@
             this.createGroupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createGroupBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
             this.createGroupBtn.ForeColor = System.Drawing.Color.White;
-            this.createGroupBtn.Location = new System.Drawing.Point(63, 479);
+            this.createGroupBtn.Location = new System.Drawing.Point(67, 537);
             this.createGroupBtn.Name = "createGroupBtn";
             this.createGroupBtn.Size = new System.Drawing.Size(208, 23);
             this.createGroupBtn.TabIndex = 43;
             this.createGroupBtn.Text = "Create Group";
             this.createGroupBtn.UseVisualStyleBackColor = false;
+            this.createGroupBtn.Click += new System.EventHandler(this.createGroupBtn_Click);
             // 
-            // clearMembersBtn
+            // top_panel
             // 
-            this.clearMembersBtn.BackColor = System.Drawing.Color.Maroon;
-            this.clearMembersBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.clearMembersBtn.FlatAppearance.BorderSize = 0;
-            this.clearMembersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearMembersBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
-            this.clearMembersBtn.ForeColor = System.Drawing.Color.White;
-            this.clearMembersBtn.Location = new System.Drawing.Point(611, 26);
-            this.clearMembersBtn.Name = "clearMembersBtn";
-            this.clearMembersBtn.Size = new System.Drawing.Size(208, 23);
-            this.clearMembersBtn.TabIndex = 43;
-            this.clearMembersBtn.Text = "Clear Members";
-            this.clearMembersBtn.UseVisualStyleBackColor = false;
-            this.clearMembersBtn.Click += new System.EventHandler(this.clearMembersBtn_Click);
+            this.top_panel.AutoScroll = true;
+            this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.top_panel.BackColor = System.Drawing.Color.Gray;
+            this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.top_panel.Controls.Add(this.dateLb);
+            this.top_panel.Controls.Add(this.CurentDayLb);
+            this.top_panel.Location = new System.Drawing.Point(-198, 0);
+            this.top_panel.Name = "top_panel";
+            this.top_panel.Size = new System.Drawing.Size(1191, 137);
+            this.top_panel.TabIndex = 20;
             // 
-            // verifyLb
+            // dateLb
             // 
-            this.verifyLb.AutoSize = true;
-            this.verifyLb.BackColor = System.Drawing.Color.Transparent;
-            this.verifyLb.Font = new System.Drawing.Font("Arctik 2.5", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.verifyLb.Location = new System.Drawing.Point(64, 7);
-            this.verifyLb.Name = "verifyLb";
-            this.verifyLb.Size = new System.Drawing.Size(0, 14);
-            this.verifyLb.TabIndex = 44;
+            this.dateLb.AutoSize = true;
+            this.dateLb.BackColor = System.Drawing.Color.Transparent;
+            this.dateLb.Font = new System.Drawing.Font("Arctik 2.5", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.dateLb.Location = new System.Drawing.Point(460, 75);
+            this.dateLb.Name = "dateLb";
+            this.dateLb.Size = new System.Drawing.Size(304, 23);
+            this.dateLb.TabIndex = 23;
+            this.dateLb.Text = "Connect easily with your friends!";
             // 
-            // NewGroupForm
+            // CurentDayLb
+            // 
+            this.CurentDayLb.AutoSize = true;
+            this.CurentDayLb.BackColor = System.Drawing.Color.Transparent;
+            this.CurentDayLb.Font = new System.Drawing.Font("Arctik 1.5", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurentDayLb.ForeColor = System.Drawing.Color.White;
+            this.CurentDayLb.Location = new System.Drawing.Point(492, 36);
+            this.CurentDayLb.Name = "CurentDayLb";
+            this.CurentDayLb.Size = new System.Drawing.Size(218, 37);
+            this.CurentDayLb.TabIndex = 22;
+            this.CurentDayLb.Text = "Create a group";
+            // 
+            // CreateGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.Controls.Add(this.createGroupBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
@@ -307,16 +306,16 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
-            this.Name = "NewGroupForm";
+            this.Name = "CreateGroupForm";
             this.Size = new System.Drawing.Size(993, 608);
-            this.top_panel.ResumeLayout(false);
-            this.top_panel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.top_panel.ResumeLayout(false);
+            this.top_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

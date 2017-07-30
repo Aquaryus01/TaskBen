@@ -15,7 +15,7 @@ namespace TaskBen.UserControls
     public partial class TaskForm : UserControl
     {
         Todo _task = new Todo();
-        public screenForm ParentForm { get; set; }
+        public ScreenForm ParentForm { get; set; }
         public CurentDayForm ParentFormToday { get; set; }
 
         public TaskForm()
@@ -80,7 +80,8 @@ namespace TaskBen.UserControls
 
             if(this.ParentForm != null)
                 this.ParentForm.add_tasks_form();
-            this.ParentFormToday.add_tasks_form();
+            if (this.ParentFormToday != null)
+                this.ParentFormToday.add_tasks_form();
 
         }
 

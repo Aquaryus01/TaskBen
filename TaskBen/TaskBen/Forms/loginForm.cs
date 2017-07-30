@@ -31,7 +31,7 @@ namespace TaskBen
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            registerForm form2 = new registerForm();
+            RegisterForm form2 = new RegisterForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -57,7 +57,7 @@ namespace TaskBen
             if (user.login())
             {
                 this.Hide();
-                screenForm form2 = new screenForm();
+                ScreenForm form2 = new ScreenForm();
                 form2.Closed += (s, args) => this.Close();
                 //form2.Visible = false;
                 form2.Show();
@@ -89,7 +89,7 @@ namespace TaskBen
         private void registerBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            registerForm form2 = new registerForm();
+            RegisterForm form2 = new RegisterForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }

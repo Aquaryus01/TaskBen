@@ -12,11 +12,14 @@ using MetroFramework;
 
 namespace TaskBen.Forms
 {
-    public partial class NewGroupForm : UserControl
+    public partial class CreateGroupForm : UserControl
     {
-        public NewGroupForm()
+        public ScreenForm ParentForm { get; set; }
+
+        public CreateGroupForm()
         {
             InitializeComponent();
+            Settings.group = new Group();
             Settings.group.groupMembers = new List<string>();
         }
 
@@ -83,6 +86,20 @@ namespace TaskBen.Forms
                 verifyLb.ForeColor = Color.Green;
                 verifyLb.Text = "All members have been successfully deleted";
             }
+        }
+
+        private void createGroupBtn_Click(object sender, EventArgs e)
+        {
+            string broken_rule = "";
+            if(!Settings.group.save(ref broken_rule))
+                MetroMessageBox.Show(this, broken_rule, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MetroMessageBox.Show(this, "Succes", "Group created succesful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Settings.groupList.Add(Settings.group); ///Add group in the list
+                this.ParentForm.add_group_form(); ///Add gorup in the screenForm
+            }
+            
         }
     }
 }

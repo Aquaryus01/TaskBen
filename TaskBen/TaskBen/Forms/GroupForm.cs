@@ -1,24 +1,33 @@
-﻿using MetroFramework;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
 using TaskBen.Class;
 using TaskBen.UserControls;
 
 namespace TaskBen.Forms
 {
-    public partial class ScreenForm : MetroFramework.Forms.MetroForm
+    public partial class GroupForm : UserControl
     {
-        ReminderForm remForm = new ReminderForm();
-        DashboardForm dashboardForm = new DashboardForm();
-        CurentDayForm curentDayForm = new CurentDayForm();
+        public GroupForm()
+        {
+            InitializeComponent();
+            //time_initialization();
+            //Every1minute.Start();
+
+            int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
+            TaskPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
+
+            //Settings.task.task_get_list(); get all task for this group
+            //add_tasks_form();
+        }
+        /*
         Label notaskLb = new Label();
         int ok = 0;
         private void notaskLb_make()
@@ -33,17 +42,20 @@ namespace TaskBen.Forms
             notaskLb.Text = "                     Plan a to-do for today!\r\nPress \"Plan your next move!\" to cre" +
     "ate a task!";
         }
+       
         ///Settings
         private void Hour_initialization()
         {
             remHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("HH"));
             dateHoursCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("HH"));
         }
+
         private void Minute_initialization()
         {
             remMinutesCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm")) + 1;
             dateMinutesCB.SelectedIndex = Int32.Parse(DateTime.Now.ToString("mm")) + 1;
         }
+
         private void time_initialization()
         {
             for (int i = 0; i < 60; i++)
@@ -78,21 +90,25 @@ namespace TaskBen.Forms
                 }
             }
         }
+        
         private void dezactivate_datetime_firsttime()
         {
             timeCheck.Checked = false;
             dateHoursCB.Enabled = false;
             dateMinutesCB.Enabled = false;
         }
+        
         private void dezactivate_remtime_firsttime()
         {
             remHoursCB.Enabled = false;
             remMinutesCB.Enabled = false;
         }
+        
         private void tehnicalAdjustment_newtaks()
         {
             createBtn.Visible = true;
         }
+
         private bool getDataAccurate_task()
         {
             int date_comp = DateTime.Compare(DateTime.Now.Date, toDoDateTime.Value.Date);
@@ -137,56 +153,36 @@ namespace TaskBen.Forms
 
 
         }
+        
         private void backBtn_Click(object sender, EventArgs e)
         {
             animUpTimer.Enabled = true;
             animDownTimer.Enabled = false;
-
         }
+        
         private void animTimer_Tick(object sender, EventArgs e)
         {
-            if (addPanel.Height >= 607)
+            if (TaskPanel.Height >= 607)
                 animDownTimer.Enabled = false;
             else
-                addPanel.Height += 12;
+                TaskPanel.Height += 12;
         }
         private void animUpTimer_Tick(object sender, EventArgs e)
         {
-            if (addPanel.Height <= 0)
+            if (TaskPanel.Height <= 0)
                 animUpTimer.Enabled = false;
             else
-                addPanel.Height -= 12;
+                TaskPanel.Height -= 12;
         }
         private void downupTimer_Tick(object sender, EventArgs e)
         {
-            if (addPanel.Height <= 0)
+            if (TaskPanel.Height <= 0)
                 animUpTimer.Enabled = false;
             else
-                addPanel.Height -= 12;
+                TaskPanel.Height -= 12;
         }
         ///Settings
 
-        private void screenForm_Shown(object sender, EventArgs e)
-        {
-
-        }
-
-        public ScreenForm()
-        {
-            InitializeComponent();
-            time_initialization();
-
-            
-            
-            Every1minute.Start();
-
-            int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
-            listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-
-            Settings.task.task_get_list();
-            add_tasks_form();
-        }
-  
         private void animBtn_Click(object sender, EventArgs e)
         {
             //MAI VERIFICA
@@ -201,10 +197,6 @@ namespace TaskBen.Forms
             descriptionTB.Text = "";
             repeatCB.SelectedIndex = 0;
         }
-
-
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -231,6 +223,8 @@ namespace TaskBen.Forms
                     Settings.task.Description = descriptionTB.Text;
                     Settings.task.Title = titleTb.Text;
                 }
+
+                /*
                 Settings.taskList.Add(Settings.task);   //Add task in the list
                 if (Settings.task.add_web())             //Add task in the database
                 {
@@ -238,7 +232,7 @@ namespace TaskBen.Forms
                     MetroMessageBox.Show(this, "You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
                     animDownTimer.Enabled = false;
-                }
+                }/////
 
 
             }
@@ -271,14 +265,14 @@ namespace TaskBen.Forms
                         Settings.task.Title = titleTb.Text;
                     }
 
-                    Settings.task.Id = id;
+                    /*Settings.task.Id = id;
                     Settings.taskList = new List<Todo>();
                     Settings.task.update_web();
                     Settings.task.task_get_list();
                     add_tasks_form();
                     MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
-                    animDownTimer.Enabled = false;
+                    animDownTimer.Enabled = false;////
             }
         }
 
@@ -288,10 +282,10 @@ namespace TaskBen.Forms
             TaskForm taskForm = new TaskForm();
             taskForm.Init_task(item);
 
-            taskForm.Location = new Point(Settings.poz_x_task-3, listPanel.AutoScrollPosition.Y + Settings.poz_y_task);
+            //taskForm.Location = new Point(Settings.poz_x_task-3, TaskPanel.AutoScrollPosition.Y + Settings.poz_y_task);
             taskForm.AutoScroll = true;
-            taskForm.ParentForm = this;
-            Settings.poz_y_task += taskForm.Height + 10;
+            //taskForm.ParentForm = this;
+            //Settings.poz_y_task += taskForm.Height + 10;
 
             listPanel.Controls.Add(taskForm);
             notaskLb.Visible = false;
@@ -461,8 +455,6 @@ namespace TaskBen.Forms
             newGroupForm.ParentForm = this;
 
             panel_etc.Controls.Add(newGroupForm);
-        }
-
-
+        }*/
     }
 }

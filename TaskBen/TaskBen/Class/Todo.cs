@@ -186,7 +186,7 @@ namespace TaskBen.Class
             }
             catch
             {
-                MetroMessageBox.Show(new screenForm(), "The description is corrupted!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(new ScreenForm(), "The description is corrupted!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

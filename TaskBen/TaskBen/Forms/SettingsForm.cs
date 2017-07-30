@@ -18,7 +18,6 @@ namespace TaskBen.UserControls
         public DashboardForm()
         {
             InitializeComponent();
-            round_image();
 			init_data();
             
         }
@@ -31,14 +30,6 @@ namespace TaskBen.UserControls
 			lastNameTb.Text = Settings.user.LastName;
 			emailTb.Text = Settings.user.Email;
 		}
-
-        private void round_image()
-        {
-            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
-            Region rg = new Region(gp);
-            pictureBox1.Region = rg;
-        }
 
         private void editdataBtn_Click(object sender, EventArgs e)
         {

@@ -162,10 +162,10 @@ C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\T
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.registerForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.reminderForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.screenForm.resources
-C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.TasksForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Properties.Resources.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.DashboardForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.UserControls.TaskForm.resources
 C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.csproj.GenerateResource.Cache
-C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.GroupSelectForm.resources
-C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.newGroupForm.resources
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.GroupForm.resources
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.GroupTabForm.resources
+C:\Users\Alex B\Desktop\TaskBen-Infoeducatie\TaskBen\TaskBen\TaskBen\obj\Debug\TaskBen.Forms.CreateGroupForm.resources

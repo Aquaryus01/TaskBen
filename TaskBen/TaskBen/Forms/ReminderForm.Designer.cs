@@ -1,6 +1,6 @@
 ﻿namespace TaskBen.Forms
 {
-    partial class reminderForm
+    partial class ReminderForm
     {
         /// <summary>
         /// Required designer variable.

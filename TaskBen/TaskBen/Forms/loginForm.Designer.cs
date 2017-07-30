@@ -32,19 +32,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.registerBtn = new MetroFramework.Controls.MetroButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.passTb = new MetroFramework.Controls.MetroTextBox();
             this.emailTb = new MetroFramework.Controls.MetroTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.registerBtn = new MetroFramework.Controls.MetroButton();
             pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            pictureBox2.Location = new System.Drawing.Point(247, 44);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(212, 79);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // metroButton1
             // 
@@ -65,6 +77,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(212, 148);
             this.panel1.TabIndex = 5;
+            // 
+            // registerBtn
+            // 
+            this.registerBtn.Location = new System.Drawing.Point(26, 74);
+            this.registerBtn.Name = "registerBtn";
+            this.registerBtn.Size = new System.Drawing.Size(168, 41);
+            this.registerBtn.TabIndex = 3;
+            this.registerBtn.Text = "Register";
+            this.registerBtn.UseSelectable = true;
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // panel2
             // 
@@ -167,21 +189,9 @@
             this.emailTb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.emailTb.TextChanged += new System.EventHandler(this.emailTb_TextChanged);
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            pictureBox2.Location = new System.Drawing.Point(247, 44);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(212, 79);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 14;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // panel3
             // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
@@ -190,16 +200,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(705, 426);
             this.panel3.TabIndex = 15;
-            // 
-            // registerBtn
-            // 
-            this.registerBtn.Location = new System.Drawing.Point(26, 74);
-            this.registerBtn.Name = "registerBtn";
-            this.registerBtn.Size = new System.Drawing.Size(168, 41);
-            this.registerBtn.TabIndex = 3;
-            this.registerBtn.Text = "Register";
-            this.registerBtn.UseSelectable = true;
-            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // loginForm
             // 
@@ -211,10 +211,10 @@
             this.Controls.Add(this.panel3);
             this.Name = "loginForm";
             this.Load += new System.EventHandler(this.loginForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 

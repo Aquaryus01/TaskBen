@@ -28,7 +28,7 @@ namespace TaskBen.Forms
         public void add_tasks_form()
         {
             ok = 0;
-            Settings.poz_y = 0;
+            Settings.poz_y_task = 0;
             listPanel.Controls.Clear();
             if (Settings.taskList != null)
             {
@@ -37,9 +37,9 @@ namespace TaskBen.Forms
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(Settings.poz_x - 3, listPanel.AutoScrollPosition.Y + Settings.poz_y);
+                    taskForm.Location = new Point(Settings.poz_x_task - 3, listPanel.AutoScrollPosition.Y + Settings.poz_y_task);
                     taskForm.AutoScroll = true;
-                    Settings.poz_y += taskForm.Height + 10;
+                    Settings.poz_y_task += taskForm.Height + 10;
                     taskForm.ParentFormToday = this;
 
                     ok = 1;

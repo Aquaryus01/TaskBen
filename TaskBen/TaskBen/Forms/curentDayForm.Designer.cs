@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurentDayForm));
             this.listPanel = new System.Windows.Forms.Panel();
-            this.top_panel = new System.Windows.Forms.Panel();
-            this.CurentDayLb = new System.Windows.Forms.Label();
             this.dateLb = new System.Windows.Forms.Label();
+            this.CurentDayLb = new System.Windows.Forms.Label();
+            this.top_panel = new System.Windows.Forms.Panel();
             this.top_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,19 +44,16 @@
             this.listPanel.Size = new System.Drawing.Size(993, 473);
             this.listPanel.TabIndex = 19;
             // 
-            // top_panel
+            // dateLb
             // 
-            this.top_panel.AutoScroll = true;
-            this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.top_panel.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.top_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("top_panel.BackgroundImage")));
-            this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.top_panel.Controls.Add(this.CurentDayLb);
-            this.top_panel.Controls.Add(this.dateLb);
-            this.top_panel.Location = new System.Drawing.Point(-198, 0);
-            this.top_panel.Name = "top_panel";
-            this.top_panel.Size = new System.Drawing.Size(1191, 137);
-            this.top_panel.TabIndex = 18;
+            this.dateLb.AutoSize = true;
+            this.dateLb.BackColor = System.Drawing.Color.Transparent;
+            this.dateLb.Font = new System.Drawing.Font("Arctik 2.5", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.dateLb.Location = new System.Drawing.Point(624, 71);
+            this.dateLb.Name = "dateLb";
+            this.dateLb.Size = new System.Drawing.Size(0, 23);
+            this.dateLb.TabIndex = 20;
             // 
             // CurentDayLb
             // 
@@ -71,16 +67,18 @@
             this.CurentDayLb.TabIndex = 19;
             this.CurentDayLb.Text = "Curent day";
             // 
-            // dateLb
+            // top_panel
             // 
-            this.dateLb.AutoSize = true;
-            this.dateLb.BackColor = System.Drawing.Color.Transparent;
-            this.dateLb.Font = new System.Drawing.Font("Arctik 2.5", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.dateLb.Location = new System.Drawing.Point(624, 71);
-            this.dateLb.Name = "dateLb";
-            this.dateLb.Size = new System.Drawing.Size(0, 23);
-            this.dateLb.TabIndex = 20;
+            this.top_panel.AutoScroll = true;
+            this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.top_panel.BackColor = System.Drawing.Color.Gray;
+            this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.top_panel.Controls.Add(this.CurentDayLb);
+            this.top_panel.Controls.Add(this.dateLb);
+            this.top_panel.Location = new System.Drawing.Point(-198, 0);
+            this.top_panel.Name = "top_panel";
+            this.top_panel.Size = new System.Drawing.Size(1191, 137);
+            this.top_panel.TabIndex = 18;
             // 
             // CurentDayForm
             // 
@@ -98,9 +96,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel top_panel;
+        private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.Label dateLb;
         private System.Windows.Forms.Label CurentDayLb;
-        private System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.Panel top_panel;
     }
 }

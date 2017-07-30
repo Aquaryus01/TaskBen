@@ -12,9 +12,9 @@ using TaskBen.Class;
 
 namespace TaskBen.Forms
 {
-    public partial class reminderForm : MetroFramework.Forms.MetroForm
+    public partial class ReminderForm : MetroFramework.Forms.MetroForm
     {
-        public reminderForm()
+        public ReminderForm()
         {
             InitializeComponent();
         }

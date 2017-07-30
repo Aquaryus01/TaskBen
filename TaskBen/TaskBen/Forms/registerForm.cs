@@ -14,11 +14,11 @@ using System.Text.RegularExpressions;
 
 namespace TaskBen.Forms
 {
-    public partial class registerForm : MetroFramework.Forms.MetroForm
+    public partial class RegisterForm : MetroFramework.Forms.MetroForm
     {
         User user = new User();
         
-        public registerForm()
+        public RegisterForm()
         {
             InitializeComponent();
             this.MaximizeBox = false;
