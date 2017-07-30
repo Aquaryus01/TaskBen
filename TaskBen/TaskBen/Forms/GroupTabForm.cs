@@ -24,12 +24,16 @@ namespace TaskBen.Forms
         {
             group = item;
             button1.Text = group.Name;
-
         }
 
         private void GroupSelectForm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Settings.screenForm.openGroupForm(group);
         }
     }
 }

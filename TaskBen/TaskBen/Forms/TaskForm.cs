@@ -15,12 +15,19 @@ namespace TaskBen.UserControls
     public partial class TaskForm : UserControl
     {
         Todo _task = new Todo();
+        public string type;
         public ScreenForm ParentForm { get; set; }
         public CurentDayForm ParentFormToday { get; set; }
+        public GroupForm GroupForm = new GroupForm();
 
         public TaskForm()
         {
             InitializeComponent();
+        }
+
+        internal void Type(string p)
+        {
+            type = p;
         }
 
         public void Init_task(Todo task)
@@ -78,10 +85,11 @@ namespace TaskBen.UserControls
             Settings.taskList.Remove(_task);
             _task.remove_web();
 
-            if(this.ParentForm != null)
+            Settings.screenForm.add_tasks_form();
+            /*if(this.ParentForm != null)
                 this.ParentForm.add_tasks_form();
             if (this.ParentFormToday != null)
-                this.ParentFormToday.add_tasks_form();
+                this.ParentFormToday.add_tasks_form();*/
 
         }
 
@@ -124,5 +132,7 @@ namespace TaskBen.UserControls
 
             }
         }
+
+
     }
 }

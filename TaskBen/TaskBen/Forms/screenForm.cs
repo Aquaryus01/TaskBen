@@ -19,6 +19,7 @@ namespace TaskBen.Forms
         ReminderForm remForm = new ReminderForm();
         DashboardForm dashboardForm = new DashboardForm();
         CurentDayForm curentDayForm = new CurentDayForm();
+        
         Label notaskLb = new Label();
         int ok = 0;
         private void notaskLb_make()
@@ -32,6 +33,12 @@ namespace TaskBen.Forms
             notaskLb.TabIndex = 0;
             notaskLb.Text = "                     Plan a to-do for today!\r\nPress \"Plan your next move!\" to cre" +
     "ate a task!";
+        }
+        
+        private void Load_groups()
+        {
+            Settings.groupList = Settings.group.get_groups(Settings.user.ID);
+            add_groups_form();
         }
         ///Settings
         private void Hour_initialization()
@@ -171,20 +178,28 @@ namespace TaskBen.Forms
 
         }
 
+        internal void openGroupForm(Group group)
+        {
+            panel_etc.Height = 607;
+            panel_etc.Controls.Clear();
+            GroupForm newGroupForm = new GroupForm();
+            newGroupForm.initialization(group);
+            panel_etc.Controls.Add(newGroupForm);
+        }
+
         public ScreenForm()
         {
             InitializeComponent();
             time_initialization();
 
-            
+            Settings.screenForm = this;
             
             Every1minute.Start();
 
-            int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
-            listPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-
             Settings.task.task_get_list();
             add_tasks_form();
+
+            Load_groups();
         }
   
         private void animBtn_Click(object sender, EventArgs e)
@@ -307,6 +322,19 @@ namespace TaskBen.Forms
             groupSelectForm.AutoScroll = true;
             groupPanel.Controls.Add(groupSelectForm);
             Settings.poz_y_group += groupSelectForm.Height + 10;
+        }
+
+        public void add_groups_form()
+        {
+            foreach (Group item in Settings.groupList)
+            {
+                GroupTabForm groupSelectForm = new GroupTabForm();
+                groupSelectForm.Init_group(item);
+                groupSelectForm.Location = new Point(Settings.poz_x_group, listPanel.AutoScrollPosition.Y + Settings.poz_y_group);
+                groupSelectForm.AutoScroll = true;
+                groupPanel.Controls.Add(groupSelectForm);
+                Settings.poz_y_group += groupSelectForm.Height + 10;
+            }
         }
 
         public void add_tasks_form()

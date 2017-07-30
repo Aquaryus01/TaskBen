@@ -52,15 +52,18 @@
             this.animBtn = new System.Windows.Forms.Button();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.listPanel = new System.Windows.Forms.Panel();
             this.top_panel.SuspendLayout();
             this.TaskPanel.SuspendLayout();
+            this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // top_panel
             // 
             this.top_panel.AutoScroll = true;
             this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.top_panel.BackColor = System.Drawing.Color.Gray;
+            this.top_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.top_panel.Controls.Add(this.DescriptionLb);
             this.top_panel.Controls.Add(this.TitleLb);
@@ -71,27 +74,25 @@
             // 
             // DescriptionLb
             // 
-            this.DescriptionLb.AutoSize = true;
+            this.DescriptionLb.AutoEllipsis = true;
             this.DescriptionLb.BackColor = System.Drawing.Color.Transparent;
             this.DescriptionLb.Font = new System.Drawing.Font("Arctik 2.5", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescriptionLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.DescriptionLb.Location = new System.Drawing.Point(217, 76);
+            this.DescriptionLb.Location = new System.Drawing.Point(217, 75);
             this.DescriptionLb.Name = "DescriptionLb";
-            this.DescriptionLb.Size = new System.Drawing.Size(364, 23);
+            this.DescriptionLb.Size = new System.Drawing.Size(948, 23);
             this.DescriptionLb.TabIndex = 23;
-            this.DescriptionLb.Text = "Alex Benchea, Paul Torino, Mergex Larex";
             // 
             // TitleLb
             // 
-            this.TitleLb.AutoSize = true;
+            this.TitleLb.AutoEllipsis = true;
             this.TitleLb.BackColor = System.Drawing.Color.Transparent;
             this.TitleLb.Font = new System.Drawing.Font("Arctik 1.5", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLb.ForeColor = System.Drawing.Color.White;
             this.TitleLb.Location = new System.Drawing.Point(214, 38);
             this.TitleLb.Name = "TitleLb";
-            this.TitleLb.Size = new System.Drawing.Size(329, 37);
+            this.TitleLb.Size = new System.Drawing.Size(781, 37);
             this.TitleLb.TabIndex = 22;
-            this.TitleLb.Text = "Mergem la Vama Veche";
             // 
             // TaskPanel
             // 
@@ -112,9 +113,9 @@
             this.TaskPanel.Controls.Add(this.label1);
             this.TaskPanel.Controls.Add(this.toDoDateTime);
             this.TaskPanel.Controls.Add(this.descriptionTB);
-            this.TaskPanel.Location = new System.Drawing.Point(3, 192);
+            this.TaskPanel.Location = new System.Drawing.Point(1, 1);
             this.TaskPanel.Name = "TaskPanel";
-            this.TaskPanel.Size = new System.Drawing.Size(993, 0);
+            this.TaskPanel.Size = new System.Drawing.Size(993, 500);
             this.TaskPanel.TabIndex = 34;
             // 
             // titleTb
@@ -123,6 +124,7 @@
             this.titleTb.Name = "titleTb";
             this.titleTb.Size = new System.Drawing.Size(721, 20);
             this.titleTb.TabIndex = 53;
+            this.titleTb.TextChanged += new System.EventHandler(this.titleTb_TextChanged);
             // 
             // label6
             // 
@@ -160,6 +162,7 @@
             this.backBtn.TabIndex = 46;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // timeCheck
             // 
@@ -206,6 +209,7 @@
             this.createBtn.TabIndex = 48;
             this.createBtn.Text = "Create";
             this.createBtn.UseVisualStyleBackColor = false;
+            this.createBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // remHoursCB
             // 
@@ -292,6 +296,7 @@
             this.descriptionTB.Name = "descriptionTB";
             this.descriptionTB.Size = new System.Drawing.Size(721, 82);
             this.descriptionTB.TabIndex = 39;
+            this.descriptionTB.TextChanged += new System.EventHandler(this.descriptionTB_TextChanged);
             // 
             // animBtn
             // 
@@ -307,28 +312,55 @@
             this.animBtn.TabIndex = 37;
             this.animBtn.Text = "Plan your next move!";
             this.animBtn.UseVisualStyleBackColor = false;
+            this.animBtn.Click += new System.EventHandler(this.animBtn_Click);
             // 
             // animDownTimer
             // 
             this.animDownTimer.Interval = 15;
+            this.animDownTimer.Tick += new System.EventHandler(this.animTimer_Tick);
             // 
             // animUpTimer
             // 
             this.animUpTimer.Interval = 15;
+            this.animUpTimer.Tick += new System.EventHandler(this.animUpTimer_Tick);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(817, 150);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 36);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Remove Group";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // listPanel
+            // 
+            this.listPanel.Controls.Add(this.TaskPanel);
+            this.listPanel.Location = new System.Drawing.Point(0, 191);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(993, 417);
+            this.listPanel.TabIndex = 38;
             // 
             // GroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listPanel);
             this.Controls.Add(this.animBtn);
-            this.Controls.Add(this.TaskPanel);
             this.Controls.Add(this.top_panel);
             this.Name = "GroupForm";
             this.Size = new System.Drawing.Size(993, 608);
             this.top_panel.ResumeLayout(false);
-            this.top_panel.PerformLayout();
             this.TaskPanel.ResumeLayout(false);
             this.TaskPanel.PerformLayout();
+            this.listPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -358,5 +390,7 @@
         private System.Windows.Forms.Timer animDownTimer;
         private System.Windows.Forms.Timer animUpTimer;
         private System.Windows.Forms.Label DescriptionLb;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel listPanel;
     }
 }

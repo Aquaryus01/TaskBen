@@ -261,7 +261,7 @@
             // 
             this.top_panel.AutoScroll = true;
             this.top_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.top_panel.BackColor = System.Drawing.Color.Gray;
+            this.top_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.top_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.top_panel.Controls.Add(this.dateLb);
             this.top_panel.Controls.Add(this.CurentDayLb);

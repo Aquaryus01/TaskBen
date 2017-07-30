@@ -15,19 +15,32 @@ namespace TaskBen.Forms
 {
     public partial class GroupForm : UserControl
     {
+        private int poz_x = 0;
+        private int poz_y = 0;
+        private List<Todo> todo_list = new List<Todo>();
+        private Group group = new Group();
+        private Todo task = new Todo();
+
         public GroupForm()
         {
             InitializeComponent();
-            //time_initialization();
-            //Every1minute.Start();
+            time_initialization();
 
-            int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
-            TaskPanel.Padding = new Padding(0, 0, vertScrollWidth, 0);
-
-            //Settings.task.task_get_list(); get all task for this group
+            //SHOW TASK
+            //Settings.task.task_get_list();
+            
             //add_tasks_form();
+
+            //SHOW TASK
         }
-        /*
+
+        internal void initialization(Group groupx)
+        {
+            group = groupx;
+            TitleLb.Text = group.Name;
+            DescriptionLb.Text = group.Description;
+        }
+
         Label notaskLb = new Label();
         int ok = 0;
         private void notaskLb_make()
@@ -176,17 +189,19 @@ namespace TaskBen.Forms
         }
         private void downupTimer_Tick(object sender, EventArgs e)
         {
-            if (TaskPanel.Height <= 0)
-                animUpTimer.Enabled = false;
-            else
-                TaskPanel.Height -= 12;
+
         }
-        ///Settings
 
         private void animBtn_Click(object sender, EventArgs e)
         {
-            //MAI VERIFICA
-            titleTb.Text = "";
+
+            task = new Todo();
+            task.Date = toDoDateTime.Value.ToString("d");
+            task.Schedule = repeatCB.Text;
+
+            TitleLb.Text = task.Title;
+            DescriptionLb.Text = task.Description;
+
             animUpTimer.Enabled = false;
             animDownTimer.Enabled = true;
             tehnicalAdjustment_newtaks();
@@ -194,47 +209,45 @@ namespace TaskBen.Forms
             dezactivate_remtime_firsttime();
             Hour_initialization();
             Minute_initialization();
-            descriptionTB.Text = "";
             repeatCB.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Settings.new_instance_taks();   //new instance of class
+            task = new Todo();
+            task.IdGroup = group.Id;
             if (getDataAccurate_task())     //if the informatian were accurate
             {
                 if (timeCheck.Checked)
                 {
                     //all
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.ReminderHours = remHoursCB.Text;
-                    Settings.task.ReminderMinutes = remMinutesCB.Text;
-                    Settings.task.DateHours = dateHoursCB.Text;
-                    Settings.task.DateMinutes = dateMinutesCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
+                    task.Date = toDoDateTime.Value.ToString("d");
+                    task.Schedule = repeatCB.Text;
+                    task.ReminderHours = remHoursCB.Text;
+                    task.ReminderMinutes = remMinutesCB.Text;
+                    task.DateHours = dateHoursCB.Text;
+                    task.DateMinutes = dateMinutesCB.Text;
+                    task.Description = descriptionTB.Text;
+                    task.Title = titleTb.Text;
                 }
                 else if (!(timeCheck.Checked))
                 {
                     //none
-                    Settings.task.Date = toDoDateTime.Value.ToString("d");
-                    Settings.task.Schedule = repeatCB.Text;
-                    Settings.task.Description = descriptionTB.Text;
-                    Settings.task.Title = titleTb.Text;
+                    task.Date = toDoDateTime.Value.ToString("d");
+                    task.Schedule = repeatCB.Text;
+                    task.Description = descriptionTB.Text;
+                    task.Title = titleTb.Text;
                 }
 
-                /*
-                Settings.taskList.Add(Settings.task);   //Add task in the list
-                if (Settings.task.add_web())             //Add task in the database
+                
+                todo_list.Add(task);   //Add task in the list
+                if (task.add_web_group())    //Add task in the database
                 {
-                    add_task_form(Settings.task);   //Add task in the screenForm
+                    add_task_form(task);   //Add task in the GroupForm
                     MetroMessageBox.Show(this, "You just created a new to-do", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
                     animDownTimer.Enabled = false;
-                }/////
-
-
+                }
             }
         }
 
@@ -272,18 +285,19 @@ namespace TaskBen.Forms
                     add_tasks_form();
                     MetroMessageBox.Show(this, "You just edit the new to-do!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     animUpTimer.Enabled = true;
-                    animDownTimer.Enabled = false;////
+                    animDownTimer.Enabled = false;*/
             }
         }
 
         private void add_task_form(Todo task)
         {
-            var item = Settings.taskList[Settings.taskList.Count - 1];
+            var item = todo_list[todo_list.Count - 1];
             TaskForm taskForm = new TaskForm();
             taskForm.Init_task(item);
 
-            //taskForm.Location = new Point(Settings.poz_x_task-3, TaskPanel.AutoScrollPosition.Y + Settings.poz_y_task);
+            taskForm.Location = new Point(poz_x-3, TaskPanel.AutoScrollPosition.Y + poz_y);
             taskForm.AutoScroll = true;
+            taskForm.Type("group");
             //taskForm.ParentForm = this;
             //Settings.poz_y_task += taskForm.Height + 10;
 
@@ -291,22 +305,10 @@ namespace TaskBen.Forms
             notaskLb.Visible = false;
         }
 
-        public void add_group_form()
-        {
-            var item = Settings.groupList[Settings.groupList.Count - 1];
-            GroupTabForm groupSelectForm = new GroupTabForm();
-            groupSelectForm.Init_group(item);
-
-            groupSelectForm.Location = new Point(Settings.poz_x_group , listPanel.AutoScrollPosition.Y + Settings.poz_y_group);
-            groupSelectForm.AutoScroll = true;
-            groupPanel.Controls.Add(groupSelectForm);
-            Settings.poz_y_group += groupSelectForm.Height + 10;
-        }
-
         public void add_tasks_form()
         {
             ok = 0;
-            Settings.poz_y_task = 0;
+            poz_y = 0;
             listPanel.Controls.Clear();
             if (Settings.taskList != null)
             {
@@ -316,9 +318,9 @@ namespace TaskBen.Forms
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(Settings.poz_x_task, listPanel.AutoScrollPosition.Y + Settings.poz_y_task);
+                    taskForm.Location = new Point(poz_x, listPanel.AutoScrollPosition.Y + poz_x);
                     taskForm.AutoScroll = true;
-                    taskForm.ParentForm = this;
+                    taskForm.GroupForm = this;
                     Settings.poz_y_task += taskForm.Height + 10;
 
                     ok=1;
@@ -396,65 +398,21 @@ namespace TaskBen.Forms
             }
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void titleTb_TextChanged(object sender, EventArgs e)
         {
-            this.Show();
-            ShowInTaskbar = true;
+
         }
-        private void xBtn_Click(object sender, EventArgs e)
+
+        private void descriptionTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /*private void xBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             notifyIcon1.Icon = SystemIcons.Application;
-        }
-        private void Every1minute_Tick(object sender, EventArgs e)
-        {
-            remForm.verify_time();
-        }
+        }*/// PUNE!!!!!!!!!!!!!!!!!!!!!
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-            panel_etc.Height = 607;
-            panel_etc.Controls.Clear();
-            panel_etc.Controls.Add(dashboardForm);
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Settings.task.task_get_list();
-            add_tasks_form();
-            searchBarTb.Text = "";
-            panel_etc.Height = 0;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            Settings.taskList = new List<Todo>();
-            Settings.task.task_get_list(searchBarTb.Text);
-            add_tasks_form();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void curentDayBtn_Click(object sender, EventArgs e)
-        {
-            panel_etc.Height = 607;
-            panel_etc.Controls.Clear();
-            CurentDayForm curentDayForm = new CurentDayForm();
-            panel_etc.Controls.Add(curentDayForm);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel_etc.Height = 607;
-            panel_etc.Controls.Clear();
-            CreateGroupForm newGroupForm = new CreateGroupForm();
-            newGroupForm.ParentForm = this;
-
-            panel_etc.Controls.Add(newGroupForm);
-        }*/
     }
 }
