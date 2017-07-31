@@ -48,7 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toDoDateTime = new MetroFramework.Controls.MetroDateTime();
-            this.descriptionTB = new System.Windows.Forms.TextBox();
+            this.descriptionTb = new System.Windows.Forms.TextBox();
             this.animBtn = new System.Windows.Forms.Button();
             this.animDownTimer = new System.Windows.Forms.Timer(this.components);
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
@@ -56,7 +56,6 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.top_panel.SuspendLayout();
             this.TaskPanel.SuspendLayout();
-            this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // top_panel
@@ -112,8 +111,8 @@
             this.TaskPanel.Controls.Add(this.label2);
             this.TaskPanel.Controls.Add(this.label1);
             this.TaskPanel.Controls.Add(this.toDoDateTime);
-            this.TaskPanel.Controls.Add(this.descriptionTB);
-            this.TaskPanel.Location = new System.Drawing.Point(1, 1);
+            this.TaskPanel.Controls.Add(this.descriptionTb);
+            this.TaskPanel.Location = new System.Drawing.Point(0, 189);
             this.TaskPanel.Name = "TaskPanel";
             this.TaskPanel.Size = new System.Drawing.Size(993, 500);
             this.TaskPanel.TabIndex = 34;
@@ -284,19 +283,19 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(64, 214);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 41;
             // 
-            // descriptionTB
+            // descriptionTb
             // 
-            this.descriptionTB.Location = new System.Drawing.Point(64, 89);
-            this.descriptionTB.Multiline = true;
-            this.descriptionTB.Name = "descriptionTB";
-            this.descriptionTB.Size = new System.Drawing.Size(721, 82);
-            this.descriptionTB.TabIndex = 39;
-            this.descriptionTB.TextChanged += new System.EventHandler(this.descriptionTB_TextChanged);
+            this.descriptionTb.Location = new System.Drawing.Point(64, 89);
+            this.descriptionTb.Multiline = true;
+            this.descriptionTb.Name = "descriptionTb";
+            this.descriptionTb.Size = new System.Drawing.Size(721, 82);
+            this.descriptionTb.TabIndex = 39;
+            this.descriptionTb.TextChanged += new System.EventHandler(this.descriptionTB_TextChanged);
             // 
             // animBtn
             // 
@@ -341,16 +340,16 @@
             // 
             // listPanel
             // 
-            this.listPanel.Controls.Add(this.TaskPanel);
-            this.listPanel.Location = new System.Drawing.Point(0, 191);
+            this.listPanel.Location = new System.Drawing.Point(0, 192);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(993, 417);
+            this.listPanel.Size = new System.Drawing.Size(993, 416);
             this.listPanel.TabIndex = 38;
             // 
             // GroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TaskPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.animBtn);
@@ -360,7 +359,6 @@
             this.top_panel.ResumeLayout(false);
             this.TaskPanel.ResumeLayout(false);
             this.TaskPanel.PerformLayout();
-            this.listPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -386,7 +384,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroDateTime toDoDateTime;
-        private System.Windows.Forms.TextBox descriptionTB;
+        private System.Windows.Forms.TextBox descriptionTb;
         private System.Windows.Forms.Timer animDownTimer;
         private System.Windows.Forms.Timer animUpTimer;
         private System.Windows.Forms.Label DescriptionLb;

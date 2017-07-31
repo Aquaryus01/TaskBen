@@ -16,13 +16,18 @@ namespace TaskBen.Forms
     {
         int ok = 0;
 
-        public CurentDayForm()
+        private void loading()
         {
-            InitializeComponent();
             dateLb.Text = (DateTime.Now.ToString("dd MMMM, yyyy"));
             Settings.taskList = new List<Todo>();
             Settings.task.task_get_list_repeat();
             add_tasks_form();
+        }
+
+        public CurentDayForm()
+        {
+            InitializeComponent();
+            loading();   
         }
 
         public void add_tasks_form()

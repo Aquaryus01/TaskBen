@@ -68,7 +68,6 @@ namespace TaskBen.Forms
                     }
                 }
             }
-            
         }
 
         private void okBtn_Click(object sender, EventArgs e)

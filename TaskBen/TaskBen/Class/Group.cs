@@ -33,6 +33,27 @@ namespace TaskBen.Class
             return true;
         }
 
+        public List<Todo> get_group_tasks()
+        {
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("idGroup", this.Id.ToString());
+            json.Add("action", "get_group_tasks");
+
+            string list_todo = WebServer.post_get(JsonConvert.SerializeObject(json));
+
+            if (list_todo != "")
+                try
+                {
+                    return JsonConvert.DeserializeObject<List<Todo>>(list_todo);
+                }
+                catch
+                {
+                    MessageBox.Show(list_todo);
+                }
+
+            return null;
+        }
+
         public List<Group> get_groups(int userid)
         {
             Dictionary<string, string> json = new Dictionary<string, string>();

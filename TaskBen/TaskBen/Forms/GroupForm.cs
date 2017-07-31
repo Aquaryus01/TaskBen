@@ -27,18 +27,19 @@ namespace TaskBen.Forms
             time_initialization();
 
             //SHOW TASK
-            //Settings.task.task_get_list();
-            
+           // todo_list = task.g_group_tasks();
             //add_tasks_form();
 
             //SHOW TASK
         }
 
-        internal void initialization(Group groupx)
+        public void initialization(Group groupx)
         {
             group = groupx;
             TitleLb.Text = group.Name;
             DescriptionLb.Text = group.Description;
+            todo_list = group.get_group_tasks();
+            add_tasks_form();
         }
 
         Label notaskLb = new Label();
@@ -199,8 +200,8 @@ namespace TaskBen.Forms
             task.Date = toDoDateTime.Value.ToString("d");
             task.Schedule = repeatCB.Text;
 
-            TitleLb.Text = task.Title;
-            DescriptionLb.Text = task.Description;
+            titleTb.Text = task.Title;
+            descriptionTb.Text = task.Description;
 
             animUpTimer.Enabled = false;
             animDownTimer.Enabled = true;
@@ -227,7 +228,7 @@ namespace TaskBen.Forms
                     task.ReminderMinutes = remMinutesCB.Text;
                     task.DateHours = dateHoursCB.Text;
                     task.DateMinutes = dateMinutesCB.Text;
-                    task.Description = descriptionTB.Text;
+                    task.Description = descriptionTb.Text;
                     task.Title = titleTb.Text;
                 }
                 else if (!(timeCheck.Checked))
@@ -235,7 +236,7 @@ namespace TaskBen.Forms
                     //none
                     task.Date = toDoDateTime.Value.ToString("d");
                     task.Schedule = repeatCB.Text;
-                    task.Description = descriptionTB.Text;
+                    task.Description = descriptionTb.Text;
                     task.Title = titleTb.Text;
                 }
 
@@ -266,7 +267,7 @@ namespace TaskBen.Forms
                         Settings.task.ReminderMinutes = remMinutesCB.Text;
                         Settings.task.DateHours = dateHoursCB.Text;
                         Settings.task.DateMinutes = dateMinutesCB.Text;
-                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Description = descriptionTb.Text;
                         Settings.task.Title = titleTb.Text;
                     }
                     else
@@ -274,7 +275,7 @@ namespace TaskBen.Forms
                         //none
                         Settings.task.Date = toDoDateTime.Value.ToString("d");
                         Settings.task.Schedule = repeatCB.Text;
-                        Settings.task.Description = descriptionTB.Text;
+                        Settings.task.Description = descriptionTb.Text;
                         Settings.task.Title = titleTb.Text;
                     }
 
@@ -295,11 +296,11 @@ namespace TaskBen.Forms
             TaskForm taskForm = new TaskForm();
             taskForm.Init_task(item);
 
-            taskForm.Location = new Point(poz_x-3, TaskPanel.AutoScrollPosition.Y + poz_y);
+            taskForm.Location = new Point(poz_x-3, listPanel.AutoScrollPosition.Y + poz_y);
             taskForm.AutoScroll = true;
             taskForm.Type("group");
             //taskForm.ParentForm = this;
-            //Settings.poz_y_task += taskForm.Height + 10;
+            poz_y += taskForm.Height + 10;
 
             listPanel.Controls.Add(taskForm);
             notaskLb.Visible = false;
@@ -310,18 +311,18 @@ namespace TaskBen.Forms
             ok = 0;
             poz_y = 0;
             listPanel.Controls.Clear();
-            if (Settings.taskList != null)
+            if (todo_list != null)
             {
-                foreach (Todo todo in Settings.taskList)
+                foreach (Todo todo in todo_list)
                 {
 
                     TaskForm taskForm = new TaskForm();
                     taskForm.Init_task(todo);
 
-                    taskForm.Location = new Point(poz_x, listPanel.AutoScrollPosition.Y + poz_x);
+                    taskForm.Location = new Point(poz_x, listPanel.AutoScrollPosition.Y + poz_y);
                     taskForm.AutoScroll = true;
                     taskForm.GroupForm = this;
-                    Settings.poz_y_task += taskForm.Height + 10;
+                    poz_y += taskForm.Height + 10;
 
                     ok=1;
                     listPanel.Controls.Add(taskForm);
@@ -359,7 +360,7 @@ namespace TaskBen.Forms
             if(Settings.task.DateMinutes=="")
                 dateMinutesCB.SelectedIndex = -1;
             dateMinutesCB.Text = Settings.task.DateMinutes;
-            descriptionTB.Text = Settings.task.Description;
+            descriptionTb.Text = Settings.task.Description;
             titleTb.Text = Settings.task.Title;
   
             if (remHoursCB.Text == "")

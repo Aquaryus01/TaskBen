@@ -79,7 +79,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.groupPanel);
             this.panel1.Controls.Add(this.curentDayBtn);
             this.panel1.Controls.Add(this.panel_etc);
             this.panel1.Controls.Add(this.addPanel);
@@ -88,6 +87,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.listPanel);
             this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.groupPanel);
             this.panel1.Location = new System.Drawing.Point(-1, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1191, 607);
@@ -114,7 +114,7 @@
             this.groupPanel.AutoScroll = true;
             this.groupPanel.Location = new System.Drawing.Point(1, 266);
             this.groupPanel.Name = "groupPanel";
-            this.groupPanel.Size = new System.Drawing.Size(197, 337);
+            this.groupPanel.Size = new System.Drawing.Size(227, 356);
             this.groupPanel.TabIndex = 24;
             // 
             // curentDayBtn
@@ -162,7 +162,7 @@
             this.addPanel.Controls.Add(this.editBtn);
             this.addPanel.Location = new System.Drawing.Point(199, 198);
             this.addPanel.Name = "addPanel";
-            this.addPanel.Size = new System.Drawing.Size(993, 500);
+            this.addPanel.Size = new System.Drawing.Size(993, 0);
             this.addPanel.TabIndex = 7;
             // 
             // titleTb
@@ -479,7 +479,7 @@
             this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.listPanel.Location = new System.Drawing.Point(199, 204);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(993, 402);
+            this.listPanel.Size = new System.Drawing.Size(1033, 402);
             this.listPanel.TabIndex = 15;
             // 
             // panel4

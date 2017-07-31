@@ -187,19 +187,24 @@ namespace TaskBen.Forms
             panel_etc.Controls.Add(newGroupForm);
         }
 
-        public ScreenForm()
+        public void loading2()
         {
-            InitializeComponent();
             time_initialization();
 
             Settings.screenForm = this;
-            
+
             Every1minute.Start();
 
             Settings.task.task_get_list();
             add_tasks_form();
 
             Load_groups();
+        }
+
+        public ScreenForm()
+        {
+            InitializeComponent();
+            loading2();
         }
   
         private void animBtn_Click(object sender, EventArgs e)
@@ -318,10 +323,10 @@ namespace TaskBen.Forms
             GroupTabForm groupSelectForm = new GroupTabForm();
             groupSelectForm.Init_group(item);
 
-            groupSelectForm.Location = new Point(Settings.poz_x_group , listPanel.AutoScrollPosition.Y + Settings.poz_y_group);
+            groupSelectForm.Location = new Point(Settings.poz_x_group, groupPanel.AutoScrollPosition.Y + Settings.poz_y_group);
             groupSelectForm.AutoScroll = true;
             groupPanel.Controls.Add(groupSelectForm);
-            Settings.poz_y_group += groupSelectForm.Height + 10;
+            Settings.poz_y_group += groupSelectForm.Height + 1;
         }
 
         public void add_groups_form()
@@ -330,10 +335,10 @@ namespace TaskBen.Forms
             {
                 GroupTabForm groupSelectForm = new GroupTabForm();
                 groupSelectForm.Init_group(item);
-                groupSelectForm.Location = new Point(Settings.poz_x_group, listPanel.AutoScrollPosition.Y + Settings.poz_y_group);
+                groupSelectForm.Location = new Point(Settings.poz_x_group, groupPanel.AutoScrollPosition.Y + Settings.poz_y_group);
                 groupSelectForm.AutoScroll = true;
                 groupPanel.Controls.Add(groupSelectForm);
-                Settings.poz_y_group += groupSelectForm.Height + 10;
+                Settings.poz_y_group += groupSelectForm.Height + 1;
             }
         }
 
