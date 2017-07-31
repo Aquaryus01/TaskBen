@@ -35,7 +35,7 @@ namespace TaskBen.Forms
     "ate a task!";
         }
         
-        private void Load_groups()
+        public void Load_groups()
         {
             Settings.groupList = Settings.group.get_groups(Settings.user.ID);
             add_groups_form();
@@ -331,6 +331,8 @@ namespace TaskBen.Forms
 
         public void add_groups_form()
         {
+            groupPanel.Controls.Clear();
+            Settings.poz_y_group = 0;
             foreach (Group item in Settings.groupList)
             {
                 GroupTabForm groupSelectForm = new GroupTabForm();
@@ -486,11 +488,21 @@ namespace TaskBen.Forms
             panel_etc.Controls.Add(curentDayForm);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             panel_etc.Height = 607;
             panel_etc.Controls.Clear();
             CreateGroupForm newGroupForm = new CreateGroupForm();
+            newGroupForm.ParentForm = this;
+
+            panel_etc.Controls.Add(newGroupForm);
+        }
+
+        public void edit_group(Group _group)
+        {
+            panel_etc.Height = 607;
+            panel_etc.Controls.Clear();
+            CreateGroupForm newGroupForm = new CreateGroupForm(_group);
             newGroupForm.ParentForm = this;
 
             panel_etc.Controls.Add(newGroupForm);

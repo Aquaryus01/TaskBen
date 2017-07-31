@@ -23,6 +23,20 @@ namespace TaskBen.Forms
             Settings.group.groupMembers = new List<string>();
         }
 
+        public CreateGroupForm(Group _group)
+        {
+            InitializeComponent();
+            Settings.group = _group;
+            Settings.group.load_members();
+            createGroupBtn.Text = "Save Group";
+            groupDescriptionTb.Text = Settings.group.Description;
+            groupNameTb.Text = Settings.group.Name;
+
+            membersLb.Text = "";
+            foreach (string x in Settings.group.groupMembers)
+                membersLb.Text += x; 
+        }
+
         private void groupNameTb_TextChanged(object sender, EventArgs e)
         {
             Settings.group.Name = groupNameTb.Text;
@@ -93,11 +107,16 @@ namespace TaskBen.Forms
             string broken_rule = "";
             if(!Settings.group.save(ref broken_rule))
                 MetroMessageBox.Show(this, broken_rule, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
+            else if(Settings.group.IsNew)
             {
                 MetroMessageBox.Show(this, "Succes", "Group created succesful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Settings.groupList.Add(Settings.group); ///Add group in the list
                 this.ParentForm.add_group_form(); ///Add gorup in the screenForm
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Succes", "The Group was saved succesful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.ParentForm.add_groups_form(); ///Add gorup in the screenForm
             }
             
         }

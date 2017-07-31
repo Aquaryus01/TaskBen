@@ -54,6 +54,7 @@
             this.animUpTimer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
+            this.editBtn = new System.Windows.Forms.Button();
             this.top_panel.SuspendLayout();
             this.TaskPanel.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +115,7 @@
             this.TaskPanel.Controls.Add(this.descriptionTb);
             this.TaskPanel.Location = new System.Drawing.Point(0, 189);
             this.TaskPanel.Name = "TaskPanel";
-            this.TaskPanel.Size = new System.Drawing.Size(993, 500);
+            this.TaskPanel.Size = new System.Drawing.Size(993, 0);
             this.TaskPanel.TabIndex = 34;
             // 
             // titleTb
@@ -283,7 +284,7 @@
             // toDoDateTime
             // 
             this.toDoDateTime.Location = new System.Drawing.Point(64, 214);
-            this.toDoDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.toDoDateTime.MinimumSize = new System.Drawing.Size(4, 29);
             this.toDoDateTime.Name = "toDoDateTime";
             this.toDoDateTime.Size = new System.Drawing.Size(275, 29);
             this.toDoDateTime.TabIndex = 41;
@@ -331,12 +332,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(817, 150);
+            this.button1.Location = new System.Drawing.Point(817, 147);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 36);
             this.button1.TabIndex = 38;
             this.button1.Text = "Remove Group";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // listPanel
             // 
@@ -345,10 +347,27 @@
             this.listPanel.Size = new System.Drawing.Size(993, 416);
             this.listPanel.TabIndex = 38;
             // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.editBtn.FlatAppearance.BorderSize = 0;
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Arial Black", 8.75F, System.Drawing.FontStyle.Bold);
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(638, 147);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(173, 36);
+            this.editBtn.TabIndex = 39;
+            this.editBtn.Text = "Edit Group";
+            this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click_1);
+            // 
             // GroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.TaskPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listPanel);
@@ -390,5 +409,6 @@
         private System.Windows.Forms.Label DescriptionLb;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.Button editBtn;
     }
 }

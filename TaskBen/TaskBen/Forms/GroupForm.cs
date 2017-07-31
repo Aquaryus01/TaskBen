@@ -17,7 +17,7 @@ namespace TaskBen.Forms
     {
         private int poz_x = 0;
         private int poz_y = 0;
-        private List<Todo> todo_list = new List<Todo>();
+        public List<Todo> todo_list = new List<Todo>();
         private Group group = new Group();
         private Todo task = new Todo();
 
@@ -337,6 +337,13 @@ namespace TaskBen.Forms
             }   
         }
 
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            group.remove();
+            Settings.screenForm.Load_groups();
+        }
+
         public void show_edit()
         {
             edit_task_settings();
@@ -408,6 +415,13 @@ namespace TaskBen.Forms
         {
 
         }
+
+        private void editBtn_Click_1(object sender, EventArgs e)
+        {
+            group.IsNew = false;
+            Settings.screenForm.edit_group(group);
+        }
+
 
         /*private void xBtn_Click(object sender, EventArgs e)
         {

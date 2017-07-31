@@ -17,10 +17,12 @@ namespace TaskBen.Class
         public string Description { get; set; }
         public List<string> groupMembers { get; set; } 
         public string MemberEmail { get; set; }
+        public bool IsNew { get; set; }
 
         public Group()
         {
             Id = 0;
+            IsNew = true;
         }
 
         public bool validate_data(ref string broken_rule)
@@ -31,6 +33,14 @@ namespace TaskBen.Class
                 return false;
             }
             return true;
+        }
+
+        public void remove()
+        {
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("id", Id.ToString());
+            json.Add("action", "remove_group");
+            WebServer.post(JsonConvert.SerializeObject(json));
         }
 
         public List<Todo> get_group_tasks()
@@ -84,13 +94,15 @@ namespace TaskBen.Class
                     json.Add("Id", Id.ToString());
                     json.Add("Description", Description);
                     json.Add("action", "save_group");
+                    json.Add("Members", JsonConvert.SerializeObject(groupMembers));
                     
                     string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
                     json = JsonConvert.DeserializeObject<Dictionary<string, string>>(rasp);
 
                     if (json["Error"].ToString() == "")
                     {
-                        Id = Convert.ToInt32(json["Id"]);
+                        if(Id==0)
+                            Id = Convert.ToInt32(json["Id"]);
                         return true;
                     }
                     else
@@ -144,6 +156,29 @@ namespace TaskBen.Class
         public void AddMember()
         {
 
+        }
+
+        public void load_members()
+        {
+            List<Dictionary<string, string>> list_member = new List<Dictionary<string, string>>();
+            Dictionary<string, string> json = new Dictionary<string, string>();
+            json.Add("id", Id.ToString());
+            json.Add("action", "get_group_members");
+            string rasp = WebServer.post_get(JsonConvert.SerializeObject(json));
+
+            try
+            {
+                groupMembers = new List<string>();
+                list_member = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(rasp); ;
+                foreach(Dictionary<string, string> item in list_member)
+                {
+                    groupMembers.Add(item["Email"]);
+                }
+            }
+            catch
+            {
+                MessageBox.Show(rasp);
+            }
         }
     }
 }

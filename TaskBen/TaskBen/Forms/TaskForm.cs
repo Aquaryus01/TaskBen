@@ -18,7 +18,7 @@ namespace TaskBen.UserControls
         public string type;
         public ScreenForm ParentForm { get; set; }
         public CurentDayForm ParentFormToday { get; set; }
-        public GroupForm GroupForm = new GroupForm();
+        public GroupForm GroupForm { get; set; }
 
         public TaskForm()
         {
@@ -82,14 +82,28 @@ namespace TaskBen.UserControls
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Settings.taskList.Remove(_task);
-            _task.remove_web();
-
-            Settings.screenForm.add_tasks_form();
+            if (ParentForm != null)
+            {
+                Settings.taskList.Remove(_task);
+                _task.remove_web();
+                Settings.screenForm.add_tasks_form();
+            }
+            else if(ParentFormToday != null)
+            {
+                Settings.taskList.Remove(_task);
+                _task.remove_web();
+                this.ParentFormToday.add_tasks_form();
+            }
+            else if(GroupForm != null)
+            {
+                GroupForm.todo_list.Remove(_task);
+                _task.remove_web();
+                this.GroupForm.add_tasks_form();
+            }
             /*if(this.ParentForm != null)
                 this.ParentForm.add_tasks_form();
-            if (this.ParentFormToday != null)
-                this.ParentFormToday.add_tasks_form();*/
+            if (this.ParentFormToday != null)*/
+                
 
         }
 
