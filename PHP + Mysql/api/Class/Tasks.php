@@ -2,6 +2,7 @@
 class Tasks {
     private $id;
     private $idUser;
+    private $idGroup;
     private $date;
     private $dateHours;
     private $dateMinutes;
@@ -47,7 +48,18 @@ class Tasks {
 
     function add($data)
     {
-        $this->idUser = $data['idUser'];
+        if(isset($data['idGroup']) && $data['idGroup']>0)
+        {
+          $this->idUser = 0;
+          $this->idGroup = $data['idGroup'];
+        }
+        else
+        {
+
+          $this->idUser = $data['idUser'];
+          $this->idGroup = 0;
+        }
+
         $this->date = $data['date'];
         $this->dateHours = $data['dateHours'];
         $this->dateMinutes = $data['dateMinutes'];
@@ -58,7 +70,8 @@ class Tasks {
         $this->title = $data['title'];
         $this->checked = (int)$data['checked'];
         try{
-          $sql = "INSERT INTO tasks(Id_user,date,dateHours,dateMinutes,reminderHours,reminderMinutes,schedule,description,checked,title) VALUES ('$this->idUser','$this->date','$this->dateHours','$this->dateMinutes','$this->reminderHours','$this->reminderMinutes','$this->repeat','$this->description', $this->checked, '$this->title')";
+          $sql = "INSERT INTO tasks(Id_user,Id_group,date,dateHours,dateMinutes,reminderHours,reminderMinutes,schedule,description,checked,title)
+           VALUES ('$this->idUser', '$this->idGroup','$this->date','$this->dateHours','$this->dateMinutes','$this->reminderHours','$this->reminderMinutes','$this->repeat','$this->description', $this->checked, '$this->title')";
           $this->conn->query($sql);
           $this->id = $this->conn->insert_id();
           $emparray["Error"] = "";
@@ -78,11 +91,9 @@ class Tasks {
         $this->idUser = $data['idUser'];
         $this->id = $data['id'];
 
-        echo $this->idUser;
-        echo $this->id;
 
         try{
-          $sql = "DELETE FROM tasks WHERE Id = '$this->id' AND Id_user = '$this->idUser'";
+          $sql = "DELETE FROM tasks WHERE Id = '$this->id'";
           $this->conn->query($sql);
           $emparray["Error"] = "";
         }catch (Exception $e) {
@@ -96,18 +107,75 @@ class Tasks {
             echo json_encode($emparray, JSON_PRETTY_PRINT);
     }
 
+    function get_group_tasks($data)
+    {
+      $this->idUser = $data['idUser'];
+      $this->idGroup = $data['idGroup'];
+      try{
+        //$query = "SELECT * FROM tasks WHERE Id_user = '$this->idUser'";
+        $query = "SELECT t.*, CONCAT(u.FirstName, ' ', u.LastName)  AS UserName, g.Name as GroupName
+                  FROM tasks t
+                      LEFT JOIN group_user gu
+                        ON gu.Id_group = t.Id_group
+                      LEFT JOIN groups g
+                        ON g.id = t.Id_group
+                      left join users u
+                        ON u.Id = g.Id_user
+                  WHERE gu.id_user = ?
+                    AND t.Id_group = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ii',$this->idUser, $this->idGroup);
+        $stmt->execute();
+        $result = $stmt->get_result();
+      }catch (Exception $e) {
+          echo 'Caught exception: ',  $e->getMessage(), "\n";
+      }
+
+      try{
+
+          while($row = mysqli_fetch_assoc($result))
+          {
+              $emparray[] = $row;
+          }
+      }catch (Exception $e) {
+            $emparray["Error"] = "$e->getMessage()";
+      }
+
+      if(isset($emparray)){
+        $result =  json_encode($emparray);
+        echo $result;
+      }else{
+        echo "";
+      }
+    }
+
     function get_tasks($data)
     {
         $this->idUser = $data['idUser'];
         try{
-          $query = "SELECT * FROM tasks WHERE Id_user = '$this->idUser'";
-          $sql = $this->conn->query($query);
+          //$query = "SELECT * FROM tasks WHERE Id_user = '$this->idUser'";
+          $query = "SELECT t.*, CONCAT(u.FirstName, ' ', u.LastName)  AS UserName, g.Name as GroupName
+                    FROM tasks t
+                    	left join `group_user` gu
+                        	ON gu.id_group = t.Id_group
+                        LEFT JOIN groups g
+                        	ON g.id = gu.Id_group
+                        left join users u
+                        	ON u.Id = g.Id_user
+                    WHERE t.id_user = ?
+                    	OR gu.id_user = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param('ii',$this->idUser, $this->idUser);
+          $stmt->execute();
+          $result = $stmt->get_result();
         }catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
 
         try{
-            while($row = mysqli_fetch_assoc($sql))
+
+            while($row = mysqli_fetch_assoc($result))
             {
                 $emparray[] = $row;
             }
@@ -159,10 +227,23 @@ class Tasks {
 
     function get_tasks_repeat($data)
     {
+
         $this->idUser = $data['idUser'];
         try{
-          $query = "SELECT * FROM tasks WHERE Id_user = '$this->idUser'";
+          $query = "SELECT t.*, CONCAT(u.FirstName, ' ', u.LastName)  AS UserName, g.Name as GroupName
+                    FROM tasks t
+                    	left join `group_user` gu
+                        	ON gu.id_group = t.Id_group
+                        LEFT JOIN groups g
+                        	ON g.id = gu.Id_group
+                        left join users u
+                        	ON u.Id = g.Id_user
+                    WHERE t.id_user = '$this->idUser'
+                    	OR gu.id_user = '$this->idUser'";
+
           $sql = $this->conn->query($query);
+
+
         }catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
@@ -170,7 +251,8 @@ class Tasks {
         try{
             while($row = mysqli_fetch_assoc($sql))
             {
-                date_default_timezone_set('UTC');
+
+                date_default_timezone_set('Europe/Bucharest');
                 if($row["schedule"]=="Once" && date("n/j/Y")==$row["date"])
                   $emparray[] = $row;
                 else if($row["schedule"]=="Daily")

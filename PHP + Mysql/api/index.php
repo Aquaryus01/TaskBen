@@ -11,6 +11,7 @@
 
 			$postData = file_get_contents('php://input');
 			$data = json_decode($postData, true);
+			
 			$method = $data['action'];
 			switch($method)
 			{
@@ -34,6 +35,15 @@
 							$task->add($data);
 							break;
 						}
+
+						case "add_task_group":
+							if(JWT::verify($api_key))
+							{
+								include_once("Class/tasks.php");
+								$task = new Tasks();
+								$task->add($data);
+								break;
+							}
 
 					case "remove_task":
 						if(JWT::verify($api_key))
@@ -89,8 +99,8 @@
 							$data["idUser"] = JWT::id($api_key);
 							$task = new Tasks();
 							$task->get_tasks_words($data);
-							break;
 						}
+						break;
 
 					case "get_tasks_repeat":
 						if(JWT::verify($api_key))
@@ -99,8 +109,45 @@
 							$data["idUser"] = JWT::id($api_key);
 							$task = new Tasks();
 							$task->get_tasks_repeat($data);
-							break;
 						}
+						break;
+
+					case "get_groups":
+							if(JWT::verify($api_key))
+							{
+								include_once("Class/Groups.php");
+								$data["idUser"] = JWT::id($api_key);
+								$group = new Groups();
+								$group->get_groups($data);
+							}
+							break;
+					case "get_group_members":
+							if(JWT::verify($api_key))
+							{
+								include_once("Class/Groups.php");
+								$group = new Groups();
+								$group->get_members($data);
+							}
+							break;
+
+					case "remove_group":
+							if(JWT::verify($api_key))
+							{
+								include_once("Class/Groups.php");
+								$group = new Groups();
+								$group->remove($data);
+							}
+							break;
+
+					case "get_group_tasks":
+							if(JWT::verify($api_key))
+							{
+								include_once("Class/tasks.php");
+								$data["idUser"] = JWT::id($api_key);
+								$task = new Tasks();
+								$task->get_group_tasks($data);
+							}
+							break;
 
 					case "member_existence":
 						if(JWT::verify($api_key))
@@ -108,8 +155,18 @@
 							include_once("Class/Users.php");
 							$user = new Users();
 							$user->member_existence($data);
-							break;
 						}
+						break;
+
+					case "save_group":
+						if(JWT::verify($api_key))
+						{
+							include_once("Class/Groups.php");
+							$data["idUser"] = JWT::id($api_key);
+							$group = new Groups();
+							$group->save($data);
+						}
+						break;
 			}
 	}
 ?>
